@@ -1,0 +1,6 @@
+C:\Users\26419\source\repos\Homework2\ToeplitzMatrix\bin\Debug\ToeplitzMatrix.exe.config
+C:\Users\26419\source\repos\Homework2\ToeplitzMatrix\bin\Debug\ToeplitzMatrix.exe
+C:\Users\26419\source\repos\Homework2\ToeplitzMatrix\bin\Debug\ToeplitzMatrix.pdb
+C:\Users\26419\source\repos\Homework2\ToeplitzMatrix\obj\Debug\ToeplitzMatrix.csproj.CoreCompileInputs.cache
+C:\Users\26419\source\repos\Homework2\ToeplitzMatrix\obj\Debug\ToeplitzMatrix.exe
+C:\Users\26419\source\repos\Homework2\ToeplitzMatrix\obj\Debug\ToeplitzMatrix.pdb

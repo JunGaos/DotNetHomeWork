@@ -1,0 +1,7 @@
+C:\Users\26419\source\repos\Homework2\Esieve\bin\Debug\Esieve.exe.config
+C:\Users\26419\source\repos\Homework2\Esieve\bin\Debug\Esieve.exe
+C:\Users\26419\source\repos\Homework2\Esieve\bin\Debug\Esieve.pdb
+C:\Users\26419\source\repos\Homework2\Esieve\obj\Debug\Esieve.csprojAssemblyReference.cache
+C:\Users\26419\source\repos\Homework2\Esieve\obj\Debug\Esieve.csproj.CoreCompileInputs.cache
+C:\Users\26419\source\repos\Homework2\Esieve\obj\Debug\Esieve.exe
+C:\Users\26419\source\repos\Homework2\Esieve\obj\Debug\Esieve.pdb

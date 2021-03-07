@@ -1,0 +1,7 @@
+C:\Users\26419\source\repos\Homework2\ArrayElement\bin\Debug\ArrayElement.exe.config
+C:\Users\26419\source\repos\Homework2\ArrayElement\bin\Debug\ArrayElement.exe
+C:\Users\26419\source\repos\Homework2\ArrayElement\bin\Debug\ArrayElement.pdb
+C:\Users\26419\source\repos\Homework2\ArrayElement\obj\Debug\ArrayElement.csproj.CoreCompileInputs.cache
+C:\Users\26419\source\repos\Homework2\ArrayElement\obj\Debug\ArrayElement.exe
+C:\Users\26419\source\repos\Homework2\ArrayElement\obj\Debug\ArrayElement.pdb
+C:\Users\26419\source\repos\Homework2\ArrayElement\obj\Debug\ArrayElement.csprojAssemblyReference.cache
