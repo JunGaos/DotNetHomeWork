@@ -1,0 +1,7 @@
+C:\Users\26419\source\repos\Homework3\Shape\bin\Debug\Shape.exe.config
+C:\Users\26419\source\repos\Homework3\Shape\bin\Debug\Shape.exe
+C:\Users\26419\source\repos\Homework3\Shape\bin\Debug\Shape.pdb
+C:\Users\26419\source\repos\Homework3\Shape\obj\Debug\Shape.csprojAssemblyReference.cache
+C:\Users\26419\source\repos\Homework3\Shape\obj\Debug\Shape.csproj.CoreCompileInputs.cache
+C:\Users\26419\source\repos\Homework3\Shape\obj\Debug\Shape.exe
+C:\Users\26419\source\repos\Homework3\Shape\obj\Debug\Shape.pdb

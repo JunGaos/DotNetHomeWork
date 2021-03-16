@@ -1,0 +1,11 @@
+C:\Users\26419\source\repos\Homework3\SimpleFactoryPattern\bin\Debug\SimpleFactoryPattern.exe.config
+C:\Users\26419\source\repos\Homework3\SimpleFactoryPattern\bin\Debug\SimpleFactoryPattern.exe
+C:\Users\26419\source\repos\Homework3\SimpleFactoryPattern\bin\Debug\SimpleFactoryPattern.pdb
+C:\Users\26419\source\repos\Homework3\SimpleFactoryPattern\bin\Debug\Shape.exe
+C:\Users\26419\source\repos\Homework3\SimpleFactoryPattern\bin\Debug\Shape.pdb
+C:\Users\26419\source\repos\Homework3\SimpleFactoryPattern\bin\Debug\Shape.exe.config
+C:\Users\26419\source\repos\Homework3\SimpleFactoryPattern\obj\Debug\SimpleFactoryPattern.csprojAssemblyReference.cache
+C:\Users\26419\source\repos\Homework3\SimpleFactoryPattern\obj\Debug\SimpleFactoryPattern.csproj.CoreCompileInputs.cache
+C:\Users\26419\source\repos\Homework3\SimpleFactoryPattern\obj\Debug\SimpleFactoryPattern.csproj.CopyComplete
+C:\Users\26419\source\repos\Homework3\SimpleFactoryPattern\obj\Debug\SimpleFactoryPattern.exe
+C:\Users\26419\source\repos\Homework3\SimpleFactoryPattern\obj\Debug\SimpleFactoryPattern.pdb
