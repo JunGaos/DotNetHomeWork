@@ -1,0 +1,7 @@
+C:\Users\26419\source\repos\Homework4\AlarmClock\bin\Debug\AlarmClock.exe.config
+C:\Users\26419\source\repos\Homework4\AlarmClock\bin\Debug\AlarmClock.exe
+C:\Users\26419\source\repos\Homework4\AlarmClock\bin\Debug\AlarmClock.pdb
+C:\Users\26419\source\repos\Homework4\AlarmClock\obj\Debug\AlarmClock.csprojAssemblyReference.cache
+C:\Users\26419\source\repos\Homework4\AlarmClock\obj\Debug\AlarmClock.csproj.CoreCompileInputs.cache
+C:\Users\26419\source\repos\Homework4\AlarmClock\obj\Debug\AlarmClock.exe
+C:\Users\26419\source\repos\Homework4\AlarmClock\obj\Debug\AlarmClock.pdb

@@ -1,0 +1,7 @@
+C:\Users\26419\source\repos\Homework4\ForEach\obj\Debug\ForEach.csprojAssemblyReference.cache
+C:\Users\26419\source\repos\Homework4\ForEach\obj\Debug\ForEach.csproj.CoreCompileInputs.cache
+C:\Users\26419\source\repos\Homework4\ForEach\bin\Debug\ForEach.exe.config
+C:\Users\26419\source\repos\Homework4\ForEach\bin\Debug\ForEach.exe
+C:\Users\26419\source\repos\Homework4\ForEach\bin\Debug\ForEach.pdb
+C:\Users\26419\source\repos\Homework4\ForEach\obj\Debug\ForEach.exe
+C:\Users\26419\source\repos\Homework4\ForEach\obj\Debug\ForEach.pdb
