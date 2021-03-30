@@ -1,0 +1,7 @@
+C:\Users\26419\source\repos\Homework5\OrderManage\bin\Debug\OrderManage.exe.config
+C:\Users\26419\source\repos\Homework5\OrderManage\bin\Debug\OrderManage.exe
+C:\Users\26419\source\repos\Homework5\OrderManage\bin\Debug\OrderManage.pdb
+C:\Users\26419\source\repos\Homework5\OrderManage\obj\Debug\OrderManage.csprojAssemblyReference.cache
+C:\Users\26419\source\repos\Homework5\OrderManage\obj\Debug\OrderManage.csproj.CoreCompileInputs.cache
+C:\Users\26419\source\repos\Homework5\OrderManage\obj\Debug\OrderManage.exe
+C:\Users\26419\source\repos\Homework5\OrderManage\obj\Debug\OrderManage.pdb
