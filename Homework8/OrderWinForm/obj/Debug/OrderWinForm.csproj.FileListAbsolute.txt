@@ -1,0 +1,15 @@
+C:\Users\26419\source\repos\Homework8\OrderWinForm\bin\Debug\OrderWinForm.exe.config
+C:\Users\26419\source\repos\Homework8\OrderWinForm\bin\Debug\OrderWinForm.exe
+C:\Users\26419\source\repos\Homework8\OrderWinForm\bin\Debug\OrderWinForm.pdb
+C:\Users\26419\source\repos\Homework8\OrderWinForm\bin\Debug\OrderTest.exe
+C:\Users\26419\source\repos\Homework8\OrderWinForm\bin\Debug\OrderTest.pdb
+C:\Users\26419\source\repos\Homework8\OrderWinForm\bin\Debug\OrderTest.exe.config
+C:\Users\26419\source\repos\Homework8\OrderWinForm\obj\Debug\OrderWinForm.csprojAssemblyReference.cache
+C:\Users\26419\source\repos\Homework8\OrderWinForm\obj\Debug\OrderWinForm.Form1.resources
+C:\Users\26419\source\repos\Homework8\OrderWinForm\obj\Debug\OrderWinForm.Properties.Resources.resources
+C:\Users\26419\source\repos\Homework8\OrderWinForm\obj\Debug\OrderWinForm.csproj.GenerateResource.cache
+C:\Users\26419\source\repos\Homework8\OrderWinForm\obj\Debug\OrderWinForm.csproj.CoreCompileInputs.cache
+C:\Users\26419\source\repos\Homework8\OrderWinForm\obj\Debug\OrderWinForm.csproj.CopyComplete
+C:\Users\26419\source\repos\Homework8\OrderWinForm\obj\Debug\OrderWinForm.exe
+C:\Users\26419\source\repos\Homework8\OrderWinForm\obj\Debug\OrderWinForm.pdb
+C:\Users\26419\source\repos\Homework8\OrderWinForm\obj\Debug\OrderWinForm.Form2.resources
