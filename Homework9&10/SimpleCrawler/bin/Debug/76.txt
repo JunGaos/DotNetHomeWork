@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="用Qt(C&#x2B;&#x2B;)实现如苹果般的亮屏效果 苹果的亮屏效果可能有很多人没注意到，和其他大部分手机或电脑不同的是，苹果的亮屏特效不是简单的亮度变化，而是一个渐亮的过程。详细来说就是，图片中较亮的部分先显示出" />
+    <meta property="og:description" content="用Qt(C&#x2B;&#x2B;)实现如苹果般的亮屏效果 苹果的亮屏效果可能有很多人没注意到，和其他大部分手机或电脑不同的是，苹果的亮屏特效不是简单的亮度变化，而是一个渐亮的过程。详细来说就是，图片中较亮的部分先显示出" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>用Qt(C++)实现如苹果般的亮屏效果 - Maicss - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey.min.css?v=1gj9-XJKL9BZFkjdvROYQPiPWjQXk-hsXXZGtqkfaSc" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/maicss/custom.css?v=3XVNFZmmPyphl&#x2B;Q1wMQOATwEnio=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey-mobile.min.css?v=zrVn_w7PYXoSvEFaixHbQGlNNXNZ3h27-9PpkXZLYns" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/maicss/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/maicss/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/maicss/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 663901;
+        var currentBlogApp = 'maicss';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlackLowKey';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-02 02:34';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/maicss/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/maicss/">Maicss</a>
+</h1>
+<h2>一个热爱开源的初学者。</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/maicss/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Maicss">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/maicss/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/maicss/p/14725687.html">
+    <span>用Qt(C++)实现如苹果般的亮屏效果</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h2 id="用qtc实现如苹果般的亮屏效果">用Qt(C++)实现如苹果般的亮屏效果</h2>
+<p>苹果的亮屏效果可能有很多人没注意到，和其他大部分手机或电脑不同的是，苹果的亮屏特效不是简单的亮度变化，而是一个渐亮的过程。详细来说就是，图片中较亮的部分先显示出来，而后渐变的显示较暗的地方，最后整个图片完全显示。</p>
+<p>那么，Qt该如何实现类似效果？</p>
+<p>先看最终效果：<br>
+<img src="https://img2020.cnblogs.com/blog/2299884/202105/2299884-20210502143119340-976356076.gif" alt="" loading="lazy"></p>
+<p>图中是一束灯光，点亮时光束中间较亮的部位显现出来，再带动其他部位显现，这个效果暂且成为“渐亮”。</p>
+<h2 id="用到">用到</h2>
+<p>想要实现此效果，首先需要了解到的Qt函数：</p>
+<pre><code class="language-C++">//该函数用于设置图片中(x,y)点的rgb值
+void QImage::setPixel(int x, int y, uint index_or_rgb);
+</code></pre>
+<h2 id="思路">思路</h2>
+<p>可以很明显的看出，点亮和关屏都不是一瞬间完成的，所以，我们首先需要一个计时器来控制该过程。而后我们需要确定该算法的索引，也就是说，假设这个过程需要100帧，那么我们肯定需要一个变量用于记录这个过程执行的进度。再根据进度，计算出当前帧的所有像素点应显示的内容，从而得到这一帧的图片。</p>
+<p>如果是普通的亮度计算的话，很简单，只需要每一个像素的RGB值分别和亮度系数相乘即可。亮度系数如果在0-1区间内的话，那么对应的就是从完全黑的图片显示出图片本身的一个过程。</p>
+<p><strong>例如：</strong></p>
+<p>下边这个RGB颜色值为深绿色：<br>
+<img src="https://img2020.cnblogs.com/blog/2299884/202105/2299884-20210502143150037-644663524.png" alt="" loading="lazy"></p>
+<p>将RGB三个数字乘以1.5，就会变成下边这个颜色：<br>
+<img src="https://img2020.cnblogs.com/blog/2299884/202105/2299884-20210502143153323-1558806807.png" alt="" loading="lazy"></p>
+<p>这就是亮度调节的基本原理。</p>
+<p>所以，要实现渐亮，就要先显现出亮度大于阈值的像素，随着时间推移，阈值越来越大，显示的像素越来越多。</p>
+<p><strong>那么，如何获取某像素的亮度值呢？</strong></p>
+<p>当RGB三个值均为255时，亮度最大，显白色，当三个值均为0时，亮度最小，显黑色。那么我们可以获取RGB三值的平均数，将其与255相除，规定其为亮度值，也就是说：<code>亮度值=(red+green+blue)/3/255</code>，化简后得：<code>亮度值=(red+green+blue)/765</code>。</p>
+<p>到此，基本的原理就搞清楚了，但是这里仍然还有一个问题，等我们先实现后再说明。</p>
+<h2 id="实现">实现</h2>
+<p>跟着思路，写下如下代码：</p>
+<pre><code class="language-C++">#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include &lt;QRgb&gt;
+#include &lt;QImage&gt;
+#include &lt;QTimer&gt;
+#define PASS 0.3;
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui-&gt;setupUi(this);
+    p.load(":/b.jpg");
+    double size=0.4; //图片缩放系数
+    p=p.scaled(p.width()*size,p.height()*size);
+    ui-&gt;label-&gt;setPixmap(QPixmap::fromImage(p));
+    speed=0;
+    timer=new QTimer;
+    timer-&gt;setInterval(1);
+    i=0;
+    connect(timer,&amp;QTimer::timeout,[=](){
+        i+=speed;
+        MainWindow::update(i);
+        if(i&gt;100 || i&lt;0){
+            i=0;
+            timer-&gt;stop();
+        }
+    });
+    on_pushButton_clicked();
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::update(int position) //参数为0-100，若从0开始，则逐步变亮，若从100开始，则逐步变暗
+{
+    QImage t(p);
+    double bright=double(position)/100; //亮度系数
+    bright=(bright&gt;1)?1:bright;
+    bright=(bright&lt;0)?0:bright;
+
+    double flag=-bright+1; //渐亮需要的阈值
+    setWindowTitle("亮度:" + QString::number(bright)+
+                   "阈值："+ QString::number(flag));
+    for(int x=0;x&lt;p.width();x++){
+        for (int y=0;y&lt;p.height();y++) {
+            QColor c(p.pixel(x,y));
+            double b=double(c.red()+c.green()+c.blue())/765; //计算当前像素的亮度
+            if(b&gt;flag){ //判断亮度与阈值的大小关系
+                //若亮度大于阈值，将该像素乘以亮度系数
+                c.setRgb((int(c.red()*bright)&gt;255)?255:int(c.red()*bright),
+                         (int(c.green()*bright)&gt;255)?255:int(c.green()*bright),
+                         (int(c.blue()*bright)&gt;255)?255:int(c.blue()*bright));
+            }else {
+                //若亮度小于阈值，则显示黑色像素，这部分会导致出现问题，后边会替换。
+                c.setRgb(0,0,0);
+            }
+            t.setPixel(x,y,c.rgb());//将像素写入临时变量
+        }
+    }
+    ui-&gt;label-&gt;setPixmap(QPixmap::fromImage(t));//将计算好的一帧显示在label上
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    //灭
+    i=100;
+    speed=-3;
+    timer-&gt;start();
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    //亮
+    i=0;
+    speed=3;
+    timer-&gt;start();
+}
+
+</code></pre>
+<p>如下效果：<br>
+<img src="https://img2020.cnblogs.com/blog/2299884/202105/2299884-20210502143300732-1993474273.gif" alt="" loading="lazy"></p>
+<p>可见效果虽然大体实现了，但是还是很差劲的，渐亮的边缘过于生硬，这就是我上边提到的问题，怎么解决呢？</p>
+<h2 id="问题">问题</h2>
+<p>先分析出现这个问题的原因，代码中将阈值以外的像素直接置为黑色了，其实应当有一个过度的过程，可阈值相差不多的边缘，可以渐变直到和阈值相差较大，最终变为黑色。</p>
+<p>所以，将像素置为黑色部分的代码替换为以下代码：</p>
+<pre><code class="language-C++">else {
+	//c.setRgb(0,0,0);
+    double a=1.0-(flag-b)*10; //获取加权亮度系数，亮度越大，系数越大，亮度越小，系数越小，最小到0
+    a=(a&lt;0)?0:a;
+    c.setRgb((int(c.red()*bright*a)&gt;255)?255:int(c.red()*bright*a),
+             (int(c.green()*bright*a)&gt;255)?255:int(c.green()*bright*a),
+             (int(c.blue()*bright*a)&gt;255)?255:int(c.blue()*bright*a));
+}
+</code></pre>
+<p>修改后的效果：<br>
+<img src="https://img2020.cnblogs.com/blog/2299884/202105/2299884-20210502143256573-2095403592.gif" alt="" loading="lazy"></p>
+<p>很明显，柔和了许多。</p>
+<p>到此为止基本上效果已经实现了，当然，肯定没有苹果那么丝滑，只是形似。</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-02 14:34</span>&nbsp;
+<a href="https://www.cnblogs.com/maicss/">Maicss</a>&nbsp;
+阅读(<span id="post_view_count">105</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14725687" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14725687);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 663901, cb_blogApp = 'maicss', cb_blogUserGuid = '80a98914-76df-44b5-0bf6-08d8c8e93cbb';
+    var cb_entryId = 14725687, cb_entryCreatedDate = '2021-05-02 14:34', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 Maicss
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjs41UWY1IUfGmLFnKZzJlDS0_vEjiKJ5w4bxtysRCAycwJDUjQZJBJXmQavmygla3rjTLeKdZCWjtEPVrtz0Ez6NGjjQw_m-A9Yjn25cJGv3I1Z1_vXRHWvb7jiKkm_O4A" />
+</body>
+</html>

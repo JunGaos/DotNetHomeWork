@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="序 求将 \(n\) 个无标号元素用 \(m-1\) 个隔板分入 \(m\) 个有标号可空集合的方案数。 或 求不定方程 \[ x_1 &#x2B; x_2 &#x2B; \dots &#x2B; x_m = n \quad (m" />
+    <meta property="og:description" content="序 求将 \(n\) 个无标号元素用 \(m-1\) 个隔板分入 \(m\) 个有标号可空集合的方案数。 或 求不定方程 \[ x_1 &#x2B; x_2 &#x2B; \dots &#x2B; x_m = n \quad (m" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>从不定方程的非负整数解个数谈起 - sun123zxy - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/imetro/bundle-imetro-mobile.min.css?v=y3TtHeZMWJqA3RqhdU02N5r_A086WB872wP23r3v7aQ" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/sun123zxy/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/sun123zxy/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/sun123zxy/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 442963;
+        var currentBlogApp = 'sun123zxy';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'iMetro';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-01 10:52';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;v=20200504"></script>
+    
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <script>loadPageBeginHtml();</script>
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/sun123zxy/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/sun123zxy/">sun123zxy</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/sun123zxy/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+</li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/sun123zxy/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/sun123zxy/p/14724955.html">
+    <span>从不定方程的非负整数解个数谈起</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h2 id="序">序</h2>
+<blockquote>
+<p>求将 <span class="math inline">\(n\)</span> 个无标号元素用 <span class="math inline">\(m-1\)</span> 个隔板分入 <span class="math inline">\(m\)</span> 个有标号可空集合的方案数。</p>
+</blockquote>
+<p>或</p>
+<blockquote>
+<p>求不定方程</p>
+<p></p><div class="math display">\[x_1 + x_2 + \dots + x_m = n \quad (m,n \in N_+, m \le n)
+\]</div><p></p><p>的非负整数解的个数。</p>
+</blockquote>
+<p>是一个非常经典的组合问题，众所周知其答案为组合数 <span class="math inline">\({n+m-1 \choose m-1}\)</span> ，这可以根据其组合意义结合隔板法容易的得到。</p>
+<p>然而，笔者发现还有很多有趣的方法可以得到上式，值得探讨一番。</p>
+<h2 id="组合意义">组合意义</h2>
+<p>如上文所说，组合意义可以结合隔板法容易的得到。考虑将 <span class="math inline">\(n\)</span> 个无标号元素用 <span class="math inline">\(m-1\)</span> 个隔板分入 <span class="math inline">\(m\)</span> 个有标号非空集合，其方案数为 <span class="math inline">\({n-1 \choose m-1}\)</span> 。然而我们需要的是各集合可空情况下的方案数。考虑新增 <span class="math inline">\(m\)</span> 个元素，先给每个集合放一个元素垫底，再做各组可空的分配。这个小Trick让我们将问题转化为求 <span class="math inline">\(n+m\)</span> 个无标号元素分入 <span class="math inline">\(m\)</span> 个非空有标号集合的方案数。再用隔板法，得到答案 <span class="math inline">\({n+m-1 \choose m-1}\)</span> 。</p>
+<p>形式化的，我们令 <span class="math inline">\(y_i = x_i + 1\)</span> ，则我们现在只需求 <span class="math inline">\(y_1 + y_2 + \dots + y_m = n + m\)</span> 的正整数解，隔板法得到答案 <span class="math inline">\({n+m-1 \choose m-1}\)</span> 。</p>
+<h2 id="枚举空位范德蒙德卷积公式">枚举空位——范德蒙德卷积公式</h2>
+<p>我们使用另一种方法将隔板法应用到可空集合上。</p>
+<p>枚举 <span class="math inline">\(m\)</span> 个集合中有几个是空集，可以得到下式</p>
+<p></p><div class="math display">\[\mathrm{ans} = \sum_{k=0}^{m-1} {m \choose k} {n-1 \choose m-k-1}
+\]</div><p></p><p>又由范德蒙德卷积公式</p>
+<blockquote>
+<p></p><div class="math display">\[{n+m \choose k} = \sum_{i=\max(0,k-m)}^{\min(n,k)} {n \choose i} {m \choose k-i}
+\]</div><p></p><p>（范德蒙德卷积公式易由 <span class="math inline">\((1+x)^{n+m} = (1+x)^n (1+ x)^m\)</span> 的二项式展开说明）</p>
+</blockquote>
+<p>可直接得到（ <span class="math inline">\(k' = m-1\)</span> ， <span class="math inline">\(n' = m\)</span> ， <span class="math inline">\(m' = n-1\)</span> ）</p>
+<p></p><div class="math display">\[\mathrm{ans} = \sum_{k=\max(0,(m-1)-(n-1))}^{\min(m,m-1)} {m \choose k} {n-1 \choose m-k-1} = {n+m-1 \choose m-1}
+\]</div><p></p><h2 id="递推杨辉三角">递推——杨辉三角</h2>
+<p>这固然很妙，但要是我想不到这些Trick怎么办？</p>
+<p>不会通项就设状态dp呗（<s>反正是OIer有电脑帮我算</s></p>
+<p>设状态 <span class="math inline">\(f(n,m)\)</span> 表示将 <span class="math inline">\(n\)</span> 个无标号元素放入 <span class="math inline">\(m\)</span> 个有标号可空集合的方案数。</p>
+<p>考虑当前正在为第 <span class="math inline">\(n\)</span> 个元素确定所属集合。既然元素是无标号的，不妨按升序排列集合。于是放入新的元素时，只需决定要先跳过多少个集合再放入。易得下面的递推式</p>
+<p></p><div class="math display">\[f(n,m) = \sum_{k=1}^m f(n-1,k)
+\]</div><p></p><p>初始状态满足</p>
+<p></p><div class="math display">\[\begin{aligned}
+&amp;f(0,m)=1 \\
+&amp;f(n,0)=[n=0]
+\end{aligned}
+\quad (n,m \in N)
+\]</div><p></p><p>（中括号是艾弗森括号）</p>
+<p>不妨列出 <span class="math inline">\(f\)</span> 的前几项——</p>
+<pre><code>n\m	m0	m1	m2	m3	m4
+n0	1	1	1	1	1
+n1	0	1	2	3	4
+n2	0	1	3	6	10
+n3	0	1	4	10	20
+</code></pre>
+<p>很熟悉...这是杨辉三角！</p>
+<p>可以由递推式得到杨辉三角的特征——</p>
+<p></p><div class="math display">\[\begin{aligned}
+f(n,m) &amp;= f(n-1, m) + \sum_{k=1}^{m-1} f(n-1,k) \\
+&amp;= f(n-1, m) + f(n, m-1)
+\end{aligned}
+\]</div><p></p><p>那么，只需观察并将表格的每一项映射到杨辉三角，我们就能得到 <span class="math inline">\(f(n,m) = {n+m+1 \choose m-1}\)</span> 。</p>
+<h2 id="生成函数广义二项式定理">生成函数——广义二项式定理</h2>
+<p><s>要是我连杨辉三角都没看出来怎么办</s></p>
+<p>方便起见，此处我们不研究 <span class="math inline">\(m=0\)</span> 的情况。不妨设</p>
+<p></p><div class="math display">\[g(n,m) = f(n,m+1)
+\]</div><p></p><p>显然， <span class="math inline">\(g\)</span> 的递推式为</p>
+<p></p><div class="math display">\[g(n,m) = \sum_{k=0}^m g(n-1,k)
+\]</div><p></p><p>据此我们发现，每一排是其前一排的前缀和数组，或者换句话说，每一排是其后一排的向前差分数组。我们先拿出 <span class="math inline">\(n=0\)</span> 一排的OGF</p>
+<p></p><div class="math display">\[g_0(x) = \frac{1}{1-x}
+\]</div><p></p><p>又根据差分</p>
+<p></p><div class="math display">\[g_n(x) = g_{n+1}(x) - x g_{n+1}(x) \iff g_{n+1} = \frac{1}{1-x} g_n(x)
+\]</div><p></p><p>得</p>
+<p></p><div class="math display">\[g_n(x) = (1-x)^{-(n+1)}
+\]</div><p></p><p>又由广义二项式定理</p>
+<blockquote>
+<p></p><div class="math display">\[(x+y)^\alpha = \sum_{k=0}^{\infty} {\alpha \choose k} x^k y^{\alpha - k}
+\]</div><p></p><p>其中</p>
+<p></p><div class="math display">\[{\alpha \choose k} = \frac{\alpha(\alpha-1)\dots(\alpha-k+1)}{k!}\\
+\]</div><p></p></blockquote>
+<p>展开，得到</p>
+<p></p><div class="math display">\[g_n(x) = \sum_{k=0}^{\infty} {-n-1 \choose k} (-1)^k x^k
+\]</div><p></p><p>故</p>
+<p></p><div class="math display">\[\begin{aligned}
+g_n(x)[x^k] &amp;= (-1)^k {-n-1 \choose k} \\
+&amp;= (-1)^k \frac{(-n-1)(-n-2)\dots(-n-k)}{k!} \\
+&amp;= \frac{(n+1)(n+2)\dots(n+k)}{k!} \\
+&amp;= {n+k \choose k}
+\end{aligned}
+\]</div><p></p><p>即</p>
+<p></p><div class="math display">\[g(n,k) = {n+k \choose k}
+\]</div><p></p><p>换回 <span class="math inline">\(f\)</span> 表示就得到答案</p>
+<p></p><div class="math display">\[f(n,m) = g(n,m-1) = {n+m-1 \choose m-1}
+\]</div><p></p><h2 id="burnside第一类斯特林数">Burnside——第一类斯特林数</h2>
+<p>如果要分组的 <span class="math inline">\(n\)</span> 个元素是有标号的，问题将会简单很多——直接枚举每个元素的所属集合即可，显然方案数为 <span class="math inline">\(m^n\)</span> 。</p>
+<p>但关键是它们没有标号。</p>
+<p>无标号的本质是认为任意置换标号前后是同构的。这启发我们将所有 <span class="math inline">\(n\)</span> 元置换（即置换群）作为变换集，使用等价类计数Burnside来解决该问题。</p>
+<p>根据Burnside定理</p>
+<blockquote>
+<p></p><div class="math display">\[\mathrm{ans} = \frac{1}{|G|} \sum_{f \in G} C(f)
+\]</div><p></p><p>其中 <span class="math inline">\(G\)</span> 是变换集， <span class="math inline">\(C(f)\)</span> 是变换 <span class="math inline">\(f\)</span> 的不动点。</p>
+</blockquote>
+<p>可以写出</p>
+<p></p><div class="math display">\[\mathrm{ans} = \frac{1}{n!} \sum_{p \in \mathrm{perm}(n)} m^{\mathrm{cyc}(p)}
+\]</div><p></p><p>其中 <span class="math inline">\(\mathrm{perm}(n)\)</span> 表示所有 <span class="math inline">\(n\)</span> 元置换的集合，而 <span class="math inline">\(\mathrm{cyc}(p)\)</span> 指置换 <span class="math inline">\(p\)</span> 的形成的置换图中环的个数。</p>
+<p>在外层枚举 <span class="math inline">\(\mathrm{cyc}(p)\)</span> ，得</p>
+<p></p><div class="math display">\[\mathrm{ans} = \frac{1}{n!} \sum_{k=1}^n m^k \sum_{p \in \mathrm{perm}(n)} [\mathrm{cyc}(p) = k]
+\]</div><p></p><p><span class="math inline">\(\sum_{p \in \mathrm{perm}(n)} [\mathrm{cyc}(p) = k]\)</span> 是什么？</p>
+<blockquote>
+<p>第一类斯特林数 <span class="math inline">\({n \brack k}\)</span> 表示将 <span class="math inline">\(n\)</span> 个有标号元素分成 <span class="math inline">\(k\)</span> 个无标号圆排列的方案数。</p>
+</blockquote>
+<p>在置换图中， <span class="math inline">\(p_i\)</span> 表示节点 <span class="math inline">\(i\)</span> 的下一个节点是 <span class="math inline">\(p_i\)</span> 。而枚举置换的过程，正是枚举置换图的过程，也正是枚举圆排列的过程！而 <span class="math inline">\([\mathrm{cyc}(p) = k]\)</span> 则为我们确定了环，或者说圆排列的个数。</p>
+<p>惊讶的，我们发现</p>
+<p></p><div class="math display">\[{n \brack k} = \sum_{p \in \mathrm{perm}(n)} [\mathrm{cyc}(p) = k]
+\]</div><p></p><p>带入其中，答案式变为</p>
+<p></p><div class="math display">\[\mathrm{ans} = \frac{1}{n!} \sum_{k=1}^n {n \brack k} m^k
+\]</div><p></p><p>于是，根据第一类斯特林数性质之一</p>
+<blockquote>
+<p></p><div class="math display">\[\sum_{k=1}^n {n \brack k} m^k  = m(m+1)\dots(n+m-1)
+\]</div><p></p><p>（该性质可以结合第一类斯特林数的递推式做数学归纳得出）</p>
+</blockquote>
+<p>我们愉快的得到了答案</p>
+<p></p><div class="math display">\[\mathrm{ans} = \frac{m(m+1)\dots(n+m-1)}{n!} = {n+m-1 \choose m-1}
+\]</div><p></p><p>用Burnside解决无标号问题的思路极具启发性，例如<a href="https://loj.ac/p/6538" target="_blank">烷基计数</a>问题的Burnside解法。</p>
+<h2 id="后记致谢">后记&amp;致谢</h2>
+<p><s>同分异构体计数带我重回OI</s></p>
+<p>感谢TbYangZ菊苣全程提供技术支持。</p>
+<p>感谢神仙化学老师提供组合意义解释。</p>
+<p>2021/05/01</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-01 22:52</span>&nbsp;
+<a href="https://www.cnblogs.com/sun123zxy/">sun123zxy</a>&nbsp;
+阅读(<span id="post_view_count">63</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14724955" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14724955);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 442963, cb_blogApp = 'sun123zxy', cb_blogUserGuid = '6a77e5e0-30a9-4483-6331-08d5e33bbdc4';
+    var cb_entryId = 14724955, cb_entryCreatedDate = '2021-05-01 22:52', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 sun123zxy
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjszcq9ucvDR_2bT8SF-YUuYpvxCl-9ErSM8LjH8VSL-yygQ5HCk-irB2SCv_pfDiH4o0LtDgCkS51jgdzPq6gaWyKO56CGhUqqJZH-9-PsK3zCEeq7BtguMfkBtFQGdb6U" />
+</body>
+</html>

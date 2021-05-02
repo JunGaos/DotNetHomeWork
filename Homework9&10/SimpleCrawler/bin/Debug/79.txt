@@ -1,0 +1,1772 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="Blog总结02（4~6次作业总结） 1.前言 （1）题目集04共有三道题目，第一题难度较大，第二题和第三题难度适中，第一题考察的知识点是&amp;#160;Java 中的字符串处理类以及正则表达式对输入字符" />
+    <meta property="og:description" content="Blog总结02（4~6次作业总结） 1.前言 （1）题目集04共有三道题目，第一题难度较大，第二题和第三题难度适中，第一题考察的知识点是&amp;#160;Java 中的字符串处理类以及正则表达式对输入字符" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Blog总结02（4~6次作业总结） - SGod歇斯底里 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/blacksun/bundle-blacksun.min.css?v=4ejSMA0hiaprX0pQtldNC8H9i0SZp6DI04C71RcuptQ" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/blacksun/bundle-blacksun-mobile.min.css?v=fMbZtpTSrGMT1vZFqZUQ-eVksibNTsp6OHq-7KFLVh0" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/sgodxsdl/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/sgodxsdl/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/sgodxsdl/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 676618;
+        var currentBlogApp = 'sgodxsdl';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlackSun';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-02 09:57';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <div id="top">
+	<div>
+    <table class="HeaderTitles">
+        <tr>
+            <td>
+                <h1 class="HeaderTitle"><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/sgodxsdl/">SGod歇斯底里</a>
+</h1>
+                <p id="tagline"></p>
+            </td>
+        </tr>
+    </table>
+</div>
+<div>
+    <table id="HeaderBar" class="HeaderBar">
+        <tr>
+            <td class="HeaderBarTab" nowrap>
+                
+&nbsp;
+<a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+&nbsp;::
+
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/sgodxsdl/">
+首页</a>
+&nbsp;::
+
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+&nbsp;::
+
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/SGod%E6%AD%87%E6%96%AF%E5%BA%95%E9%87%8C">
+联系</a>&nbsp;::
+
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/sgodxsdl/rss/">
+订阅</a>
+
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/sgodxsdl/rss/">
+    <img src="/skins/blacksun/images/xml.gif" alt="订阅" />
+</a>&nbsp;::
+
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+
+
+
+            </td>
+			
+            <td class="HeaderBarTabBack" nowrap width="100%">
+                <div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+<table id="maintable">
+	<tr><td id="leftmenu">
+	
+		<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+		<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+	
+</td><td id="main">
+	<div id="post_detail">
+    <div class="post">
+        <div class="postTitle">
+            
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/sgodxsdl/p/14699557.html">
+    <span>Blog总结02（4~6次作业总结）</span>
+    
+
+
+
+</a>
+
+        </div>
+	
+        <div class="postText">
+            <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<h1>Blog总结02（4~6次作业总结）</h1>
+<h2>1.前言</h2>
+<p>（1）题目集04共有三道题目，第一题难度较大，第二题和第三题难度适中，第一题考察的知识点是&nbsp;Java 中的字符串处理类以及正则表达式对输入字符串数据进行合法性校验及计算，难度较大。第二题考察对日期的处理，熟悉面向对象的学习，创建多个类，然后将其中一个类的创建的对象党当作另一个对象的属性，考察了在其他类中创建对象和调用其他类的方法，含参数不含参数的构造方法，getset的构造方法的使用，属性私有性的知识点等，第三题是图形继承题目，难度适中，考察了继承的知识点，弄清楚子类父类的关系，子类调用父类的方法，在子类中重写父类的方法等知识点。</p>
+<p>（2）题目集05共有五道题目，1~3题较为简单，分别考察对字符串的处理，对数组的处理，对整型数据排序，第四题难度较大，统计Java程序中关键词的出现次数，知识点为利用正则表达式对字符进行匹配以及对字符串的处理，第五题难度适中，考察了在其他类中创建对象和调用其他类的方法，含参数不含参数的构造方法，getset的构造方法的使用，属性私有性的知识点等，和题目集04第二题很相似但有一些区别。</p>
+<p>（3）题目集06共有六道题目，其中1~4题较为简单，1，3，4题考察了利用正则表达式去匹配字符串，2题考察了字符串与字符之间的转换，以及排序，第五六题难度适中，第五题考察了类的继承、多态性及其使用方法，让我们了解抽象类和抽象方法，抽像类方法的调用等，还有一些ArrayList类和Collection类的使用，第六题知识点为接口的使用和类的多态性，用接口去调用方法实现功能。</p>
+<h2>2.设计与分析</h2>
+<h3>（1）题目集04（7-2 ）&amp;&amp;题目集05（7-5）<strong><br></strong></h3>
+<p>日期问题面向对象设计</p>
+<p>应用程序共测试三个功能：</p>
+<ol>
+<li>求下n天</li>
+<li>求前n天</li>
+<li>求两个日期相差的天数</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ol>
+<p id="输入格式">输入格式:</p>
+<p>有三种输入方式（以输入的第一个数字划分[1,3]）：</p>
+<ul>
+<li>1 year month day n //测试输入日期的下n天</li>
+<li>2 year month day n //测试输入日期的前n天</li>
+<li>3 year1 month1 day1 year2 month2 day2 //测试两个日期之间相差的天数</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p id="输出格式">输出格式:</p>
+<ul>
+<li>
+<p>当输入有误时，输出格式如下：&nbsp;<code>Wrong Format</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+<li>
+<p>当第一个数字为1且输入均有效，输出格式如下：</p>
+<p class="pre_2GaNN"><code class="hljs applescript"><span class="hljs-built_in">year-<span class="hljs-built_in">month-<span class="hljs-built_in">day</span></span></span></code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+<li>
+<p>当第一个数字为2且输入均有效，输出格式如下：</p>
+<p class="pre_2GaNN"><code class="hljs applescript"><span class="hljs-built_in">year-<span class="hljs-built_in">month-<span class="hljs-built_in">day</span></span></span></code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+<li>
+<p>当第一个数字为3且输入均有效，输出格式如下：</p>
+<p class="pre_2GaNN"><code class="hljs">天数值</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p>题目集04（7-2）源码如下：</p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 128, 128, 1)">  1</span> <span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> java.util.Scanner;
+</span><span style="color: rgba(0, 128, 128, 1)">  2</span> 
+<span style="color: rgba(0, 128, 128, 1)">  3</span> <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Main {
+</span><span style="color: rgba(0, 128, 128, 1)">  4</span> 
+<span style="color: rgba(0, 128, 128, 1)">  5</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">static</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> main(String[] args) {
+</span><span style="color: rgba(0, 128, 128, 1)">  6</span>         Scanner input = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Scanner(System.in);
+</span><span style="color: rgba(0, 128, 128, 1)">  7</span>         <span style="color: rgba(0, 0, 255, 1)">int</span> n =<span style="color: rgba(0, 0, 0, 1)"> input.nextInt();
+</span><span style="color: rgba(0, 128, 128, 1)">  8</span>         <span style="color: rgba(0, 0, 255, 1)">if</span>(n &gt;= 1 &amp;&amp; n &lt;= 3<span style="color: rgba(0, 0, 0, 1)">) {
+</span><span style="color: rgba(0, 128, 128, 1)">  9</span>             <span style="color: rgba(0, 0, 255, 1)">int</span> x =<span style="color: rgba(0, 0, 0, 1)"> input.nextInt();
+</span><span style="color: rgba(0, 128, 128, 1)"> 10</span>             <span style="color: rgba(0, 0, 255, 1)">int</span> y =<span style="color: rgba(0, 0, 0, 1)"> input.nextInt();
+</span><span style="color: rgba(0, 128, 128, 1)"> 11</span>             <span style="color: rgba(0, 0, 255, 1)">int</span> z =<span style="color: rgba(0, 0, 0, 1)"> input.nextInt();
+</span><span style="color: rgba(0, 128, 128, 1)"> 12</span>             DateUtil date = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> DateUtil(x,y,z);
+</span><span style="color: rgba(0, 128, 128, 1)"> 13</span>             
+<span style="color: rgba(0, 128, 128, 1)"> 14</span>             <span style="color: rgba(0, 0, 255, 1)">if</span>(y&gt;12||y&lt;1<span style="color: rgba(0, 0, 0, 1)">)
+</span><span style="color: rgba(0, 128, 128, 1)"> 15</span>                 System.out.println("Wrong Format"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 16</span>             <span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)"> {
+</span><span style="color: rgba(0, 128, 128, 1)"> 17</span>             <span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)">(date.checkInputValidity()) {
+</span><span style="color: rgba(0, 128, 128, 1)"> 18</span>                 <span style="color: rgba(0, 0, 255, 1)">switch</span><span style="color: rgba(0, 0, 0, 1)">(n) {
+</span><span style="color: rgba(0, 128, 128, 1)"> 19</span>                 <span style="color: rgba(0, 0, 255, 1)">case</span> 1<span style="color: rgba(0, 0, 0, 1)">:
+</span><span style="color: rgba(0, 128, 128, 1)"> 20</span> <span style="color: rgba(0, 0, 0, 1)">                    date.getNextNdate(input.nextInt());
+</span><span style="color: rgba(0, 128, 128, 1)"> 21</span> <span style="color: rgba(0, 0, 0, 1)">                    System.out.println(date.showDate());
+</span><span style="color: rgba(0, 128, 128, 1)"> 22</span>                     <span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 23</span>                 <span style="color: rgba(0, 0, 255, 1)">case</span> 2<span style="color: rgba(0, 0, 0, 1)">:
+</span><span style="color: rgba(0, 128, 128, 1)"> 24</span> <span style="color: rgba(0, 0, 0, 1)">                    date.getPreviousNDays(input.nextInt());
+</span><span style="color: rgba(0, 128, 128, 1)"> 25</span> <span style="color: rgba(0, 0, 0, 1)">                    System.out.println(date.showDate());
+</span><span style="color: rgba(0, 128, 128, 1)"> 26</span>                     <span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 27</span>                 <span style="color: rgba(0, 0, 255, 1)">case</span> 3<span style="color: rgba(0, 0, 0, 1)">:
+</span><span style="color: rgba(0, 128, 128, 1)"> 28</span>                     <span style="color: rgba(0, 0, 255, 1)">int</span> a =<span style="color: rgba(0, 0, 0, 1)"> input.nextInt();
+</span><span style="color: rgba(0, 128, 128, 1)"> 29</span>                     <span style="color: rgba(0, 0, 255, 1)">int</span> b =<span style="color: rgba(0, 0, 0, 1)"> input.nextInt();
+</span><span style="color: rgba(0, 128, 128, 1)"> 30</span>                     <span style="color: rgba(0, 0, 255, 1)">int</span> c =<span style="color: rgba(0, 0, 0, 1)"> input.nextInt();
+</span><span style="color: rgba(0, 128, 128, 1)"> 31</span>                     DateUtil date2 = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> DateUtil(a,b,c);
+</span><span style="color: rgba(0, 128, 128, 1)"> 32</span>                     <span style="color: rgba(0, 0, 255, 1)">if</span>(b&gt;12||b&lt;1<span style="color: rgba(0, 0, 0, 1)">)
+</span><span style="color: rgba(0, 128, 128, 1)"> 33</span>                         System.out.println("Wrong Format"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 34</span>                     <span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)"> {
+</span><span style="color: rgba(0, 128, 128, 1)"> 35</span> <span style="color: rgba(0, 0, 0, 1)">                    System.out.println(date.getDaysofDates(date2));
+</span><span style="color: rgba(0, 128, 128, 1)"> 36</span> <span style="color: rgba(0, 0, 0, 1)">                    date.getDaysofDates(date2);
+</span><span style="color: rgba(0, 128, 128, 1)"> 37</span>                     <span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;}
+</span><span style="color: rgba(0, 128, 128, 1)"> 38</span> <span style="color: rgba(0, 0, 0, 1)">                }
+</span><span style="color: rgba(0, 128, 128, 1)"> 39</span>                 
+<span style="color: rgba(0, 128, 128, 1)"> 40</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)"> 41</span>             <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)"> 42</span>                 System.out.println("Wrong Format"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 43</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)"> 44</span>             
+<span style="color: rgba(0, 128, 128, 1)"> 45</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)"> 46</span>         <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)"> 47</span>             System.out.println("Wrong Format"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 48</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)"> 49</span> <span style="color: rgba(0, 0, 0, 1)">}
+</span><span style="color: rgba(0, 128, 128, 1)"> 50</span> 
+<span style="color: rgba(0, 128, 128, 1)"> 51</span> 
+<span style="color: rgba(0, 128, 128, 1)"> 52</span> 
+<span style="color: rgba(0, 128, 128, 1)"> 53</span>     <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Year{
+</span><span style="color: rgba(0, 128, 128, 1)"> 54</span>         <span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> value;
+</span><span style="color: rgba(0, 128, 128, 1)"> 55</span> 
+<span style="color: rgba(0, 128, 128, 1)"> 56</span>         <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> Year() {
+</span><span style="color: rgba(0, 128, 128, 1)"> 57</span>             <span style="color: rgba(0, 0, 255, 1)">super</span><span style="color: rgba(0, 0, 0, 1)">();
+</span><span style="color: rgba(0, 128, 128, 1)"> 58</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)"> 59</span> 
+<span style="color: rgba(0, 128, 128, 1)"> 60</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> Year(<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> value) {
+</span><span style="color: rgba(0, 128, 128, 1)"> 61</span>             <span style="color: rgba(0, 0, 255, 1)">super</span><span style="color: rgba(0, 0, 0, 1)">();
+</span><span style="color: rgba(0, 128, 128, 1)"> 62</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value =<span style="color: rgba(0, 0, 0, 1)"> value;
+</span><span style="color: rgba(0, 128, 128, 1)"> 63</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)"> 64</span> 
+<span style="color: rgba(0, 128, 128, 1)"> 65</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> getValue() {
+</span><span style="color: rgba(0, 128, 128, 1)"> 66</span>             <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> value;
+</span><span style="color: rgba(0, 128, 128, 1)"> 67</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)"> 68</span> 
+<span style="color: rgba(0, 128, 128, 1)"> 69</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span> setValue(<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> value) {
+</span><span style="color: rgba(0, 128, 128, 1)"> 70</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value =<span style="color: rgba(0, 0, 0, 1)"> value;
+</span><span style="color: rgba(0, 128, 128, 1)"> 71</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)"> 72</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">boolean</span><span style="color: rgba(0, 0, 0, 1)"> isLeapYear() {
+</span><span style="color: rgba(0, 128, 128, 1)"> 73</span>             <span style="color: rgba(0, 0, 255, 1)">if</span> ((<span style="color: rgba(0, 0, 255, 1)">this</span>.value % 4 == 0 &amp;&amp; <span style="color: rgba(0, 0, 255, 1)">this</span>.value % 100 != 0 )|| <span style="color: rgba(0, 0, 255, 1)">this</span>.value % 400 == 0<span style="color: rgba(0, 0, 0, 1)">)
+</span><span style="color: rgba(0, 128, 128, 1)"> 74</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 75</span>             <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)"> 76</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 77</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)"> 78</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">boolean</span><span style="color: rgba(0, 0, 0, 1)"> validate() {
+</span><span style="color: rgba(0, 128, 128, 1)"> 79</span>             <span style="color: rgba(0, 0, 255, 1)">if</span>(getValue() &gt;= 1900 &amp;&amp; getValue() &lt;= 2050<span style="color: rgba(0, 0, 0, 1)"> )
+</span><span style="color: rgba(0, 128, 128, 1)"> 80</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 81</span>             <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)"> 82</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 83</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)"> 84</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> yearIncrement() {
+</span><span style="color: rgba(0, 128, 128, 1)"> 85</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value ++<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 86</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)"> 87</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> yearReduction() {
+</span><span style="color: rgba(0, 128, 128, 1)"> 88</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value --<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 89</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)"> 90</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)"> 91</span>     
+<span style="color: rgba(0, 128, 128, 1)"> 92</span>     <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Month{
+</span><span style="color: rgba(0, 128, 128, 1)"> 93</span>         <span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> value;
+</span><span style="color: rgba(0, 128, 128, 1)"> 94</span>         <span style="color: rgba(0, 0, 255, 1)">private</span> Year year = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Year();
+</span><span style="color: rgba(0, 128, 128, 1)"> 95</span>         
+<span style="color: rgba(0, 128, 128, 1)"> 96</span>         <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> Month() {
+</span><span style="color: rgba(0, 128, 128, 1)"> 97</span>             <span style="color: rgba(0, 0, 255, 1)">super</span><span style="color: rgba(0, 0, 0, 1)">();
+</span><span style="color: rgba(0, 128, 128, 1)"> 98</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)"> 99</span>         
+<span style="color: rgba(0, 128, 128, 1)">100</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> Month(<span style="color: rgba(0, 0, 255, 1)">int</span> yearValue, <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> monthValue) {
+</span><span style="color: rgba(0, 128, 128, 1)">101</span>             <span style="color: rgba(0, 0, 255, 1)">this</span><span style="color: rgba(0, 0, 0, 1)">.year.setValue(yearValue);
+</span><span style="color: rgba(0, 128, 128, 1)">102</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value =<span style="color: rgba(0, 0, 0, 1)"> monthValue ;
+</span><span style="color: rgba(0, 128, 128, 1)">103</span>             
+<span style="color: rgba(0, 128, 128, 1)">104</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">105</span> 
+<span style="color: rgba(0, 128, 128, 1)">106</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> getValue() {
+</span><span style="color: rgba(0, 128, 128, 1)">107</span>             <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> value;
+</span><span style="color: rgba(0, 128, 128, 1)">108</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">109</span> 
+<span style="color: rgba(0, 128, 128, 1)">110</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span> setValue(<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> value) {
+</span><span style="color: rgba(0, 128, 128, 1)">111</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value =<span style="color: rgba(0, 0, 0, 1)"> value;
+</span><span style="color: rgba(0, 128, 128, 1)">112</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">113</span> 
+<span style="color: rgba(0, 128, 128, 1)">114</span>         <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> Year getYear() {
+</span><span style="color: rgba(0, 128, 128, 1)">115</span>             <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> year;
+</span><span style="color: rgba(0, 128, 128, 1)">116</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">117</span> 
+<span style="color: rgba(0, 128, 128, 1)">118</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> setYear(Year year) {
+</span><span style="color: rgba(0, 128, 128, 1)">119</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.year =<span style="color: rgba(0, 0, 0, 1)"> year;
+</span><span style="color: rgba(0, 128, 128, 1)">120</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">121</span> 
+<span style="color: rgba(0, 128, 128, 1)">122</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> resetMin() {
+</span><span style="color: rgba(0, 128, 128, 1)">123</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value = 1<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">124</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">125</span>         
+<span style="color: rgba(0, 128, 128, 1)">126</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> resetMax() {
+</span><span style="color: rgba(0, 128, 128, 1)">127</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value = 12<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">128</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">129</span>         
+<span style="color: rgba(0, 128, 128, 1)">130</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">boolean</span><span style="color: rgba(0, 0, 0, 1)"> validate() {
+</span><span style="color: rgba(0, 128, 128, 1)">131</span>             <span style="color: rgba(0, 0, 255, 1)">if</span>(year.validate() &amp;&amp; <span style="color: rgba(0, 0, 255, 1)">this</span>.value &gt;= 1 &amp;&amp; <span style="color: rgba(0, 0, 255, 1)">this</span>.value &lt;= 12<span style="color: rgba(0, 0, 0, 1)">)
+</span><span style="color: rgba(0, 128, 128, 1)">132</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">; 
+</span><span style="color: rgba(0, 128, 128, 1)">133</span>             <span style="color: rgba(0, 0, 255, 1)">else</span> 
+<span style="color: rgba(0, 128, 128, 1)">134</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">135</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">136</span>         
+<span style="color: rgba(0, 128, 128, 1)">137</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> monthIncrement() {
+</span><span style="color: rgba(0, 128, 128, 1)">138</span>             <span style="color: rgba(0, 0, 255, 1)">if</span>(<span style="color: rgba(0, 0, 255, 1)">this</span>.value == 12<span style="color: rgba(0, 0, 0, 1)">) {
+</span><span style="color: rgba(0, 128, 128, 1)">139</span> <span style="color: rgba(0, 0, 0, 1)">                year.yearIncrement();
+</span><span style="color: rgba(0, 128, 128, 1)">140</span> <span style="color: rgba(0, 0, 0, 1)">                resetMin();
+</span><span style="color: rgba(0, 128, 128, 1)">141</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">142</span>             <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)">143</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value ++<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">144</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">145</span>         
+<span style="color: rgba(0, 128, 128, 1)">146</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> monthReduction() {
+</span><span style="color: rgba(0, 128, 128, 1)">147</span>             <span style="color: rgba(0, 0, 255, 1)">if</span>(<span style="color: rgba(0, 0, 255, 1)">this</span>.value == 1<span style="color: rgba(0, 0, 0, 1)">) {
+</span><span style="color: rgba(0, 128, 128, 1)">148</span> <span style="color: rgba(0, 0, 0, 1)">                year.yearReduction();
+</span><span style="color: rgba(0, 128, 128, 1)">149</span> <span style="color: rgba(0, 0, 0, 1)">                resetMax();
+</span><span style="color: rgba(0, 128, 128, 1)">150</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">151</span>             <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)">152</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value --<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">153</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">154</span>         
+<span style="color: rgba(0, 128, 128, 1)">155</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">156</span>     
+<span style="color: rgba(0, 128, 128, 1)">157</span>     <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Day{
+</span><span style="color: rgba(0, 128, 128, 1)">158</span>         <span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> value;
+</span><span style="color: rgba(0, 128, 128, 1)">159</span>         <span style="color: rgba(0, 0, 255, 1)">private</span> Month month = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Month();
+</span><span style="color: rgba(0, 128, 128, 1)">160</span>         <span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">int</span> [] mon_maxnum = {31,28,31,30,31,30,31,31,30,31,30,31<span style="color: rgba(0, 0, 0, 1)">};
+</span><span style="color: rgba(0, 128, 128, 1)">161</span>         
+<span style="color: rgba(0, 128, 128, 1)">162</span>         <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> Day() {
+</span><span style="color: rgba(0, 128, 128, 1)">163</span>             
+<span style="color: rgba(0, 128, 128, 1)">164</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">165</span>         
+<span style="color: rgba(0, 128, 128, 1)">166</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> Day(<span style="color: rgba(0, 0, 255, 1)">int</span> yearValue,<span style="color: rgba(0, 0, 255, 1)">int</span> monthValue,<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> dayValue) {
+</span><span style="color: rgba(0, 128, 128, 1)">167</span>             <span style="color: rgba(0, 0, 255, 1)">this</span><span style="color: rgba(0, 0, 0, 1)">.month.getYear().setValue(yearValue);
+</span><span style="color: rgba(0, 128, 128, 1)">168</span>             <span style="color: rgba(0, 0, 255, 1)">this</span><span style="color: rgba(0, 0, 0, 1)">.month.setValue(monthValue);
+</span><span style="color: rgba(0, 128, 128, 1)">169</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value =<span style="color: rgba(0, 0, 0, 1)"> dayValue;
+</span><span style="color: rgba(0, 128, 128, 1)">170</span>             
+<span style="color: rgba(0, 128, 128, 1)">171</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">172</span> 
+<span style="color: rgba(0, 128, 128, 1)">173</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> getValue() {
+</span><span style="color: rgba(0, 128, 128, 1)">174</span>             <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> value;
+</span><span style="color: rgba(0, 128, 128, 1)">175</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">176</span> 
+<span style="color: rgba(0, 128, 128, 1)">177</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span> setValue(<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> value) {
+</span><span style="color: rgba(0, 128, 128, 1)">178</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value =<span style="color: rgba(0, 0, 0, 1)"> value;
+</span><span style="color: rgba(0, 128, 128, 1)">179</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">180</span> 
+<span style="color: rgba(0, 128, 128, 1)">181</span>         <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> Month getMonth() {
+</span><span style="color: rgba(0, 128, 128, 1)">182</span>             <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> month;
+</span><span style="color: rgba(0, 128, 128, 1)">183</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">184</span> 
+<span style="color: rgba(0, 128, 128, 1)">185</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> setMonth(Month month) {
+</span><span style="color: rgba(0, 128, 128, 1)">186</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.month =<span style="color: rgba(0, 0, 0, 1)"> month;
+</span><span style="color: rgba(0, 128, 128, 1)">187</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">188</span>         
+<span style="color: rgba(0, 128, 128, 1)">189</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> resetMin() {
+</span><span style="color: rgba(0, 128, 128, 1)">190</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value = 1<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">191</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">192</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> resetMax() {
+</span><span style="color: rgba(0, 128, 128, 1)">193</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value =<span style="color: rgba(0, 0, 0, 1)"> getMaxOfmonth();
+</span><span style="color: rgba(0, 128, 128, 1)">194</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">195</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> resetMMax() {
+</span><span style="color: rgba(0, 128, 128, 1)">196</span>             <span style="color: rgba(0, 0, 255, 1)">switch</span><span style="color: rgba(0, 0, 0, 1)"> (month.getValue()) {
+</span><span style="color: rgba(0, 128, 128, 1)">197</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 1:<span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[0];<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">198</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 2<span style="color: rgba(0, 0, 0, 1)">:
+</span><span style="color: rgba(0, 128, 128, 1)">199</span>                 <span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)">(month.getYear().isLeapYear()) {
+</span><span style="color: rgba(0, 128, 128, 1)">200</span>                     <span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[1] + 1<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">201</span> <span style="color: rgba(0, 0, 0, 1)">                    }
+</span><span style="color: rgba(0, 128, 128, 1)">202</span>                 <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)">203</span>                     <span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[1<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">204</span>                     <span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">205</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 3:<span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[2];<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">206</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 4:<span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[3];<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">207</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 5:<span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[4];<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">208</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 6:<span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[5];<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">209</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 7:<span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[6];<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">210</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 8:<span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[7];<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">211</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 9:<span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[8];<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">212</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 10:<span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[9];<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">213</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 11:<span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[10];<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">214</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 12:<span style="color: rgba(0, 0, 255, 1)">this</span>.value = mon_maxnum[11];<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">215</span>             <span style="color: rgba(0, 0, 255, 1)">default</span>:;<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">216</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">217</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">218</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> getMaxOfmonth() {
+</span><span style="color: rgba(0, 128, 128, 1)">219</span>             <span style="color: rgba(0, 0, 255, 1)">if</span>(month.getYear().isLeapYear() &amp;&amp; month.getValue() == 2<span style="color: rgba(0, 0, 0, 1)">)
+</span><span style="color: rgba(0, 128, 128, 1)">220</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> 29<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">221</span>             <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)">222</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[month.getValue()-1<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">223</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">224</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> returnMonthMax() {
+</span><span style="color: rgba(0, 128, 128, 1)">225</span>             <span style="color: rgba(0, 0, 255, 1)">switch</span><span style="color: rgba(0, 0, 0, 1)"> (month.getValue()) {
+</span><span style="color: rgba(0, 128, 128, 1)">226</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 1:<span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[0<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">227</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 2<span style="color: rgba(0, 0, 0, 1)">:
+</span><span style="color: rgba(0, 128, 128, 1)">228</span>                 <span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)">(month.getYear().isLeapYear()) {
+</span><span style="color: rgba(0, 128, 128, 1)">229</span>                     <span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[1<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">230</span> <span style="color: rgba(0, 0, 0, 1)">                    }
+</span><span style="color: rgba(0, 128, 128, 1)">231</span>                 <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)">232</span>                     <span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[1] + 1<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">233</span>             
+<span style="color: rgba(0, 128, 128, 1)">234</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 3:<span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[2<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">235</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 4:<span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[3<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">236</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 5:<span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[4<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">237</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 6:<span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[5<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">238</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 7:<span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[6<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">239</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 8:<span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[7<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">240</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 9:<span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[8<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">241</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 10:<span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[9<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">242</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 11:<span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[10<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">243</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 12:<span style="color: rgba(0, 0, 255, 1)">return</span> mon_maxnum[11<span style="color: rgba(0, 0, 0, 1)">];
+</span><span style="color: rgba(0, 128, 128, 1)">244</span>             <span style="color: rgba(0, 0, 255, 1)">default</span>:;<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">245</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">246</span>             <span style="color: rgba(0, 0, 255, 1)">return</span> 0<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">247</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">248</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">boolean</span><span style="color: rgba(0, 0, 0, 1)"> validate(){
+</span><span style="color: rgba(0, 128, 128, 1)">249</span>             <span style="color: rgba(0, 0, 255, 1)">if</span>(month.validate()&amp;&amp;<span style="color: rgba(0, 0, 255, 1)">this</span>.value &lt;= getMaxOfmonth()&amp;&amp;<span style="color: rgba(0, 0, 255, 1)">this</span>.value &gt;= 1<span style="color: rgba(0, 0, 0, 1)"> )
+</span><span style="color: rgba(0, 128, 128, 1)">250</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">251</span>             <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)">252</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">253</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">254</span>         
+<span style="color: rgba(0, 128, 128, 1)">255</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> dayIncrement() {
+</span><span style="color: rgba(0, 128, 128, 1)">256</span>             <span style="color: rgba(0, 0, 255, 1)">if</span>(<span style="color: rgba(0, 0, 255, 1)">this</span>.value ==<span style="color: rgba(0, 0, 0, 1)"> getMaxOfmonth()) {
+</span><span style="color: rgba(0, 128, 128, 1)">257</span> <span style="color: rgba(0, 0, 0, 1)">                month.monthIncrement();
+</span><span style="color: rgba(0, 128, 128, 1)">258</span> <span style="color: rgba(0, 0, 0, 1)">                resetMin();
+</span><span style="color: rgba(0, 128, 128, 1)">259</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">260</span>             <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)">261</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value ++<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">262</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">263</span>         <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> dayReduction() {
+</span><span style="color: rgba(0, 128, 128, 1)">264</span>             <span style="color: rgba(0, 0, 255, 1)">if</span>(<span style="color: rgba(0, 0, 255, 1)">this</span>.value == 1<span style="color: rgba(0, 0, 0, 1)">) {
+</span><span style="color: rgba(0, 128, 128, 1)">265</span> <span style="color: rgba(0, 0, 0, 1)">                month.monthReduction();
+</span><span style="color: rgba(0, 128, 128, 1)">266</span> <span style="color: rgba(0, 0, 0, 1)">                resetMax();
+</span><span style="color: rgba(0, 128, 128, 1)">267</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">268</span>             <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)">269</span>             <span style="color: rgba(0, 0, 255, 1)">this</span>.value --<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">270</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)">271</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">272</span> 
+<span style="color: rgba(0, 128, 128, 1)">273</span>     
+<span style="color: rgba(0, 128, 128, 1)">274</span>     
+<span style="color: rgba(0, 128, 128, 1)">275</span>     
+<span style="color: rgba(0, 128, 128, 1)">276</span>         <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)">    DateUtil{
+</span><span style="color: rgba(0, 128, 128, 1)">277</span>             <span style="color: rgba(0, 0, 255, 1)">private</span> Day day = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Day();
+</span><span style="color: rgba(0, 128, 128, 1)">278</span> 
+<span style="color: rgba(0, 128, 128, 1)">279</span>             <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> DateUtil() {
+</span><span style="color: rgba(0, 128, 128, 1)">280</span>                 <span style="color: rgba(0, 0, 255, 1)">super</span><span style="color: rgba(0, 0, 0, 1)">();
+</span><span style="color: rgba(0, 128, 128, 1)">281</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">282</span>             <span style="color: rgba(0, 0, 255, 1)">public</span> DateUtil(<span style="color: rgba(0, 0, 255, 1)">int</span> y,<span style="color: rgba(0, 0, 255, 1)">int</span> m, <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> d) {
+</span><span style="color: rgba(0, 128, 128, 1)">283</span> <span style="color: rgba(0, 0, 0, 1)">                day.getMonth().getYear().setValue(y);
+</span><span style="color: rgba(0, 128, 128, 1)">284</span> <span style="color: rgba(0, 0, 0, 1)">                day.getMonth().setValue(m);
+</span><span style="color: rgba(0, 128, 128, 1)">285</span> <span style="color: rgba(0, 0, 0, 1)">                day.setValue(d);
+</span><span style="color: rgba(0, 128, 128, 1)">286</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">287</span>             <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> Day getDay() {
+</span><span style="color: rgba(0, 128, 128, 1)">288</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> day;
+</span><span style="color: rgba(0, 128, 128, 1)">289</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">290</span>             <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> setDay(Day day) {
+</span><span style="color: rgba(0, 128, 128, 1)">291</span>                 <span style="color: rgba(0, 0, 255, 1)">this</span>.day =<span style="color: rgba(0, 0, 0, 1)"> day;
+</span><span style="color: rgba(0, 128, 128, 1)">292</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">293</span>             <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">boolean</span><span style="color: rgba(0, 0, 0, 1)"> checkInputValidity() {
+</span><span style="color: rgba(0, 128, 128, 1)">294</span>                 <span style="color: rgba(0, 0, 255, 1)">if</span>(day.getMonth().getYear().validate() &amp;&amp;  day.getMonth().validate() &amp;&amp;<span style="color: rgba(0, 0, 0, 1)"> day.validate())
+</span><span style="color: rgba(0, 128, 128, 1)">295</span>             <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">296</span>                 <span style="color: rgba(0, 0, 255, 1)">else</span> 
+<span style="color: rgba(0, 128, 128, 1)">297</span>                     <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">298</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">299</span>             
+<span style="color: rgba(0, 128, 128, 1)">300</span>             <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> String showDate() {
+</span><span style="color: rgba(0, 128, 128, 1)">301</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">this</span>.day.getMonth().getYear().getValue()+"-"+<span style="color: rgba(0, 0, 255, 1)">this</span>.day.getMonth().getValue()+"-"+<span style="color: rgba(0, 0, 255, 1)">this</span><span style="color: rgba(0, 0, 0, 1)">.day.getValue();
+</span><span style="color: rgba(0, 128, 128, 1)">302</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">303</span>             
+<span style="color: rgba(0, 128, 128, 1)">304</span>             <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">boolean</span><span style="color: rgba(0, 0, 0, 1)"> compareDates(DateUtil date) {
+</span><span style="color: rgba(0, 128, 128, 1)">305</span>                 <span style="color: rgba(0, 0, 255, 1)">int</span> a = date.day.getMonth().getYear().getValue()*20000+date.day.getMonth().getValue()*1000+<span style="color: rgba(0, 0, 0, 1)">date.day.getValue();
+</span><span style="color: rgba(0, 128, 128, 1)">306</span>                 <span style="color: rgba(0, 0, 255, 1)">int</span> b = <span style="color: rgba(0, 0, 255, 1)">this</span>.day.getMonth().getYear().getValue()*20000+<span style="color: rgba(0, 0, 255, 1)">this</span>.day.getMonth().getValue()*1000+<span style="color: rgba(0, 0, 255, 1)">this</span><span style="color: rgba(0, 0, 0, 1)">.day.getValue();
+</span><span style="color: rgba(0, 128, 128, 1)">307</span>                 <span style="color: rgba(0, 0, 255, 1)">if</span>(a&lt;<span style="color: rgba(0, 0, 0, 1)">b)
+</span><span style="color: rgba(0, 128, 128, 1)">308</span>                     <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">309</span>                 <span style="color: rgba(0, 0, 255, 1)">else</span>
+<span style="color: rgba(0, 128, 128, 1)">310</span>                     <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">311</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">312</span>             
+<span style="color: rgba(0, 128, 128, 1)">313</span>             <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">boolean</span><span style="color: rgba(0, 0, 0, 1)"> equalTwoDates(DateUtil date) {
+</span><span style="color: rgba(0, 128, 128, 1)">314</span>                 <span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)">(date.showDate().equals(showDate()))
+</span><span style="color: rgba(0, 128, 128, 1)">315</span>                     <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">316</span>                 <span style="color: rgba(0, 0, 255, 1)">else</span> 
+<span style="color: rgba(0, 128, 128, 1)">317</span>                     <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">318</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">319</span>             
+<span style="color: rgba(0, 128, 128, 1)">320</span>             <span style="color: rgba(0, 0, 255, 1)">public</span> DateUtil getNextNdate(<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> n) {
+</span><span style="color: rgba(0, 128, 128, 1)">321</span>                 <span style="color: rgba(0, 0, 255, 1)">for</span>(<span style="color: rgba(0, 0, 255, 1)">int</span> i = 0; i &lt; n ; i++<span style="color: rgba(0, 0, 0, 1)">) {
+</span><span style="color: rgba(0, 128, 128, 1)">322</span> <span style="color: rgba(0, 0, 0, 1)">                    day.dayIncrement();
+</span><span style="color: rgba(0, 128, 128, 1)">323</span> <span style="color: rgba(0, 0, 0, 1)">                }
+</span><span style="color: rgba(0, 128, 128, 1)">324</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> DateUtil (day.getMonth().getYear().getValue(),day.getMonth().getValue(),day.getValue());
+</span><span style="color: rgba(0, 128, 128, 1)">325</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">326</span>             
+<span style="color: rgba(0, 128, 128, 1)">327</span>             <span style="color: rgba(0, 0, 255, 1)">public</span> DateUtil getPreviousNDays(<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> n) {
+</span><span style="color: rgba(0, 128, 128, 1)">328</span>                 <span style="color: rgba(0, 0, 255, 1)">for</span>(<span style="color: rgba(0, 0, 255, 1)">int</span> i = 0; i &lt; n; i ++<span style="color: rgba(0, 0, 0, 1)">) {
+</span><span style="color: rgba(0, 128, 128, 1)">329</span> <span style="color: rgba(0, 0, 0, 1)">                    day.dayReduction();
+</span><span style="color: rgba(0, 128, 128, 1)">330</span> <span style="color: rgba(0, 0, 0, 1)">                }
+</span><span style="color: rgba(0, 128, 128, 1)">331</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> DateUtil (day.getMonth().getYear().getValue(),day.getMonth().getValue(),day.getValue());
+</span><span style="color: rgba(0, 128, 128, 1)">332</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">333</span>             
+<span style="color: rgba(0, 128, 128, 1)">334</span>             <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> getDaysofDates(DateUtil date){
+</span><span style="color: rgba(0, 128, 128, 1)">335</span>                 <span style="color: rgba(0, 0, 255, 1)">int</span> number = 0<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">336</span>                 <span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)">(compareDates(date)){            
+</span><span style="color: rgba(0, 128, 128, 1)">337</span>                     <span style="color: rgba(0, 0, 255, 1)">for</span>(; !<span style="color: rgba(0, 0, 0, 1)">equalTwoDates(date); ) {
+</span><span style="color: rgba(0, 128, 128, 1)">338</span> <span style="color: rgba(0, 0, 0, 1)">                        date.day.dayReduction();
+</span><span style="color: rgba(0, 128, 128, 1)">339</span>                         number ++<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">340</span> <span style="color: rgba(0, 0, 0, 1)">                    }    
+</span><span style="color: rgba(0, 128, 128, 1)">341</span> <span style="color: rgba(0, 0, 0, 1)">                }
+</span><span style="color: rgba(0, 128, 128, 1)">342</span>                 <span style="color: rgba(0, 0, 255, 1)">else</span> <span style="color: rgba(0, 0, 255, 1)">if</span>(!<span style="color: rgba(0, 0, 0, 1)">compareDates(date)){
+</span><span style="color: rgba(0, 128, 128, 1)">343</span>                     <span style="color: rgba(0, 0, 255, 1)">for</span>(;!<span style="color: rgba(0, 0, 0, 1)">equalTwoDates(date);) {
+</span><span style="color: rgba(0, 128, 128, 1)">344</span> <span style="color: rgba(0, 0, 0, 1)">                        date.day.dayIncrement();
+</span><span style="color: rgba(0, 128, 128, 1)">345</span>                         number ++<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)">346</span> <span style="color: rgba(0, 0, 0, 1)">                    }    
+</span><span style="color: rgba(0, 128, 128, 1)">347</span> <span style="color: rgba(0, 0, 0, 1)">                }
+</span><span style="color: rgba(0, 128, 128, 1)">348</span>                 <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> number;
+</span><span style="color: rgba(0, 128, 128, 1)">349</span>                 
+<span style="color: rgba(0, 128, 128, 1)">350</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)">351</span>         }</pre>
+</div>
+<p>题目集05（7-5）源代码：</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:java;gutter:true;">import java.util.Scanner;
+public class Main {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int n = input.nextInt();
+		if(n &gt; 3 || n &lt; 1)
+			System.out.println("Wrong Format");
+		else {
+			int x = input.nextInt();
+			int y = input.nextInt();
+			int z = input.nextInt();
+			DateUtil date = new DateUtil(x,y,z);
+			if(date.checkInputValidate()) {
+				switch(n) {
+				case 1:
+					int days1 = input.nextInt();
+					date.getNextNdate(days1);
+					System.out.println(x+"-"+y+"-"+z+" next "+days1+" days is:"+date.showDate());
+					break;
+				case 2:
+					int days2 = input.nextInt();
+					date.getPreviousNDays(days2);
+					System.out.println(x+"-"+y+"-"+z+" previous "+days2+" days is:"+date.showDate());
+					break;
+				case 3:
+					int a = input.nextInt();
+					int b = input.nextInt();
+					int c = input.nextInt();
+					DateUtil date2 = new DateUtil(a,b,c);
+					if(date2.checkInputValidate()) {
+					System.out.println("The days between "+date.showDate()+" and "+date2.showDate()+" are:"+date.getDaysofDates(date2));
+					break;
+					}
+				}
+				
+			}
+			else
+				System.out.println("Wrong Format");
+			
+		}
+		
+	}
+}
+	
+	class Year{
+		private int value;
+
+		public Year() {
+			super();
+		}
+
+		public Year(int value) {
+			super();
+			this.value = value;
+		}
+
+		public int getValue() {
+			return value;
+		}
+
+		public void setValue(int value) {
+			this.value = value;
+		}
+		public boolean isLeapYear() {
+			if ((this.value % 4 == 0 &amp;&amp; this.value % 100 != 0 )|| this.value % 400 == 0)
+				return true;
+			else
+				return false;
+		}
+		public boolean validate() {
+			if(getValue() &gt;= 1820 &amp;&amp; getValue() &lt;= 2020 )
+				return true;
+			else
+				return false;
+		}
+		public void yearIncrement() {
+			this.value ++;
+		}
+		public void yearReduction() {
+			this.value --;
+		}
+	}
+	
+	class Month{
+		private int value;
+		
+		public Month() {
+			super();
+		}
+		
+		public Month( int Value) {			
+			this.value = Value ;
+			
+		}
+
+		public int getValue() {
+			return value;
+		}
+
+		public void setValue(int value) {
+			this.value = value;
+		}
+
+
+		public void resetMin() {
+			this.value = 1;
+		}
+		
+		public void resetMax() {
+			this.value = 12;
+		}
+		
+		public boolean validate() {
+			if(this.value &gt;= 1 &amp;&amp; this.value &lt;= 12)
+				return true; 
+			else 
+				return false;
+		}
+		
+		public void monthIncrement() {
+			
+			this.value ++;
+		}
+		
+		public void monthReduction() {
+			
+			this.value --;
+		}
+		
+	}
+	
+	class Day{
+		private int value;
+		public Day() {
+			
+		}
+		public Day(int value) {
+			super();
+			this.value = value;
+		}
+		
+		public int getValue() {
+			return value;
+		}
+
+		public void setValue(int value) {
+			this.value = value;
+		}
+
+		public void dayIncrement() {
+			
+			this.value ++;
+		}
+		public void dayReduction() {
+				
+			this.value --;
+		}
+
+		
+	}
+
+	
+		class	DateUtil{
+			private Year year = new Year();
+			private Month month = new Month();
+			private Day day = new Day();
+			private int [] mon_maxnum = {31,28,31,30,31,30,31,31,30,31,30,31};
+			public DateUtil() {
+				super();
+				
+			}
+			public DateUtil(int y,int m,int d) {
+				super();
+				year.setValue(y);
+				month.setValue(m);
+				day.setValue(d);
+			}
+			public Year getYear() {
+				return year;
+			}
+			public void setYear(Year year) {
+				this.year = year;
+			}
+			public Month getMonth() {
+				return month;
+			}
+			public void setMonth(Month month) {
+				this.month = month;
+			}
+			public Day getDay() {
+				return day;
+			}
+			public void setDay(Day day) {
+				this.day = day;
+			}
+			private void setDayMin() {
+				day.setValue(1);
+			}
+			private void setDayMax() {
+				day.setValue(getDayMax());
+				
+			}
+			public int getDayMax() {
+				if(year.isLeapYear() &amp;&amp; month.getValue() == 2) {
+					return 29;
+				}
+				else {
+					return mon_maxnum[month.getValue()-1];
+				}
+			}
+			public boolean checkInputValidate() {
+				if(year.validate() &amp;&amp; month.validate()) {
+					if(day.getValue() &gt;= 1 &amp;&amp; day.getValue() &lt;= getDayMax() )
+						return true;
+					else
+						return false;
+				}
+				else
+					return false;
+			}
+			public DateUtil getNextNdate(long n) {
+				for(int i = 0; i &lt; n ; i ++ ) {
+			
+					if(month.getValue() == 12 &amp;&amp; day.getValue() == 31) {
+						month.resetMin();
+						setDayMin();
+						year.yearIncrement();
+					}
+					else if(day.getValue() == getDayMax()) {
+						day.setValue(1);
+						month.monthIncrement();
+					}
+					else
+						day.dayIncrement();
+				}
+				return new DateUtil(year.getValue(),month.getValue(),day.getValue());
+			}
+			public DateUtil getPreviousNDays(long n) {
+				for(int i = 0; i &lt; n ; i ++ ) {
+					if(month.getValue() == 1 &amp;&amp; day.getValue() == 1) {
+						year.yearReduction();
+						month.resetMax();
+						setDayMax();
+					}
+					else if(day.getValue() == 1) {
+						month.monthReduction();
+						setDayMax();
+						
+					}
+					else
+						day.dayReduction();
+						
+				}
+				return new DateUtil(year.getValue(),month.getValue(),day.getValue());
+			}
+			
+			public int getDaysofDates(DateUtil date) {
+				int num = 0;
+				if(equalTwoDates( date))
+				return 0;
+				if(compareDates( date)) {
+					for(;!equalTwoDates( date);) {
+						if(month.getValue() == 12 &amp;&amp; day.getValue() == 31) {
+							month.resetMin();
+							setDayMin();
+							year.yearIncrement();
+						}
+						else if(day.getValue() == getDayMax()) {
+							day.setValue(1);
+							month.monthIncrement();
+						}
+						else
+							day.dayIncrement();
+						num ++;
+						
+						
+					}
+				}
+				else if(!compareDates( date)) {
+					for(;!equalTwoDates( date);) {
+						if(month.getValue() == 1 &amp;&amp; day.getValue() == 1) {
+							year.yearReduction();
+							month.resetMax();
+							setDayMax();
+						}
+						else if(day.getValue() == 1) {
+							month.monthReduction();
+							setDayMax();
+							
+						}
+						else
+							day.dayReduction();
+						num ++;
+						
+					}
+				}
+				return num;
+			}
+			
+			public boolean compareDates(DateUtil date) {
+				int a = date.year.getValue()*20000+date.month.getValue()*1000+date.day.getValue();
+				int b = this.year.getValue()*20000+this.month.getValue()*1000+this.day.getValue();
+				if(a &gt; b)
+					return true;
+				else
+					return false;
+			}
+			public boolean equalTwoDates(DateUtil date) {
+				if(date.showDate().equals(showDate()))
+					return true;
+				else 
+					return false;
+			}
+			
+			public String showDate() {
+				return year.getValue()+"-"+month.getValue()+"-"+day.getValue();
+			}
+	
+		}
+</pre>
+</div>
+<p>SourceMonitor的生成报表内容：</p>
+<p>题目集04（7-2）：</p>
+<p><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426105341541-1755091644.png" alt="" loading="lazy"><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426105406960-310628300.png" alt="" loading="lazy"><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426105453514-621770166.png" alt="" loading="lazy"></p>
+<p>题目集05（7-5）：</p>
+<p><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426105935200-499386344.png" alt="" loading="lazy"></p>
+<p><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426105948261-831366971.png" alt="" width="823" height="1030" loading="lazy"></p>
+<p><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426110030562-1815970850.png" alt="" loading="lazy"></p>
+<p>&nbsp;类图：</p>
+<p>题目集04（7-2）：</p>
+<p><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426112218464-1054276127.png" alt="" loading="lazy"></p>
+<p>题目集05（7-5）：</p>
+<p><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426112251751-1100242398.png" alt="" loading="lazy"></p>
+<p>根据SourceMonitor的生成报表可以看到两个程序的圈复杂程度相差不大，这两道题相比之前的日期类题目，圈复杂度已经大大的降低了，再根据类图来分析两个程序的不同，首先第一个程序是递进式的聚合，一环套一环，year类最先写，然后在month类中创建了一个year类的对象当作month类的一个属性，然后在day类中又创建了一个month对象作为day类中的属性，最后在日期处理类中创建了一个day的对象当作它的属性，整体来说就是一环扣一环，不可分割，第二个程序year，month，day等类是分开的，他们之间并没有联系，由一个日期处理类将他们联系在一起。</p>
+<p>优劣分析：</p>
+<p>我认为第一个程序的聚合耦合度非常的高，因为环环相扣，他的劣势在于，如果其中某个环节除了错误，很难改正，尤其是到后面才发现错误，就可能要把整个程序都改一下，类与类之间的关系太紧密了，每当要用到year的方法，需要从DateUtil调用day再调用month再调用year，调用起来也比较复杂，但是它也有他的优点，到最后实现前n天或者后n天的时候，它只需要调用一个day的加减就可以了，因为之前做了铺垫，程序的逻辑就比较简单了。</p>
+<p>我认为第二个程序总体来说应该是优于第一个程序的，首先它的年月日的类是分开的，它们之间是没有直接的关系的，耦合程度非常的低，就算我其中一个类出错了，和其他的类也没有什么关系，而且出错之后非常的好修改，也知道错在哪里，而他得缺点就是到最后的日期处理类中，我们需要进行一些思考，去完成前n天后n天的实现，我们知道，java类与类之间的耦合程度越低越好，且第二个程序很好的保证了类的单一职责的原则，所以我认为第二个程序总体来说比第一个好一些。</p>
+<h3>（2）题目集04（7-3）题目集06（7-5、7-6）</h3>
+<p>题目集04（7-3）：</p>
+<p>编写程序，实现图形类的继承，并定义相应类对象并进行测试。</p>
+<ol>
+<li>类Shape，无属性，有一个返回0.0的求图形面积的公有方法<code>public double getArea();//求图形面积</code></li>
+<li>类Circle，继承自Shape，有一个私有实型的属性radius（半径），重写父类继承来的求面积方法，求圆的面积</li>
+<li>类Rectangle，继承自Shape，有两个私有实型属性width和length，重写父类继承来的求面积方法，求矩形的面积</li>
+<li>类Ball，继承自Circle，其属性从父类继承，重写父类求面积方法，求球表面积，此外，定义一求球体积的方法<code>public double getVolume();//求球体积</code></li>
+<li>类Box，继承自Rectangle，除从父类继承的属性外，再定义一个属性height，重写父类继承来的求面积方法，求立方体表面积，此外，定义一求立方体体积的方法<code>public double getVolume();//求立方体体积</code></li>
+<li>注意：</li>
+</ol>
+<ul>
+<li>每个类均有构造方法，且构造方法内必须输出如下内容：<code>Constructing 类名</code></li>
+<li>每个类属性均为私有，且必须有getter和setter方法（可用Eclipse自动生成）</li>
+<li>输出的数值均保留两位小数</li>
+</ul>
+<p>主方法内，主要实现四个功能（1-4）： 从键盘输入1，则定义圆类，从键盘输入圆的半径后，主要输出圆的面积； 从键盘输入2，则定义矩形类，从键盘输入矩形的宽和长后，主要输出矩形的面积； 从键盘输入3，则定义球类，从键盘输入球的半径后，主要输出球的表面积和体积； 从键盘输入4，则定义立方体类，从键盘输入立方体的宽、长和高度后，主要输出立方体的表面积和体积；</p>
+<p>假如数据输入非法（包括圆、矩形、球及立方体对象的属性不大于0和输入选择值非1-4），系统输出<code>Wrong Format</code></p>
+<p>输入格式：</p>
+<p>共四种合法输入</p>
+<ul>
+<li>1 圆半径</li>
+<li>2 矩形宽、长</li>
+<li>3 球半径</li>
+<li>4 立方体宽、长、高</li>
+</ul>
+<p>输出格式：</p>
+<p>按照以上需求提示依次输出</p>
+<p>源码如下：</p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 128, 128, 1)">  1</span> <span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> java.util.Scanner;
+</span><span style="color: rgba(0, 128, 128, 1)">  2</span> 
+<span style="color: rgba(0, 128, 128, 1)">  3</span> <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Main {
+</span><span style="color: rgba(0, 128, 128, 1)">  4</span> 
+<span style="color: rgba(0, 128, 128, 1)">  5</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">static</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> main(String[] args) {
+</span><span style="color: rgba(0, 128, 128, 1)">  6</span>         Scanner input = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Scanner(System.in);
+</span><span style="color: rgba(0, 128, 128, 1)">  7</span>         <span style="color: rgba(0, 0, 255, 1)">int</span> n =<span style="color: rgba(0, 0, 0, 1)"> input.nextInt();
+</span><span style="color: rgba(0, 128, 128, 1)">  8</span>         <span style="color: rgba(0, 0, 255, 1)">if</span>(n &gt; 4 || n &lt; 1<span style="color: rgba(0, 0, 0, 1)">) {
+</span><span style="color: rgba(0, 128, 128, 1)">  9</span>             System.out.println("Wrong Format"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 10</span>             System.exit(0<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 11</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)"> 12</span>     
+<span style="color: rgba(0, 128, 128, 1)"> 13</span>             <span style="color: rgba(0, 0, 255, 1)">switch</span><span style="color: rgba(0, 0, 0, 1)">(n){
+</span><span style="color: rgba(0, 128, 128, 1)"> 14</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 1<span style="color: rgba(0, 0, 0, 1)">:
+</span><span style="color: rgba(0, 128, 128, 1)"> 15</span>             
+<span style="color: rgba(0, 128, 128, 1)"> 16</span>             <span style="color: rgba(0, 0, 255, 1)">double</span> r =<span style="color: rgba(0, 0, 0, 1)"> input.nextDouble();
+</span><span style="color: rgba(0, 128, 128, 1)"> 17</span>             <span style="color: rgba(0, 0, 255, 1)">if</span>(r &lt; 0<span style="color: rgba(0, 0, 0, 1)">) {
+</span><span style="color: rgba(0, 128, 128, 1)"> 18</span>                 System.out.println("Wrong Format"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 19</span>             System.exit(0<span style="color: rgba(0, 0, 0, 1)">);}
+</span><span style="color: rgba(0, 128, 128, 1)"> 20</span>             <span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)"> {
+</span><span style="color: rgba(0, 128, 128, 1)"> 21</span>                 Circle c = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Circle();
+</span><span style="color: rgba(0, 128, 128, 1)"> 22</span> <span style="color: rgba(0, 0, 0, 1)">                c.setRadius(r);
+</span><span style="color: rgba(0, 128, 128, 1)"> 23</span>                 System.out.println("Circle's area:"+String.format("%.2f"<span style="color: rgba(0, 0, 0, 1)">, c.getArea()));
+</span><span style="color: rgba(0, 128, 128, 1)"> 24</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)"> 25</span>             <span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 26</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 2<span style="color: rgba(0, 0, 0, 1)">:
+</span><span style="color: rgba(0, 128, 128, 1)"> 27</span>                 
+<span style="color: rgba(0, 128, 128, 1)"> 28</span>                 <span style="color: rgba(0, 0, 255, 1)">double</span> chang =<span style="color: rgba(0, 0, 0, 1)"> input.nextDouble();
+</span><span style="color: rgba(0, 128, 128, 1)"> 29</span>                 <span style="color: rgba(0, 0, 255, 1)">double</span> kuan =<span style="color: rgba(0, 0, 0, 1)"> input.nextDouble();
+</span><span style="color: rgba(0, 128, 128, 1)"> 30</span>                 <span style="color: rgba(0, 0, 255, 1)">if</span>(chang &lt; 0 ||kuan &lt; 0<span style="color: rgba(0, 0, 0, 1)">) {
+</span><span style="color: rgba(0, 128, 128, 1)"> 31</span>                     System.out.println("Wrong Format"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 32</span>                     System.exit(0<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 33</span> <span style="color: rgba(0, 0, 0, 1)">                    }
+</span><span style="color: rgba(0, 128, 128, 1)"> 34</span>                 <span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)"> {
+</span><span style="color: rgba(0, 128, 128, 1)"> 35</span>                     Rectangle zf = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Rectangle();
+</span><span style="color: rgba(0, 128, 128, 1)"> 36</span> <span style="color: rgba(0, 0, 0, 1)">                    zf.setLength(chang);
+</span><span style="color: rgba(0, 128, 128, 1)"> 37</span> <span style="color: rgba(0, 0, 0, 1)">                    zf.setWidth(kuan);
+</span><span style="color: rgba(0, 128, 128, 1)"> 38</span>                     System.out.println("Rectangle's area:"+String.format("%.2f"<span style="color: rgba(0, 0, 0, 1)">, zf.getArea()));
+</span><span style="color: rgba(0, 128, 128, 1)"> 39</span>                 }<span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 40</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 3<span style="color: rgba(0, 0, 0, 1)">:
+</span><span style="color: rgba(0, 128, 128, 1)"> 41</span>             
+<span style="color: rgba(0, 128, 128, 1)"> 42</span>                 <span style="color: rgba(0, 0, 255, 1)">double</span> R =<span style="color: rgba(0, 0, 0, 1)"> input.nextDouble();
+</span><span style="color: rgba(0, 128, 128, 1)"> 43</span>                 <span style="color: rgba(0, 0, 255, 1)">if</span>(R &lt; 0<span style="color: rgba(0, 0, 0, 1)">) {
+</span><span style="color: rgba(0, 128, 128, 1)"> 44</span>                     System.out.println("Wrong Format"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 45</span>                     System.exit(0<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 46</span> <span style="color: rgba(0, 0, 0, 1)">                }
+</span><span style="color: rgba(0, 128, 128, 1)"> 47</span>                 <span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)"> {
+</span><span style="color: rgba(0, 128, 128, 1)"> 48</span>                     Ball b = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Ball();
+</span><span style="color: rgba(0, 128, 128, 1)"> 49</span> <span style="color: rgba(0, 0, 0, 1)">                    b.setRadius(R);
+</span><span style="color: rgba(0, 128, 128, 1)"> 50</span>                     System.out.println("Ball's surface area:"+String.format("%.2f"<span style="color: rgba(0, 0, 0, 1)">, b.getArea()));
+</span><span style="color: rgba(0, 128, 128, 1)"> 51</span>                     System.out.println("Ball's volume:"+String.format("%.2f"<span style="color: rgba(0, 0, 0, 1)">,b.getVolume() ));
+</span><span style="color: rgba(0, 128, 128, 1)"> 52</span> <span style="color: rgba(0, 0, 0, 1)">                }
+</span><span style="color: rgba(0, 128, 128, 1)"> 53</span>                 <span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 54</span>             <span style="color: rgba(0, 0, 255, 1)">case</span> 4<span style="color: rgba(0, 0, 0, 1)">:
+</span><span style="color: rgba(0, 128, 128, 1)"> 55</span>                 
+<span style="color: rgba(0, 128, 128, 1)"> 56</span>                 <span style="color: rgba(0, 0, 255, 1)">double</span> ch =<span style="color: rgba(0, 0, 0, 1)"> input.nextDouble();
+</span><span style="color: rgba(0, 128, 128, 1)"> 57</span>                 <span style="color: rgba(0, 0, 255, 1)">double</span> ku =<span style="color: rgba(0, 0, 0, 1)"> input.nextDouble();
+</span><span style="color: rgba(0, 128, 128, 1)"> 58</span>                 <span style="color: rgba(0, 0, 255, 1)">double</span> gao =<span style="color: rgba(0, 0, 0, 1)"> input.nextDouble();
+</span><span style="color: rgba(0, 128, 128, 1)"> 59</span>                 <span style="color: rgba(0, 0, 255, 1)">if</span>(ch &lt; 0 || ku &lt; 0 || gao &lt; 0<span style="color: rgba(0, 0, 0, 1)">) {
+</span><span style="color: rgba(0, 128, 128, 1)"> 60</span>                     System.out.println("Wrong Format"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 61</span>                     System.exit(0<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 62</span> <span style="color: rgba(0, 0, 0, 1)">                }
+</span><span style="color: rgba(0, 128, 128, 1)"> 63</span>                 <span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)"> {
+</span><span style="color: rgba(0, 128, 128, 1)"> 64</span>                     Box B = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Box();
+</span><span style="color: rgba(0, 128, 128, 1)"> 65</span> <span style="color: rgba(0, 0, 0, 1)">                    B.setLength(ch);
+</span><span style="color: rgba(0, 128, 128, 1)"> 66</span> <span style="color: rgba(0, 0, 0, 1)">                    B.setWidth(ku);
+</span><span style="color: rgba(0, 128, 128, 1)"> 67</span> <span style="color: rgba(0, 0, 0, 1)">                    B.setHeight(gao);
+</span><span style="color: rgba(0, 128, 128, 1)"> 68</span>                     System.out.println("Box's surface area:"+String.format("%.2f"<span style="color: rgba(0, 0, 0, 1)">,B.getArea() ));
+</span><span style="color: rgba(0, 128, 128, 1)"> 69</span>                     System.out.println(String.format("Box's volume:"+"%.2f"<span style="color: rgba(0, 0, 0, 1)">,B.getVolume() ));
+</span><span style="color: rgba(0, 128, 128, 1)"> 70</span> <span style="color: rgba(0, 0, 0, 1)">                }
+</span><span style="color: rgba(0, 128, 128, 1)"> 71</span>                 <span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 72</span>             <span style="color: rgba(0, 0, 255, 1)">default</span><span style="color: rgba(0, 0, 0, 1)">:;
+</span><span style="color: rgba(0, 128, 128, 1)"> 73</span> <span style="color: rgba(0, 0, 0, 1)">            }
+</span><span style="color: rgba(0, 128, 128, 1)"> 74</span> <span style="color: rgba(0, 0, 0, 1)">        }
+</span><span style="color: rgba(0, 128, 128, 1)"> 75</span> 
+<span style="color: rgba(0, 128, 128, 1)"> 76</span> 
+<span style="color: rgba(0, 128, 128, 1)"> 77</span>     <span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">static</span> <span style="color: rgba(0, 0, 255, 1)">void</span> Switch(<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> n) {
+</span><span style="color: rgba(0, 128, 128, 1)"> 78</span>         <span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> TODO 自动生成的方法存根</span>
+<span style="color: rgba(0, 128, 128, 1)"> 79</span>         
+<span style="color: rgba(0, 128, 128, 1)"> 80</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)"> 81</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)"> 82</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Shape{
+</span><span style="color: rgba(0, 128, 128, 1)"> 83</span>     <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> Shape() {
+</span><span style="color: rgba(0, 128, 128, 1)"> 84</span>         <span style="color: rgba(0, 0, 255, 1)">super</span><span style="color: rgba(0, 0, 0, 1)">();
+</span><span style="color: rgba(0, 128, 128, 1)"> 85</span>         System.out.println("Constructing Shape"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 86</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)"> 87</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> getArea() {
+</span><span style="color: rgba(0, 128, 128, 1)"> 88</span>         <span style="color: rgba(0, 0, 255, 1)">return</span> 0.0<span style="color: rgba(0, 0, 0, 1)">;
+</span><span style="color: rgba(0, 128, 128, 1)"> 89</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)"> 90</span> <span style="color: rgba(0, 0, 0, 1)">}
+</span><span style="color: rgba(0, 128, 128, 1)"> 91</span> <span style="color: rgba(0, 0, 255, 1)">class</span> Circle <span style="color: rgba(0, 0, 255, 1)">extends</span><span style="color: rgba(0, 0, 0, 1)"> Shape{
+</span><span style="color: rgba(0, 128, 128, 1)"> 92</span>     <span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> radius;
+</span><span style="color: rgba(0, 128, 128, 1)"> 93</span>     
+<span style="color: rgba(0, 128, 128, 1)"> 94</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> getArea() {
+</span><span style="color: rgba(0, 128, 128, 1)"> 95</span>         <span style="color: rgba(0, 0, 255, 1)">return</span> Math.PI*Math.pow(<span style="color: rgba(0, 0, 255, 1)">this</span>.getRadius(), 2<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)"> 96</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)"> 97</span>     <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> Circle() {
+</span><span style="color: rgba(0, 128, 128, 1)"> 98</span>         <span style="color: rgba(0, 0, 255, 1)">super</span><span style="color: rgba(0, 0, 0, 1)">();
+</span><span style="color: rgba(0, 128, 128, 1)"> 99</span>         System.out.println("Constructing Circle"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)">100</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">101</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> getRadius() {
+</span><span style="color: rgba(0, 128, 128, 1)">102</span>         <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> radius;
+</span><span style="color: rgba(0, 128, 128, 1)">103</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">104</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span> setRadius(<span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> radius) {
+</span><span style="color: rgba(0, 128, 128, 1)">105</span>         <span style="color: rgba(0, 0, 255, 1)">this</span>.radius =<span style="color: rgba(0, 0, 0, 1)"> radius;
+</span><span style="color: rgba(0, 128, 128, 1)">106</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">107</span>     
+<span style="color: rgba(0, 128, 128, 1)">108</span> <span style="color: rgba(0, 0, 0, 1)">} 
+</span><span style="color: rgba(0, 128, 128, 1)">109</span> <span style="color: rgba(0, 0, 255, 1)">class</span> Rectangle <span style="color: rgba(0, 0, 255, 1)">extends</span><span style="color: rgba(0, 0, 0, 1)"> Shape{
+</span><span style="color: rgba(0, 128, 128, 1)">110</span>     <span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> width ;
+</span><span style="color: rgba(0, 128, 128, 1)">111</span>     <span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> length;
+</span><span style="color: rgba(0, 128, 128, 1)">112</span>     
+<span style="color: rgba(0, 128, 128, 1)">113</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> getWidth() {
+</span><span style="color: rgba(0, 128, 128, 1)">114</span>         <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> width;
+</span><span style="color: rgba(0, 128, 128, 1)">115</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">116</span> 
+<span style="color: rgba(0, 128, 128, 1)">117</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span> setWidth(<span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> width) {
+</span><span style="color: rgba(0, 128, 128, 1)">118</span>         <span style="color: rgba(0, 0, 255, 1)">this</span>.width =<span style="color: rgba(0, 0, 0, 1)"> width;
+</span><span style="color: rgba(0, 128, 128, 1)">119</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">120</span> 
+<span style="color: rgba(0, 128, 128, 1)">121</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> getLength() {
+</span><span style="color: rgba(0, 128, 128, 1)">122</span>         <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> length;
+</span><span style="color: rgba(0, 128, 128, 1)">123</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">124</span> 
+<span style="color: rgba(0, 128, 128, 1)">125</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span> setLength(<span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> length) {
+</span><span style="color: rgba(0, 128, 128, 1)">126</span>         <span style="color: rgba(0, 0, 255, 1)">this</span>.length =<span style="color: rgba(0, 0, 0, 1)"> length;
+</span><span style="color: rgba(0, 128, 128, 1)">127</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">128</span> 
+<span style="color: rgba(0, 128, 128, 1)">129</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> getArea() {
+</span><span style="color: rgba(0, 128, 128, 1)">130</span>         <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">this</span>.length*<span style="color: rgba(0, 0, 255, 1)">this</span><span style="color: rgba(0, 0, 0, 1)">.width;
+</span><span style="color: rgba(0, 128, 128, 1)">131</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">132</span> 
+<span style="color: rgba(0, 128, 128, 1)">133</span>     <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> Rectangle() {
+</span><span style="color: rgba(0, 128, 128, 1)">134</span>         <span style="color: rgba(0, 0, 255, 1)">super</span><span style="color: rgba(0, 0, 0, 1)">();
+</span><span style="color: rgba(0, 128, 128, 1)">135</span>         System.out.println("Constructing Rectangle"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)">136</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">137</span> <span style="color: rgba(0, 0, 0, 1)">}
+</span><span style="color: rgba(0, 128, 128, 1)">138</span> <span style="color: rgba(0, 0, 255, 1)">class</span> Ball <span style="color: rgba(0, 0, 255, 1)">extends</span><span style="color: rgba(0, 0, 0, 1)"> Circle{
+</span><span style="color: rgba(0, 128, 128, 1)">139</span> 
+<span style="color: rgba(0, 128, 128, 1)">140</span>     <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> Ball() {
+</span><span style="color: rgba(0, 128, 128, 1)">141</span>         <span style="color: rgba(0, 0, 255, 1)">super</span><span style="color: rgba(0, 0, 0, 1)">();
+</span><span style="color: rgba(0, 128, 128, 1)">142</span>         System.out.println("Constructing Ball"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)">143</span>         
+<span style="color: rgba(0, 128, 128, 1)">144</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">145</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> getArea() {
+</span><span style="color: rgba(0, 128, 128, 1)">146</span>         <span style="color: rgba(0, 0, 255, 1)">return</span> 4*Math.PI*getRadius()*<span style="color: rgba(0, 0, 0, 1)">getRadius();
+</span><span style="color: rgba(0, 128, 128, 1)">147</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">148</span>     
+<span style="color: rgba(0, 128, 128, 1)">149</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> getVolume() {
+</span><span style="color: rgba(0, 128, 128, 1)">150</span>         <span style="color: rgba(0, 0, 255, 1)">return</span> 4.0/3*Math.PI*getRadius()*getRadius()*<span style="color: rgba(0, 0, 0, 1)">getRadius();
+</span><span style="color: rgba(0, 128, 128, 1)">151</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">152</span> <span style="color: rgba(0, 0, 0, 1)">}
+</span><span style="color: rgba(0, 128, 128, 1)">153</span> <span style="color: rgba(0, 0, 255, 1)">class</span> Box <span style="color: rgba(0, 0, 255, 1)">extends</span><span style="color: rgba(0, 0, 0, 1)"> Rectangle{
+</span><span style="color: rgba(0, 128, 128, 1)">154</span>     <span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> height;
+</span><span style="color: rgba(0, 128, 128, 1)">155</span>     
+<span style="color: rgba(0, 128, 128, 1)">156</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> getHeight() {
+</span><span style="color: rgba(0, 128, 128, 1)">157</span>         <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> height;
+</span><span style="color: rgba(0, 128, 128, 1)">158</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">159</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span> setHeight(<span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> height) {
+</span><span style="color: rgba(0, 128, 128, 1)">160</span>         <span style="color: rgba(0, 0, 255, 1)">this</span>.height =<span style="color: rgba(0, 0, 0, 1)"> height;
+</span><span style="color: rgba(0, 128, 128, 1)">161</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">162</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> getArea() {
+</span><span style="color: rgba(0, 128, 128, 1)">163</span>         <span style="color: rgba(0, 0, 255, 1)">return</span> 2*(getWidth()*getLength()+getWidth()*<span style="color: rgba(0, 0, 255, 1)">this</span>.height+getLength()*<span style="color: rgba(0, 0, 255, 1)">this</span><span style="color: rgba(0, 0, 0, 1)">.height);
+</span><span style="color: rgba(0, 128, 128, 1)">164</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">165</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">double</span><span style="color: rgba(0, 0, 0, 1)"> getVolume() {
+</span><span style="color: rgba(0, 128, 128, 1)">166</span>         <span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">this</span>.height*getLength()*<span style="color: rgba(0, 0, 0, 1)">getWidth();
+</span><span style="color: rgba(0, 128, 128, 1)">167</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">168</span> 
+<span style="color: rgba(0, 128, 128, 1)">169</span>     <span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> Box() {
+</span><span style="color: rgba(0, 128, 128, 1)">170</span>         <span style="color: rgba(0, 0, 255, 1)">super</span><span style="color: rgba(0, 0, 0, 1)">();
+</span><span style="color: rgba(0, 128, 128, 1)">171</span>         System.out.println("Constructing Box"<span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 128, 128, 1)">172</span> <span style="color: rgba(0, 0, 0, 1)">    }
+</span><span style="color: rgba(0, 128, 128, 1)">173</span>     
+<span style="color: rgba(0, 128, 128, 1)">174</span> }</pre>
+</div>
+<p>SourceMonitor的生成报表内容：</p>
+<p><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426193902244-1829239225.png" alt="" loading="lazy"><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426193911650-1001733321.png" alt="" loading="lazy"></p>
+<p>类图如下：</p>
+<p><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426194006062-2018862885.png" alt="" loading="lazy"></p>
+<p>题目集06（7-5）：</p>
+<p>掌握类的继承、多态性及其使用方法。</p>
+<p id="输入格式">输入格式:</p>
+<p>从键盘首先输入三个整型值（例如a b c），分别代表想要创建的Circle、Rectangle及Triangle对象的数量，然后根据图形数量继续输入各对象的属性值（均为实型数），数与数之间可以用一个或多个空格或回车分隔。</p>
+<p id="输出格式">输出格式:</p>
+<ol>
+<li>
+<p>如果图形数量非法（小于0）或图形属性值非法（数值小于0以及三角形三边关系），则输出<code>Wrong Format</code>。</p>
+</li>
+<li>
+<p>如果输入合法，则正常输出，输出内容如下（输出格式见输入输出示例）：</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>各个图形的面积；</p>
+</li>
+<li>
+<p>所有图形的面积总和；</p>
+</li>
+<li>
+<p>排序后的各个图形面积；</p>
+</li>
+<li>
+<p>再次所有图形的面积总和。</p>
+</li>
+</ul>
+<p>源码如下：</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:java;gutter:true;">import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+    	Scanner input = new Scanner(System.in);
+    			int a = input.nextInt();
+    			int b = input.nextInt();
+    			int c = input.nextInt();
+    			if(a &lt; 0 || b &lt; 0 || c &lt; 0)
+    				
+        				System.out.println("Wrong Format");
+    			else {
+    				Circle  [] cir  = new Circle[a];
+    				Rectangle [] rec = new Rectangle[b];
+    				Triangle [] tri = new Triangle[c];
+    				ArrayList &lt;Shape&gt; list = new ArrayList&lt;Shape&gt;();
+    				for(int i = 0; i &lt; a; i ++) {
+    					 cir [i] = new Circle(input.nextDouble());
+    					 if(cir[i].validate() == false) {
+    						 System.out.println("Wrong Format"); 
+    						 System.exit(0);
+    					 }
+    					 list.add(cir[i]);
+    				}
+    				for(int i = 0; i &lt; b ; i ++) {
+    					rec[i] = new Rectangle(input.nextDouble(),input.nextDouble());
+    					if(rec[i].validate() == false) {
+    						System.out.println("Wrong Format"); 
+   						    System.exit(0);
+    					}
+    					list.add(rec[i]);
+    					
+    				}
+    				for(int i = 0;  i &lt; c; i ++) {
+    					tri[i] = new Triangle(input.nextDouble(),input.nextDouble(),input.nextDouble());
+    					if(tri[i].validate() == false) {
+    						System.out.println("Wrong Format"); 
+   						    System.exit(0);	
+    					}
+    					list.add(tri[i]);
+    				}
+    				
+    				double sum = 0;
+    				System.out.println("Original area:");
+    				for(int i =0; i &lt; a+b+c; i ++) {
+    				System.out.printf(String.format("%.2f", list.get(i).getArea()).toString()+" ");
+    				 sum = sum + list.get(i).getArea();
+    				}
+ 
+    			    System.out.println("\n"+"Sum of area:"+String.format("%.2f", sum).toString());
+    			    for(int i = 0; i &lt; a+b+c - 1; i++)
+    			    	for(int j = 0; j &lt; a + b + c - 1 - i;j ++) {
+    			    		if(list.get(j).getArea() &gt; list.get(j+1).getArea())
+    			    			Collections.swap(list, j, j+1);
+    			    	}
+    			    System.out.println("Sorted area:");
+    			    for(int i =0; i &lt; a+b+c; i ++) {
+        				System.out.print(String.format("%.2f", list.get(i).getArea()).toString()+" ");
+        				
+        				}
+    			    System.out.print("\n"+"Sum of area:"+String.format("%.2f", sum).toString());
+    			}
+    			
+    			
+//System.out.println(String.format("%.2f", r.getArea()).toString());
+    }
+}
+
+abstract class Shape {
+	public abstract double getArea();
+	public abstract boolean validate();
+	//@Override
+	/*public String toString() {
+		return "Shape [getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}	*/
+}
+
+
+class Circle extends Shape{
+	private double radius;
+
+	public Circle() {
+		super();
+	}
+
+	public Circle(double radius) {
+		super();
+		this.radius = radius;
+	}
+	public double getArea() {
+		return Math.PI*this.radius * this.radius ;
+	}
+	public boolean validate() {
+		if(this.radius &lt;= 0)
+			return false;
+		else 
+			return true;
+	}
+	
+}
+
+
+class Rectangle extends Shape{
+	private double width;
+	private double length;
+	public Rectangle() {
+		super();
+		// TODO 自动生成的构造函数存根
+	}
+	public Rectangle(double width, double length) {
+		super();
+		this.width = width;
+		this.length = length;
+	}
+	public double getArea() {
+		return this.length *this.width;
+	}
+	public boolean validate() {
+		if(this.length &gt; 0 &amp;&amp; this.width &gt; 0)
+			return true;
+		else
+			return false;
+	}
+}
+
+
+class Triangle extends Shape{
+	private double side1;
+	private double side2;
+	private double side3;
+	public Triangle() {
+		super();
+		// TODO 自动生成的构造函数存根
+	}
+	public Triangle(double side1, double side2, double side3) {
+		super();
+		this.side1 = side1;
+		this.side2 = side2;
+		this.side3 = side3;
+	}
+	
+	public double getArea() {
+		double s = (this.side1 + this.side2 + this.side3)/2.0;
+		return Math.sqrt(s * (s - this.side1) * (s - this.side2) * (s - this.side3));
+	}
+	public boolean validate() {
+		if(this.side1 &gt; 0 &amp;&amp; this.side2 &gt; 0 &amp;&amp; this.side3 &gt; 0) {
+			if(this.side1 + this.side2 &gt; this.side3 &amp;&amp; this.side1 + this.side3 &gt; this.side2 &amp;&amp; this.side2 + this.side3 &gt; this.side1)
+				return true;
+			else 
+				return false;
+		
+		}
+		else 
+			return false;
+	}
+}
+</pre>
+</div>
+<p>SourceMonitor的生成报表内容：</p>
+<p><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426195441328-342956332.png" alt="" loading="lazy"><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426195456441-2112869963.png" alt="" loading="lazy"></p>
+<p>&nbsp;类图如下：</p>
+<p><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426195520764-1288318776.png" alt="" loading="lazy"></p>
+<p>题目集06（7-6）：</p>
+<p>编写程序，使用接口及类实现多态性。</p>
+<p>其中：</p>
+<ul>
+<li>GetArea为一个接口，无属性，只有一个GetArea（求面积）的抽象方法；</li>
+<li>Circle及Rectangle分别为圆类及矩形类，分别实现GetArea接口</li>
+<li>要求：在Main类的主方法中分别定义一个圆类对象及矩形类对象（其属性值由键盘输入），使用接口的引用分别调用圆类对象及矩形类对象的求面积的方法，直接输出两个图形的面积值。（要求只保留两位小数）</li>
+</ul>
+<p id="输入格式">输入格式:</p>
+<p>从键盘分别输入圆的半径值及矩形的宽、长的值，用空格分开。</p>
+<p id="输出格式">输出格式:</p>
+<ul>
+<li>如果输入的圆的半径值及矩形的宽、长的值非法（≤0），则输出<code>Wrong Format</code></li>
+<li>如果输入合法，则分别输出圆的面积和矩形的面积值（各占一行），保留两位小数。</li>
+</ul>
+<p>&nbsp;源码如下：</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:java;gutter:true;">import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+    	Scanner input = new Scanner(System.in);
+    			double x = input.nextDouble();
+    			Circle c = new Circle(x);
+    			double y = input.nextDouble();
+    			double z = input.nextDouble();
+    			Rectangle r = new Rectangle(y,z);
+    			if(x &lt;= 0 || y &lt;= 0 || z  &lt;= 0) {
+    				System.out.println("Wrong Format");
+    				System.exit(0);
+    			}
+    			
+    			System.out.println(String.format("%.2f", c.getArea()).toString());
+    			System.out.println(String.format("%.2f", r.getArea()).toString());
+    }
+}
+
+class Circle implements GetArea{
+	private double radius;
+
+	public Circle() {
+		super();
+		
+	}
+
+	public Circle(double radius) {
+		super();
+		this.radius = radius;
+	}
+
+	public double getRadius() {
+		return radius;
+	}
+
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+	public double getArea() {
+		return Math.PI*this.radius*this.radius;
+	}
+	
+}
+class Rectangle implements GetArea{
+	private double width;
+	private double length;
+	public Rectangle() {
+		super();
+		
+	}
+	public Rectangle(double width, double length) {
+		super();
+		this.width = width;
+		this.length = length;
+	}
+	public double getWidth() {
+		return width;
+	}
+	public void setWidth(double width) {
+		this.width = width;
+	}
+	public double getLength() {
+		return length;
+	}
+	public void setLength(double length) {
+		this.length = length;
+	}
+	public double getArea() {
+		return this.length*this.width;
+	}
+}
+ interface GetArea{
+	public double getArea();
+}
+    
+    
+</pre>
+</div>
+<p>SourceMonitor的生成报表内容：</p>
+<p><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426200102904-1343669673.png" alt="" loading="lazy"><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426200116536-1297398026.png" alt="" loading="lazy"></p>
+<p>类图如下：</p>
+<p><img src="https://img2020.cnblogs.com/blog/2346172/202104/2346172-20210426200253614-949670490.png" alt="" loading="lazy"></p>
+<p>&nbsp;这三道题都是继承类题目，第一题要求我们求面积等，首先第一题有一个总的Shape类，一个图形类，图形可以包括很多种，它的子类包含了一个Circle类和Rectangle类，这里的类都不是抽象类，是普通类，Shape类有一个getArea的方法，然后在Circle和Rectangle类中重写了求面积的方法，在这个基础上，又写了两个类Ball和Box分别继承了Circle类和Rectangle类，Ball类和Box类中又重写了求面积的方法，又增加了求体积的方法，每个类中都会输出自己的类名，就是一旦跟这个类有关就会输出这个类的类名，我觉得这道题更多是想帮助我们去理解继承这个东西，理解继承的好处，子类可以调用父类的方法，所以从而可以简单的实现共有的一些功能，可以减少代码量，如果子类的计算方法和父类不一样，还可以重写其方法来达到目的，继承是Java中很重要的一个内容，我们想实现一些东西，在不改变自身代码的情况下，我们可以给之前的代码加一个父类，就像老师实验课所讲的例子，如果我想给空调加一个做饭的功能而且不能对源码做出改变，应该怎么做，我想这时候就可以给它加一个父类来实现一些功能。</p>
+<p>第二题也是要求我们求图形的面积，根据图形面积对图形对象进行排序并输出，第二题，这道题采用了抽象类定义，实体类构建的一个方式，我们首先有一个Shape类，但这个类与上一题不同的是，这是一个抽象类，拥有抽象的方法，求面积和数据校验，然后它有三个子类分别是，circle类rectangle类和triangle类分别，三个类继承于shape类，重写了求面积和数据校验的方法，我在主函数中分别创建三个类的对象然后将他们放入shape类型的list中，求面积的时候直接调用shape的getArea的方法就可以了，然后再根据面积对list中的对象排序，最后再输出面积。我认为这道题主要是想让我们更深刻的理解继承以及去理解多态，我们求面积只需要调用shape的求面积方法，就可以直接求面积，不需要调用谁谁的求面积去求谁谁的面积，就像老师上课举得交学费的例子，学校说交学费，只需要说一句交学费，人人就都知道自己交多少学费，学校不用去和每个学院的人说你们交多少多少学费，这就是多态的好处，继承和多态提高了代码的可维护性和可延展性。</p>
+<p>第三题还是让我们求面积，不过第三题与第一题和第二题都不同的是第三题让我们使用接口来实现多态，首先我们创建了一个求面积的接口，接口中有一个求面积的的方法，然后创建了俩个类一个是circle类一个是rectangle类，这两个类都与接口相连接，这两个类中都有求面积的方法，然后我们在主函数中创建两个对象，声明类型为接口，实际类型还是circle和rectangle，然后调用接口求面积的方法就可以求出面积。这道题主要的目的应该是想让了解接口，然后用接口以及类实现多态。</p>
+<p>三道题核心的内容其实基本都相似，都是想让我们理解多态，通过继承通过接口来理解多态，多态就是同一操作作用于不同的对象，可以有不同的解释，产生不同的执行结果，我们知道，封装可以隐藏实现细节，使得代码模块化，继承可以扩展已存在的代码模块，他们都是为了代码的复用，而多态除了代码的复用性外，还可以解决项目中紧偶合的问题，提高程序的可扩展性.。</p>
+<h3>&nbsp;（3）对三次题目集中用到的正则表达式技术的分析总结</h3>
+<p>三次题目集中，题目集04（7-1）题目集05（7-4），题目集06（1、2、4）都是正则表达式的练习。</p>
+<p>正则表达式常用的知识点总结：</p>
+<p>.&nbsp; &nbsp; &nbsp;匹配除换行符以外的任意字符</p>
+<p>\w&nbsp;&nbsp;匹配字母或数字或下划线</p>
+<p>\s&nbsp;&nbsp;匹配任意的空白符</p>
+<p>\d&nbsp; 匹配数字</p>
+<p>\b&nbsp;&nbsp;匹配单词的开始或结束</p>
+<p>^&nbsp;&nbsp;匹配字符串的开始</p>
+<p>$&nbsp;&nbsp;匹配字符串的结束</p>
+<p>*&nbsp; 重复零次或更多次</p>
+<p>+&nbsp;&nbsp;重复一次或更多次</p>
+<p>?&nbsp;&nbsp;重复零次或一次</p>
+<p>n&nbsp;&nbsp;重复n次</p>
+<p>{n,}&nbsp;&nbsp;重复n次或更多次</p>
+<p>{n,m}&nbsp;&nbsp;重复n到m次</p>
+<p>\W&nbsp;&nbsp;匹配任意不是字母，数字，下划线，汉字的字符</p>
+<p>\S&nbsp;&nbsp;匹配任意不是空白符的字符</p>
+<p>\D&nbsp;&nbsp;匹配任意非数字的字符</p>
+<p>\B&nbsp;&nbsp;匹配不是单词开头或结束的位置</p>
+<p>[^x]&nbsp;&nbsp;匹配除了x以外的任意字符</p>
+<p>&nbsp;[^asdf]&nbsp;&nbsp;匹配除了asdf这几个字母以外的任意字符</p>
+<ul>
+<li>
+<p>Pattern 类：</p>
+<p>pattern 对象是一个正则表达式的编译表示。Pattern 类没有公共构造方法。要创建一个 Pattern 对象，你必须首先调用其公共静态编译方法，它返回一个 Pattern 对象。该方法接受一个正则表达式作为它的第一个参数。</p>
+</li>
+<li>
+<p>Matcher 类：</p>
+<p>Matcher 对象是对输入字符串进行解释和匹配操作的引擎。与Pattern 类一样，Matcher 也没有公共构造方法。你需要调用 Pattern 对象的 matcher 方法来获得一个 Matcher 对象。</p>
+</li>
+</ul>
+<p>public boolean lookingAt()<br data-filtered="filtered">&nbsp;尝试将从区域开头开始的输入序列与该模式匹配。</p>
+<p>public boolean find()<br data-filtered="filtered">尝试查找与该模式匹配的输入序列的下一个子序列。</p>
+<p>public boolean find(int start）<br data-filtered="filtered">重置此匹配器，然后尝试查找匹配该模式、从指定索引开始的输入序列的下一个子序列。</p>
+<p>&nbsp;public boolean matches()<br data-filtered="filtered">尝试将整个区域与模式匹配。</p>
+<p>public String replaceAll(String replacement)<br data-filtered="filtered">&nbsp;替换模式与给定替换字符串相匹配的输入序列的每个子序列。</p>
+<p>public String replaceFirst(String replacement)<br data-filtered="filtered">&nbsp;替换模式与给定替换字符串匹配的输入序列的第一个子序列。</p>
+<p>以上是一些最常用的正则表达式的知识点。题目集04（7-1）是水文数据校验及处理，该题让我们使用Java中的字符串处理类以及正则表达式对输入字符串数据进行合法性校验及计算，主要考察的就是我们利用正则表达式去匹配和操作，然后还考察了我们对字符串的处理，题目集05（7-4）统计Java程序中关键词的出现次数，该题考察点和上题考查的内容相似，但是第五题考察的非法情况以及注意事项更多一些，所以我认为难度还略大于上一题，前两道题目比较综合，后面的三道小题就比较简单了，考察的都是一些基础知识点。</p>
+<p>总的来说，正则表达式可以使我们的代码简单，我们用起来非常的方便，如果没有正则表达式，我们可能要用for循环一个一个去判断，所以正则表达式是帮助我们去操作字符串的一个好的工具。</p>
+<h3>（4）题目集05（7-4）中Java集合框架应用的分析总结</h3>
+<p>题目集05（7-4）统计Java程序中关键词的出现次数</p>
+<p>编写程序统计一个输入的Java源码中关键字（区分大小写）出现的次数。说明如下：</p>
+<ul>
+<li>Java中共有53个关键字（自行百度）</li>
+<li>从键盘输入一段源码，统计这段源码中出现的关键字的数量</li>
+<li>注释中出现的关键字不用统计</li>
+<li>字符串中出现的关键字不用统计</li>
+<li>统计出的关键字及数量按照关键字升序进行排序输出</li>
+<li>未输入源码则认为输入非法</li>
+
+
+
+
+
+
+
+
+
+</ul>
+<p>输入格式：</p>
+<p>输入Java源码字符串，可以一行或多行，以<code>exit</code>行作为结束标志</p>
+<p>输出格式：</p>
+<ul>
+<li>当未输入源码时，程序输出<code>Wrong Format</code></li>
+<li>当没有统计数据时，输出为空</li>
+<li>当有统计数据时，关键字按照升序排列，每行输出一个关键字及数量，格式为<code>数量\t关键字</code></li>
+
+
+
+
+
+
+
+
+
+</ul>
+<p>这道题让我们匹配关键字，用到了正则表达式以及对字符串的操作和处理，题目还要求题目必须使用List、Set或Map中一种或多种，如完全未使用如上接口，是一道综合性题目，由于本题难度较大，改题目并没有完全完成。所以对该道题目的分析可能不多。</p>
+<p>对于这道题目，刚开始看到这道题的时候感觉难度还行，有一些大致的思路，先输入字符串，然后用正则表达式匹配，统计然后输出，但下手的时候发现不太能下手，由于题目有很多细节的需求，以及我自己正则表达式和对字符串的应用不是很熟，所以这道题目并没有完全做完。</p>
+<h2>3.踩坑心得</h2>
+<p>（1）第一道日期题目对于月份最大值的处理一开始用了switch和case，列举了12个月，到最后发现了mon_maxnum这个数组都没有用上，用case的时候不仅容易错，而且非常复杂，在第二个代码中就把返回月份最大值，直接用一个简单的方法返回了，下次做题的时候应该考虑清楚类图中的一些属性都有什么用，该怎么使用，然后再进行写代码的工作，这样可能会节省很多时间。</p>
+<p>（2）第一道日期类的题目，在类与类之间传输数据的时候，数据对应错了，在Day这个类中，我们创建了year和month的对象作为day这个类的属性，然后写了一个函数public Day(int yearValue,int monthValue,int dayValue)，将数据传到一起，但是写完之后发现检验输入数据是否合法的时候一直输出wrong format，后来才发现对应的日期传错了，把年传到了日，所以导致一开始总是找不到错误在哪里，耽误了很长的时间，其实跟那个类图也有关系，跟自己也有关系，类图那个年月日顺序就错了，也还是自己没有特别仔细地阅读题目。</p>
+<p>（3）日期类的第二题和第一题有很多不同，因为年月日的类很简单，所以在日期处理的类中，包括了一些核心算法，而这个核心算法的一些顺序很重要，还是逻辑的问题，month.monthReduction();setDayMax();就比如这两个代码的先后顺序就很重要，如果按照自己的逻辑，它们两个谁先谁后都无所谓，但是如果把这两个代码位置换了的话，就会导致闰年2月到三月或者二月到1月出现问题，日期就会提前引用二月的日期，比如一月31日，但是运行后成了1月29日，就有一些逻辑错误，这个也改了一些时间。</p>
+<p>（4）题目集06（7-5），图形继承的题，检测输入数据合法性，一开始不管输入什么数据，输出都是wrong format，但是自己去看自己的代码觉得没有问题，然后到最后最后还是发现了一些逻辑错误，就是检验输入数据合法性，虽然都是判断，但是先正常进行，再输出wrong format 和先输wrong format 也是不一样的，所以要多注意这方面的逻辑，看看什么样的代码适合那种逻辑。</p>
+<h2>4.改进建议</h2>
+<p>（1）对于第一个日期题，我认为应该多保证类的单一性原则，所以就不应该每个类都聚合，应该把day，month，year类单独设计出来，之间没有关联，就向着第二道日期题改进即可。</p>
+<p>（2）对于题目集04第三题，继承类题目，我认为可以写一个操作类，然后把求面积的方法都放在这一个类中，然后让这个类继承这个操作类，以后还可以加求体积等方法，很方便。</p>
+<h2>5.总结</h2>
+<p>（1）首先呢，学到了一些正则表达式的知识点以及应用 还需要多加练习，更熟悉的掌握正则表达式的知识点以及用法。</p>
+<p>（2）其次，学习到了类与类之间的关系，我认为这次最重要的就是明白了很多类与类之间的关系，比如关联，聚合，继承。</p>
+<p>（3）我觉得这次的题目集，我对于继承有了更深的理解，因为理解了继承的好处，明白了它有什么用处，所以更好了理解了为什么要用继承，继承怎样使用。</p>
+<p>（4）对于类的设计，整个代码的设计，以及类与类之间的关系还需要进一步学习，需要通过练习来进一步掌握知识。</p>
+<p>（5）对于老师讲课的话没有很多意见，就是希望老师可以多带着我们写一些代码，感觉这样效果会好一些。</p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+        </div>
+	
+        <div class="postfoot">
+            posted on 
+<span id="post-date">2021-05-02 09:57</span>&nbsp;
+<a href="https://www.cnblogs.com/sgodxsdl/">SGod歇斯底里</a>&nbsp;
+阅读(<span id="post_view_count">1</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14699557" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14699557);return false;">收藏</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 676618, cb_blogApp = 'sgodxsdl', cb_blogUserGuid = '660d6b29-ff0d-418b-c6b0-08d8d71b5727';
+    var cb_entryId = 14699557, cb_entryCreatedDate = '2021-05-02 09:57', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+
+
+</tr>
+</table>
+<p id="footer">
+	Copyright @
+	2021 SGod歇斯底里
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+<BR>
+	Powered by:
+	<a href="http://scottwater.com/blog" target="_blank">.Text</a> and 
+	<a href="http://asp.net" target="_blank">ASP.NET</a>
+	<br>
+	Theme by: <a href="http://www.DotNetMonster.com" target="_blank">.NET Monster</a>
+</p>
+
+
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjv0EDn4poYbnjID2zHYP1DavJ4OyAVmqQ2jqpIW3Qd0Hky69gohN8Sz0Y98_2F5ZqXDaWMM_85pw8Mlcq5QSQSpb0ucgoOBs_QdeL6vw2uY8XzcG5dZZ-MBa4iPn_srpFU" />
+</body>
+</html>

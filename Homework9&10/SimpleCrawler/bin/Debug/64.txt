@@ -1,0 +1,516 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="在科学计算中对于恒定不变的数据，不一定需要实时保存在内存中，或者是需要跨平台运算的数据，我们可以将其保存为numpy格式的列表文件npy或者npz。而如果存储的文件过大，本文也额外介绍了简单的tar压" />
+    <meta property="og:description" content="在科学计算中对于恒定不变的数据，不一定需要实时保存在内存中，或者是需要跨平台运算的数据，我们可以将其保存为numpy格式的列表文件npy或者npz。而如果存储的文件过大，本文也额外介绍了简单的tar压" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>python3存储numpy格式的矩阵 - 陆言君 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/simplememory/bundle-simplememory.min.css?v=uknaX_hejnSu-njQgx4Hj1R0JiPLwUhFPUlwWNmWyB4" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/dechinphy/custom.css?v=U3QQD7r4GRlwHtt5EmOA5hd9jFo=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/SimpleMemory/bundle-SimpleMemory-mobile.min.css" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/dechinphy/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/dechinphy/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/dechinphy/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 657846;
+        var currentBlogApp = 'dechinphy';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'SimpleMemory';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-02 07:21';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;v=20200504"></script>
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <script>loadPageBeginHtml();</script>
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/dechinphy/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/dechinphy/">陆言君的博客</a>
+</h1>
+<h2>研究兴趣：量子计算、python编程、深度学习</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/dechinphy/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E9%99%86%E8%A8%80%E5%90%9B">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/dechinphy/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/dechinphy/p/npz.html">
+    <span>python3存储numpy格式的矩阵</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                    <div id="cnblogs_post_description" style="display: none">
+        在科学计算中对于恒定不变的数据，不一定需要实时保存在内存中，或者是需要跨平台运算的数据，我们可以将其保存为numpy格式的列表文件npy或者npz。而如果存储的文件过大，本文也额外介绍了简单的tar压缩与解压缩的使用方法。
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h1 id="技术背景">技术背景</h1>
+<p>numpy在python中的地位是相当高的，即使是入门的python使用者也会经常看到这个库的使用。除了替代python自带的列表数据格式list之外，numpy的一大优势是其底层的高性能实现方式，比如前一篇<a href="https://www.cnblogs.com/dechinphy/p/numba.html" target="_blank">博客</a>中所提到的矢量运算，就是一种基于SIMD的底层运算优化方案，使得numpy的计算速度远高于一个普通的for循环。</p>
+<p>而在日常运算的过程中，有些数据往往是不会变化的，比如机器学习中的测试和训练数据。那么如果这里使用的是numpy的数据结构的话，就会涉及到相关数据的存储，numpy可以将其数据存储为<code>.npy</code>或者<code>.npz</code>结构。</p>
+<h1 id="npy结构的数据存储">npy结构的数据存储</h1>
+<p>npy格式适用于单个numpy列表的存储，这个列表的维度可以是任意的，但是最外层必须是一个numpy的列表结构。以下用ipython来展示npy文件的基本使用方法，首先是创建一个数组，然后用<code>np.save</code>保存到一个给定的文件名中：</p>
+<pre><code class="language-python">[dechin@dechin-manjaro numpy]$ ipython
+Python 3.8.5 (default, Sep  4 2020, 07:30:14) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.19.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: import numpy as np
+
+In [2]: test_arr = np.arange(10)
+
+In [3]: np.save('test_arr', test_arr)
+
+In [5]: !ls -l
+总用量 4
+-rw-r--r-- 1 dechin dechin 208  5月  2 18:52 test_arr.npy
+</code></pre>
+<p>可以看到文件名会自动补充<code>npy</code>的后缀，然后可以在当前目录下使用<code>np.load</code>函数直接加载刚才保存的数据：</p>
+<pre><code class="language-python">In [6]: print (np.load('test_arr.npy'))
+[0 1 2 3 4 5 6 7 8 9]
+</code></pre>
+<p>类似的可以测试一下多个维度的随机数组：</p>
+<pre><code class="language-python">In [7]: test_arr = np.random.randn(2,5)
+
+In [8]: np.save('random_arr', test_arr)
+
+In [9]: !ls -l
+总用量 8
+-rw-r--r-- 1 dechin dechin 208  5月  2 18:56 random_arr.npy
+-rw-r--r-- 1 dechin dechin 208  5月  2 18:52 test_arr.npy
+
+In [10]: print (np.load('random_arr.npy'))
+[[ 2.6917403   0.01488535 -0.5259401  -1.41512577  0.65968369]
+ [-0.68929493  0.30153131  0.84906878 -2.20849715  0.34260589]]
+</code></pre>
+<p>除了可以保存numpy格式的数组，还可以直接保存python本身的数组格式的数据：</p>
+<pre><code class="language-python">In [11]: normal_arr = [1,3,5,7,9]
+
+In [12]: np.save('normal_arr', normal_arr)
+
+In [13]: print (np.load('normal_arr.npy'))
+[1 3 5 7 9]
+</code></pre>
+<p>甚至还可以保存一些非列表格式的数据，比如python中的<code>tuple</code>，但是保存后重新加载的数据格式，会被自动转化成列表格式：</p>
+<pre><code class="language-python">In [14]: tuple_arr = [(1,2),(2,3),(3,4)]
+
+In [15]: np.save('tuple_arr', tuple_arr)
+
+In [16]: print (np.load('tuple_arr.npy'))
+[[1 2]
+ [2 3]
+ [3 4]]
+</code></pre>
+<h1 id="npz结构的数据存储">npz结构的数据存储</h1>
+<p>上面介绍的<code>npy</code>数据结构存储下来是一个二进制的文件，仅用于单个列表数据结构的存储，这里的<code>npz</code>数据结构可以存储多个列表结构的对象，可以直接参考一个使用案例：</p>
+<pre><code class="language-python">In [17]: multi_arr1 = 3
+
+In [18]: multi_arr2 = [1,2,3]
+
+In [19]: multi_arr3 = (4,5)
+
+In [20]: multi_arr4 = [[6,7],[8,9]]
+
+In [22]: np.savez('multi_arr',multi_arr1,multi_arr2,multi_arr3,named_arr=multi_arr4)
+
+In [23]: !ls -l
+总用量 20
+-rw-r--r-- 1 dechin dechin 1078  5月  2 19:09 multi_arr.npz
+-rw-r--r-- 1 dechin dechin  168  5月  2 19:00 normal_arr.npy
+-rw-r--r-- 1 dechin dechin  208  5月  2 18:56 random_arr.npy
+-rw-r--r-- 1 dechin dechin  208  5月  2 18:52 test_arr.npy
+-rw-r--r-- 1 dechin dechin  176  5月  2 19:02 tuple_arr.npy
+
+In [24]: data=np.load('multi_arr.npz')
+
+In [25]: data['arr_0']
+Out[25]: array(3)
+
+In [26]: data['arr_1']
+Out[26]: array([1, 2, 3])
+
+In [27]: data['arr_2']
+Out[27]: array([4, 5])
+
+In [28]: data['named_arr']
+Out[28]: 
+array([[6, 7],
+       [8, 9]])
+</code></pre>
+<p>在<code>npz</code>的数据结构中，除了列表以外的格式都会被自动转化成numpy的列表。而多个的列表对象最终是以字典的形式存储在文件中，如果不加以定义，那么索引的名称默认为<code>arr_</code>加上一个数字的格式，以<code>0</code>为起点。如果需要手动的命名，需要在传入<code>savez</code>函数的末尾处加上手动命名的对象，比如上面实例中的<code>named_arr</code>。<code>npz</code>文件的读取方式跟<code>npy</code>是一样的，使用<code>np.load</code>函数即可。</p>
+<h2 id="存储数据的压缩">存储数据的压缩</h2>
+<p>最后我们再额外介绍一个<code>tar</code>压缩包的使用方法，如果存储的<code>npz</code>文件较大，可以通过<code>tar -zcvf filename.tar.gz filename.npz</code>打包成一个压缩包，特别是当数据中<code>0</code>的数量较多时，可以获得一个非常理想的压缩比。</p>
+<pre><code class="language-bash">[dechin@dechin-manjaro numpy]$ ll
+总用量 20
+-rw-r--r-- 1 dechin dechin 1078  5月  2 19:09 multi_arr.npz
+-rw-r--r-- 1 dechin dechin  168  5月  2 19:00 normal_arr.npy
+-rw-r--r-- 1 dechin dechin  208  5月  2 18:56 random_arr.npy
+-rw-r--r-- 1 dechin dechin  208  5月  2 18:52 test_arr.npy
+-rw-r--r-- 1 dechin dechin  176  5月  2 19:02 tuple_arr.npy
+[dechin@dechin-manjaro numpy]$ tar -zcvf multi_arr.tar.gz multi_arr.npz 
+multi_arr.npz
+[dechin@dechin-manjaro numpy]$ ll
+总用量 24
+-rw-r--r-- 1 dechin dechin 1078  5月  2 19:09 multi_arr.npz
+-rw-r--r-- 1 dechin dechin  427  5月  2 19:14 multi_arr.tar.gz
+-rw-r--r-- 1 dechin dechin  168  5月  2 19:00 normal_arr.npy
+-rw-r--r-- 1 dechin dechin  208  5月  2 18:56 random_arr.npy
+-rw-r--r-- 1 dechin dechin  208  5月  2 18:52 test_arr.npy
+-rw-r--r-- 1 dechin dechin  176  5月  2 19:02 tuple_arr.npy
+</code></pre>
+<p>而关于<code>tar.gz</code>格式的文件的解压缩，则是使用<code>tar -xvf filename.tar.gz</code>命令。</p>
+<h1 id="总结概要">总结概要</h1>
+<p>在科学计算中对于恒定不变的数据，不一定需要实时保存在内存中，或者是需要跨平台运算的数据，我们可以将其保存为numpy格式的列表文件npy或者npz。而如果存储的文件过大，本文也额外介绍了简单的tar压缩与解压缩的使用方法。</p>
+<h1 id="版权声明">版权声明</h1>
+<p>本文首发链接为：<a href="https://www.cnblogs.com/dechinphy/p/npz.html" target="_blank">https://www.cnblogs.com/dechinphy/p/npz.html</a><br>
+作者ID：DechinPhy<br>
+更多原著文章请参考：<a href="https://www.cnblogs.com/dechinphy/" target="_blank">https://www.cnblogs.com/dechinphy/</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-02 19:21</span>&nbsp;
+<a href="https://www.cnblogs.com/dechinphy/">陆言君</a>&nbsp;
+阅读(<span id="post_view_count">13</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14726215" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14726215);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 657846, cb_blogApp = 'dechinphy', cb_blogUserGuid = '1cf551f5-d20b-40f7-a88d-08d8ae5f7194';
+    var cb_entryId = 14726215, cb_entryCreatedDate = '2021-05-02 19:21', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 陆言君
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <script type="text/javascript">
+/* 鼠标特效 */
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+        var a = new Array("❤富强❤","❤民主❤","❤文明❤","❤和谐❤","❤自由❤","❤平等❤","❤公正❤","❤法治❤","❤爱国❤","❤敬业❤","❤诚信❤","❤友善❤");
+        var $i = $("<span></span>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+        });
+        $("body").append($i);
+        $i.animate({
+            "top": y - 180,
+            "opacity": 0
+        },
+        1500,
+        function() {
+            $i.remove();
+        });
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<script language="javascript" type="text/javascript">
+// 生成目录索引列表
+// ref: http://www.cnblogs.com/wangqiguo/p/4355032.html
+// modified by: zzq
+function GenerateContentList()
+{
+    var mainContent = $('#cnblogs_post_body');
+    var h1_list = $('#cnblogs_post_body h1');//如果你的章节标题不是h2,只需要将这里的h2换掉即可
+
+    if(mainContent.length < 1)
+        return;
+ 
+    if(h1_list.length>0)
+    {
+        var content = '<a name="_labelTop"></a>';
+        content += '<div id="navCategory" style="color:#152e97;">';
+        content += '<p style="font-size:18px;"><b>目录</b></p>';
+        content += '<ul>';
+        for(var i=0; i<h1_list.length; i++)
+        {
+            var go_to_top = '<div style="text-align: right;"><a href="#_labelTop" style="color:#f68a33">回到顶部</a><a name="_label' + i + '"></a></div>';
+            $(h1_list[i]).before(go_to_top);
+            
+            var h2_list = $(h1_list[i]).nextAll("h2");
+            var li2_content = '';
+            for(var j=0; j<h2_list.length; j++)
+            {
+                var tmp = $(h2_list[j]).prevAll('h1').first();
+                if(!tmp.is(h1_list[i]))
+                    break;
+                var li2_anchor = '<a name="_label' + i + '_' + j + '"></a>';
+                $(h2_list[j]).before(li2_anchor);
+                li2_content += '<li><a href="#_label' + i + '_' + j + '">' + $(h2_list[j]).text() + '</a></li>';
+            }
+            
+            var li1_content = '';
+            if(li2_content.length > 0)
+                li1_content = '<li><a href="#_label' + i + '">' + $(h1_list[i]).text() + '</a><ul>' + li2_content + '</ul></li>';
+            else
+                li1_content = '<li><a href="#_label' + i + '">' + $(h1_list[i]).text() + '</a></li>';
+            content += li1_content;
+        }
+        content += '</ul>';
+        content += '</div><p>&nbsp;</p>';
+        content += '<hr style="height:1px;border:none;border-top:1px dashed #0066CC;"/>';
+        if($('#cnblogs_post_body').length != 0 )
+        {
+            $($('#cnblogs_post_body')[0]).prepend(content);
+        }
+    }   
+}
+
+GenerateContentList();
+</script>
+
+
+
+
+
+
+
+
+
+<link href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/atelier-lakeside-dark.min.css" rel="stylesheet"/>
+<script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="//cdn.bootcss.com/highlightjs-line-numbers.js/1.1.0/highlightjs-line-numbers.min.js"></script>
+<script>hljs.initLineNumbersOnLoad();</script>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjsDCDJdlNqd1FAfaKKKkdq3RI7Fs9_0F-hVoG1KYquHnu5eC5IKohs4o0lhdyBhbUJWpOGmTFchyptraUOqOYd6rhcAtG93HmQvzEjh-cXGTiJSNqw3T8iEZw8wGJdbF3M" />
+</body>
+</html>

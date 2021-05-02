@@ -1,0 +1,567 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="1、最优化与线性规划 最优化问题的三要素是决策变量、目标函数和约束条件。 线性规划（Linear programming），是研究线性约束条件下线性目标函数的极值问题的优化方法，常用于解决利用现有的资" />
+    <meta property="og:description" content="1、最优化与线性规划 最优化问题的三要素是决策变量、目标函数和约束条件。 线性规划（Linear programming），是研究线性约束条件下线性目标函数的极值问题的优化方法，常用于解决利用现有的资" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>模拟退火算法Python编程（2）约束条件的处理 - youcans - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/bluesky/bundle-bluesky.min.css?v=crS-BJKdvIW2vVfJGJMix4EoW6XR-Z12_psc8V6YTNc" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/bluesky/bundle-bluesky-mobile.min.css?v=R6fv62IpzGSvTM7pHsnRgkrk1El3gMSYm75Iwe80srs" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/youcans/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/youcans/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/youcans/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 666703;
+        var currentBlogApp = 'youcans';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlueSky';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-02 11:29';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/youcans/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/youcans/">youcans</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/youcans/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/youcans">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/youcans/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/youcans/p/14725464.html">
+    <span>模拟退火算法Python编程（2）约束条件的处理</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h3 id="1、最优化与线性规划">1、最优化与线性规划</h3>
+<p>　　 最优化问题的三要素是决策变量、目标函数和约束条件。</p>
+<p>　　 线性规划（Linear programming），是研究线性约束条件下线性目标函数的极值问题的优化方法，常用于解决利用现有的资源得到最优决策的问题。</p>
+<p>　　简单的线性规划问题可以用 Lingo软件求解，Matlab、Python 中也有求解线性规划问题的库函数或求解器，很容易学习和使用，并不需要用模拟退火算法。但是，由一般线性规划问题所衍生的整数规划、混合规划、0/1规划、二次规划、非线性规划、组合优化问题，则并不是调用某个库函数都能处理的。而模拟退火算法在很多复杂问题中具有较好的适应性，可以作为一种入门的通用智能算法来学习。</p>
+<p>　　也就是说，如果只是处理线性规划问题，就不要用模拟退火算法了。但如果是现有方法无法处理的复杂优化问题，或者对某类、某个优化问题你不知道用什么方法处理了，这时用模拟退火算法还是能解决的。</p>
+<p>　　本文使用惩罚函数法，分析模拟退火算法处理线性规划问题，相关内容也适用于非线性规划问题。</p>
+<h3 id="2、模拟退火算法处理约束条件">2、模拟退火算法处理约束条件</h3>
+<p>　　 线性规划问题是约束优化问题，而模拟退火算法则更适合处理无约束优化问题。对于优化问题中的约束条件，模拟退火算法有几种常用的处理方法：</p>
+<p>　　1. 决策变量取值的上下限约束。此类约束条件比较容易处理，只要设定初始解、新解在决策变量取值的上下限之间就可以解决。例如，（1）设置产生新解的随机数的上下限为决策变量的上下限，即 [Xmin, Xmax]；（2）设置产生新解的随机数的上下限为当前解与决策变量的上下限，即 [Xnow, Xmax]；（3）通过条件判断，当新解超出决策变量上下限，则令其取上下限，即 xNew = max(min(xNew, xMax), xMin)。当然，这些处理方式，都会影响随机数的概率分布，因而也影响模拟退火算法的优化性能，在此不做深入讨论。</p>
+<p>　　2. 检验法处理不等式约束问题。在模拟退火算法的迭代过程中，将每次产生的新解代入每个不等式约束函数，判断是否满足约束条件；如果新解不满足约束条件，则舍弃这个新解，返回重新产生一个新解进行检验，直到产生的新解满足全部约束条件为止。这个方法的思路简单，每次迭代都在可行域内进行，但是对于约束条件众多、苛刻的复杂问题，多次产生的新解都不能满足约束条件，会使计算时间很长，甚至停滞不前。</p>
+<p>　　3. 消元法处理等式约束问题。对于等式约束，很难通过随机产生的新解满足约束条件，通常不能使用检验法处理。消元法是通过解方程将等式约束中的某个决策变量表示为其它决策变量的线性关系后，代入目标函数和不等式约束条件中，从而消去该约束条件。消元法不仅解决了等式约束问题，而且减少了决策变量的数量，从而有效简化了优化问题的复杂度，是一举两得的处理方法。但是，对于非线性等式约束，求解非线性方程组也是非常困难的，消元法并不是普遍都能适用的。</p>
+<p>　　4. 更为通用的处理约束条件的方法是惩罚函数法，以下进行介绍。</p>
+<h3 id="3、惩罚函数法">3、惩罚函数法</h3>
+<p>　　惩罚函数法是一类常用的处理约束条件的技术，在模拟退火算法中处理约束条件非常有效。方法的思想是将约束条件转化为惩罚函数，附加在原有的目标函数上构造新的目标函数；当不满足约束条件时，通过惩罚函数使新的目标函数变差而被舍弃。</p>
+<p>　　惩罚函数法有外点法和内点法。外点法对可行域外的点（即不满足约束的点）施加惩罚，对可行域内部的点不惩罚，从而使迭代点向可行域D逼近。 内点法是在可行域内部进行搜索，约束边界起到类似围墙的作用，使目标函数无法穿过，就把搜索点限制在可行域内了，因此只适用于不等式约束。</p>
+<p>　　考虑约束优化问题：　　<br>
+$$<br>
+min: f(X)<br>
+$$<br>
+满足限制<br>
+$$<br>
+c_i(X)\leq0<br>
+$$<br>
+惩罚函数法将问题转化成如下无约束问题<br>
+$$<br>
+min: L_k(X)=f(X)+\sigma_k\sum_{i}{g(c_i(X))}<br>
+$$<br>
+其中<br>
+$$<br>
+g(c_i(X))=max(0,c_i(X))^2<br>
+$$</p>
+<p>在上述方程，g(ci(X)) 称为外部罚函数，sigma(k) 称为惩罚因子。在每一次迭代中，sigma(k) 都增大，然后求解该无约束问题。将每一次迭代的结果将组成一个序列，此序列的极限即为原约束问题的解。</p>
+<h3 id="4、数模案例">4、数模案例</h3>
+<p>　　虽然对于线性规划问题并不推荐使用模拟退火算法求解。但为了便于理解，本文仍使用之前的线性规划问题作为处理约束条件的案例。对于非线性规划问题，以及非线性约束问题，处理方法都是类似的，将在后续进行介绍。</p>
+<h4 id="41-问题描述：">4.1 问题描述：</h4>
+<blockquote>
+<p>　　某厂生产甲乙两种饮料，每百箱甲饮料需用原料6千克、工人10名，获利10万元；每百箱乙饮料需用原料5千克、工人20名，获利9万元。<br>
+　　今工厂共有原料60千克、工人150名，又由于其他条件所限甲饮料产量不超过8百箱。<br>
+　　（1）问如何安排生产计划，即两种饮料各生产多少使获利最大？</p>
+</blockquote>
+<h4 id="42-问题建模：">4.2 问题建模：</h4>
+<blockquote>
+<p>　　决策变量：<br>
+　　　　x1：甲饮料产量（单位：百箱）<br>
+　　　　x2：乙饮料产量（单位：百箱）<br>
+　　目标函数：<br>
+　　　　max fx = 10<em>x1 + 9</em>x2<br>
+　　约束条件：<br>
+　　　　6<em>x1 + 5</em>x2 &lt;= 60<br>
+　　　　10<em>x1 + 20</em>x2 &lt;= 150<br>
+　　取值范围：<br>
+　　　　给定条件：x1, x2 &gt;= 0，x1 &lt;= 8<br>
+　　　　推导条件：由 x1,x2&gt;=0 和 10*x1+20*x2&lt;=150 可知：0&lt;=x1&lt;=15；0&lt;=x2&lt;=7.5<br>
+　　　　因此，0 &lt;= x1&lt;=8，0 &lt;= x2&lt;=7.5</p>
+</blockquote>
+<h4 id="43-惩罚函数法求解约束优化问题：">4.3 惩罚函数法求解约束优化问题：</h4>
+<blockquote>
+<p>　　构造惩罚函数：<br>
+　　　　p1 = (max(0, 6*x1+5*x2-60))**2<br>
+　　　　p2 = (max(0, 10*x1+20*x2-150))**2<br>
+　　说明：如存在等式约束，例如：x1 + 2*x2 = m，也可以转化为惩罚函数：<br>
+　　　　p3 = (x1+2*x2-m)**2<br>
+　　　　P(x) = p1 + p2 + ...<br>
+　　构造增广目标函数：<br>
+　　　　L(x,m(k)) = min(fx) + m(k)*P(x)<br>
+　　　　m(k)：惩罚因子，随迭代次数 k 逐渐增大</p>
+</blockquote>
+<p>　　在模拟退火算法中，m(k) 随外循环迭代次数逐渐增大，但在内循环中应保持不变。</p>
+<h3 id="5、模拟退火算法-python-程序：惩罚函数法求解约束优化线性规划问题">5、模拟退火算法 Python 程序：惩罚函数法求解约束优化线性规划问题</h3>
+<pre><code># 模拟退火算法 程序：惩罚函数法求解线性规划问题
+# Program: SimulatedAnnealing_v2.py
+# Purpose: Simulated annealing algorithm for function optimization
+# v2.0: 使用惩罚函数法处理约束问题
+# Copyright 2021 YouCans, XUPT
+# Crated：2021-05-01
+
+#  -*- coding: utf-8 -*-
+import math                         # 导入模块
+import random                       # 导入模块
+import pandas as pd                 # 导入模块 YouCans, XUPT
+import numpy as np                  # 导入模块 numpy，并简写成 np
+import matplotlib.pyplot as plt     
+from datetime import datetime
+
+
+# 子程序：定义优化问题的目标函数
+def cal_Energy(X, nVar, mk): 	# m(k)：惩罚因子，随迭代次数 k 逐渐增大
+    p1 = (max(0, 6*X[0]+5*X[1]-60))**2
+    p2 = (max(0, 10*X[0]+20*X[1]-150))**2
+    fx = -(10*X[0]+9*X[1])
+    return fx+mk*(p1+p2)
+
+
+# 子程序：模拟退火算法的参数设置
+def ParameterSetting():
+    cName = "funcOpt"           # 定义问题名称
+    nVar = 2                    # 给定自变量数量，y=f(x1,..xn)
+    xMin = [0, 0]               # 给定搜索空间的下限，x1_min,..xn_min
+    xMax = [8, 7.5]             # 给定搜索空间的上限，x1_max,..xn_max
+
+    tInitial = 100.0            # 设定初始退火温度(initial temperature)
+    tFinal  = 1                 # 设定终止退火温度(stop temperature)
+    alfa    = 0.98              # 设定降温参数，T(k)=alfa*T(k-1)
+    meanMarkov = 100            # Markov链长度，也即内循环运行次数
+    scale   = 0.5               # 定义搜索步长，可以设为固定值或逐渐缩小
+    return cName, nVar, xMin, xMax, tInitial, tFinal, alfa, meanMarkov, scale
+
+
+# 模拟退火算法
+def OptimizationSSA(nVar,xMin,xMax,tInitial,tFinal,alfa,meanMarkov,scale):
+    # ====== 初始化随机数发生器 ======
+    randseed = random.randint(1, 100)
+    random.seed(randseed)  # 随机数发生器设置种子，也可以设为指定整数
+
+    # ====== 随机产生优化问题的初始解 ======
+    xInitial = np.zeros((nVar))   # 初始化，创建数组
+    for v in range(nVar):
+        # random.uniform(min,max) 在 [min,max] 范围内随机生成一个实数
+        xInitial[v] = random.uniform(xMin[v], xMax[v])
+    # 调用子函数 cal_Energy 计算当前解的目标函数值
+    fxInitial = cal_Energy(xInitial, nVar, 1) # m(k)：惩罚因子，初值为 1
+
+    # ====== 模拟退火算法初始化 ======
+    xNew = np.zeros((nVar))         # 初始化，创建数组
+    xNow = np.zeros((nVar))         # 初始化，创建数组
+    xBest = np.zeros((nVar))        # 初始化，创建数组
+    xNow[:]  = xInitial[:]          # 初始化当前解，将初始解置为当前解
+    xBest[:] = xInitial[:]          # 初始化最优解，将当前解置为最优解
+    fxNow  = fxInitial              # 将初始解的目标函数置为当前值
+    fxBest = fxInitial              # 将当前解的目标函数置为最优值
+    print('x_Initial:{:.6f},{:.6f},\tf(x_Initial):{:.6f}'.format(xInitial[0], xInitial[1], fxInitial))
+
+    recordIter = []                 # 初始化，外循环次数
+    recordFxNow = []                # 初始化，当前解的目标函数值
+    recordFxBest = []               # 初始化，最佳解的目标函数值
+    recordPBad = []                 # 初始化，劣质解的接受概率
+    kIter = 0                       # 外循环迭代次数，温度状态数
+    totalMar = 0                    # 总计 Markov 链长度
+    totalImprove = 0                # fxBest 改善次数
+    nMarkov = meanMarkov            # 固定长度 Markov链
+
+    # ====== 开始模拟退火优化 ======
+    # 外循环，直到当前温度达到终止温度时结束
+    tNow = tInitial                 # 初始化当前温度(current temperature)
+    while tNow &gt;= tFinal:           # 外循环，直到当前温度达到终止温度时结束
+        # 在当前温度下，进行充分次数(nMarkov)的状态转移以达到热平衡
+        kBetter = 0                 # 获得优质解的次数
+        kBadAccept = 0              # 接受劣质解的次数
+        kBadRefuse = 0              # 拒绝劣质解的次数
+
+        # ---内循环，循环次数为Markov链长度
+        for k in range(nMarkov):    # 内循环，循环次数为Markov链长度
+            totalMar += 1           # 总 Markov链长度计数器
+
+            # ---产生新解
+            # 产生新解：通过在当前解附近随机扰动而产生新解，新解必须在 [min,max] 范围内
+            # 方案 1：只对 n元变量中的一个进行扰动，其它 n-1个变量保持不变
+            xNew[:] = xNow[:]
+            v = random.randint(0, nVar-1)   # 产生 [0,nVar-1]之间的随机数
+            xNew[v] = xNow[v] + scale * (xMax[v]-xMin[v]) * random.normalvariate(0, 1)
+            # random.normalvariate(0, 1)：产生服从均值为0、标准差为 1 的正态分布随机实数
+            xNew[v] = max(min(xNew[v], xMax[v]), xMin[v])  # 保证新解在 [min,max] 范围内
+
+            # ---计算目标函数和能量差
+            # 调用子函数 cal_Energy 计算新解的目标函数值
+            fxNew = cal_Energy(xNew, nVar, kIter)
+            deltaE = fxNew - fxNow
+
+            # ---按 Metropolis 准则接受新解
+            # 接受判别：按照 Metropolis 准则决定是否接受新解
+            if fxNew &lt; fxNow:  # 更优解：如果新解的目标函数好于当前解，则接受新解
+                accept = True
+                kBetter += 1
+            else:  # 容忍解：如果新解的目标函数比当前解差，则以一定概率接受新解
+                pAccept = math.exp(-deltaE / tNow)  # 计算容忍解的状态迁移概率
+                if pAccept &gt; random.random():
+                    accept = True  # 接受劣质解
+                    kBadAccept += 1
+                else:
+                    accept = False  # 拒绝劣质解
+                    kBadRefuse += 1
+
+            # 保存新解
+            if accept == True:  # 如果接受新解，则将新解保存为当前解
+                xNow[:] = xNew[:]
+                fxNow = fxNew
+                if fxNew &lt; fxBest:  # 如果新解的目标函数好于最优解，则将新解保存为最优解
+                    fxBest = fxNew
+                    xBest[:] = xNew[:]
+                    totalImprove += 1
+                    scale = scale*0.99  # 可变搜索步长，逐步减小搜索范围，提高搜索精度
+                    
+        # ---内循环结束后的数据整理
+        # 完成当前温度的搜索，保存数据和输出
+        pBadAccept = kBadAccept / (kBadAccept + kBadRefuse)  # 劣质解的接受概率
+        recordIter.append(kIter)  # 当前外循环次数
+        recordFxNow.append(round(fxNow, 4))  # 当前解的目标函数值
+        recordFxBest.append(round(fxBest, 4))  # 最佳解的目标函数值
+        recordPBad.append(round(pBadAccept, 4))  # 最佳解的目标函数值
+
+        if kIter%10 == 0:                           # 模运算，商的余数
+            print('i:{},t(i):{:.2f}, badAccept:{:.6f}, f(x)_best:{:.6f}'.\
+                format(kIter, tNow, pBadAccept, fxBest))
+
+        # 缓慢降温至新的温度，降温曲线：T(k)=alfa*T(k-1)
+        tNow = tNow * alfa
+        kIter = kIter + 1
+        fxBest = cal_Energy(xBest, nVar, kIter)  # 由于迭代后惩罚因子增大，需随之重构增广目标函数
+        # ====== 结束模拟退火过程 ======
+
+    print('improve:{:d}'.format(totalImprove))
+    return kIter,xBest,fxBest,fxNow,recordIter,recordFxNow,recordFxBest,recordPBad
+
+# 结果校验与输出
+def ResultOutput(cName,nVar,xBest,fxBest,kIter,recordFxNow,recordFxBest,recordPBad,recordIter):
+    # ====== 优化结果校验与输出 ======
+    fxCheck = cal_Energy(xBest, nVar, kIter)
+    if abs(fxBest - fxCheck)&gt;1e-3:   # 检验目标函数
+        print("Error 2: Wrong total millage!")
+        return
+    else:
+        print("\nOptimization by simulated annealing algorithm:")
+        for i in range(nVar):
+            print('\tx[{}] = {:.6f}'.format(i,xBest[i]))
+        print('\n\tf(x):{:.6f}'.format(cal_Energy(xBest,nVar,0)))
+
+    # ====== 优化结果写入数据文件 ======
+    nowTime = datetime.now().strftime('%m%d%H%M')       # '02151456'
+    fileName = "..\data\{}_{}.dat".format(cName,nowTime)# 数据文件的地址和文件名
+    optRecord = {
+        "iter":recordIter,
+        "FxNow":recordFxNow,
+        "FxBest":recordFxBest,
+        "PBad":recordPBad}
+    df_Record = pd.DataFrame(optRecord)
+    df_Record.to_csv(fileName, index=False, encoding="utf_8_sig")
+    with open(fileName, 'a+', encoding="utf_8_sig") as fid:
+        fid.write("\nOptimization by simulated annealing algorithm:")
+        for i in range(nVar):
+            fid.write('\n\tx[{}] = {:.6f}'.format(i,xBest[i]))
+        fid.write('\n\tf(x):{:.6f}'.format(cal_Energy(xBest,nVar,0)))
+    print("写入数据文件: %s 完成。" % fileName)
+
+    # ====== 优化结果图形化输出 ======
+    plt.figure(figsize=(6, 4), facecolor='#FFFFFF')     # 创建一个图形窗口
+    plt.title('Optimization result: {}'.format(cName))  # 设置图形标题
+    plt.xlim((0, kIter))                                # 设置 x轴范围
+    plt.xlabel('iter')                                  # 设置 x轴标签
+    plt.ylabel('f(x)')                                  # 设置 y轴标签
+    plt.plot(recordIter, recordFxNow,'b-', label='FxNow')     # 绘制 FxNow 曲线
+    plt.plot(recordIter, recordFxBest, 'r-', label='FxBest')  # 绘制 FxBest 曲线
+    # plt.plot(recordIter,recordPBad,'r-',label='pBadAccept')  # 绘制 pBadAccept 曲线
+    plt.legend()  # 显示图例
+    plt.show()
+
+    return
+
+
+# 主程序
+def main():
+
+    # 参数设置，优化问题参数定义，模拟退火算法参数设置
+    [cName, nVar, xMin, xMax, tInitial, tFinal, alfa, meanMarkov, scale] = ParameterSetting()
+    # print([nVar, xMin, xMax, tInitial, tFinal, alfa, meanMarkov, scale])
+
+    # 模拟退火算法    [kIter,xBest,fxBest,fxNow,recordIter,recordFxNow,recordFxBest,recordPBad] \
+        = OptimizationSSA(nVar,xMin,xMax,tInitial,tFinal,alfa,meanMarkov,scale)
+    # print(kIter, fxNow, fxBest, pBadAccept)
+
+    # 结果校验与输出
+    ResultOutput(cName, nVar,xBest,fxBest,kIter,recordFxNow,recordFxBest,recordPBad,recordIter)
+
+
+if __name__ == '__main__':
+    main()
+
+</code></pre>
+<h3 id="6、运行结果">6、运行结果</h3>
+<pre><code>Optimization by simulated annealing algorithm:
+    x[0] = 6.577964
+    x[1] = 4.111469
+    f(x):-102.782857
+</code></pre>
+<h4 id="参考文献：">参考文献：</h4>
+<p>（1）胡山鹰，陈丙珍，非线性规划问题全局优化的模拟退火法，清华大学学报，1997,37(6):5-9<br>
+（2）李歧强，具有约束指导的模拟退火算法，系统工程，2001,19(3):49-55</p>
+<p>版权说明：<br>
+原创作品<br>
+Copyright 2021 YouCans, XUPT<br>
+Crated：2021-05-01</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-02 11:29</span>&nbsp;
+<a href="https://www.cnblogs.com/youcans/">youcans</a>&nbsp;
+阅读(<span id="post_view_count">36</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14725464" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14725464);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 666703, cb_blogApp = 'youcans', cb_blogUserGuid = '37e140cb-f441-4df0-dc98-08d8c9ac38f1';
+    var cb_entryId = 14725464, cb_entryCreatedDate = '2021-05-02 11:29', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 youcans
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjtzAciV7W9AxiNOjNmHlt1oQ-Tu9xzRWQne2jtnDKDKhm3hY9urA4kY9x_ayhyQzziI3hHebt9Ud0f2FDD4bpddM2GRWaAA0fLFvYiNpLEBksPTDFJJY27Fp_UGgvlxWHY" />
+</body>
+</html>

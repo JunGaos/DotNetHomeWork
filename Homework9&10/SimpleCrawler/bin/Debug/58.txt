@@ -1,0 +1,434 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="包含1/5基于MATLAB手写公式识别" />
+    <meta property="og:description" content="包含1/5基于MATLAB手写公式识别" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>基于MATLAB公式识别 - 尼各马可伦理学 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey.min.css?v=1gj9-XJKL9BZFkjdvROYQPiPWjQXk-hsXXZGtqkfaSc" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey-mobile.min.css?v=zrVn_w7PYXoSvEFaixHbQGlNNXNZ3h27-9PpkXZLYns" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/wzh2001/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/wzh2001/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/wzh2001/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 654222;
+        var currentBlogApp = 'wzh2001';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlackLowKey';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-02 09:01';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;v=20200504"></script>
+    
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/wzh2001/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/wzh2001/">从一个无知角落里开始，蹒跚学步，一个未知到另一个未知，在跌跌撞撞中越走越快，越走越远，最后宇宙也为之开源。对于探索者来说，最后他们的思想总是变得和自己的足迹一样伟大。</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/wzh2001/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E5%B0%BC%E5%90%84%E9%A9%AC%E5%8F%AF%E4%BC%A6%E7%90%86%E5%AD%A6">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/wzh2001/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/wzh2001/p/14725315.html">
+    <span>基于MATLAB公式识别</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                    <div id="cnblogs_post_description" style="display: none">
+        包含1/5基于MATLAB手写公式识别
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>09:48:25</p>
+<blockquote>
+<p><strong>从一个无知角落里开始，蹒跚学步，一个未知到另一个未知，在跌跌撞撞中越走越快，越走越远，最后宇宙也为之开源。对于探索者来说，最后他们的思想总是变得和自己的足迹一样伟大。</strong></p>
+</blockquote>
+<p>　<span style="background-color: rgba(255, 102, 0, 1)">该项目目前可以实现</span></p>
+<ul>
+<li>图像的预处理包括：灰度化，二值化（公式假设是良好的数学公式截屏图片）</li>
+<li>图像的最小外接矩求解；</li>
+<li>图像的切割（part）</li>
+</ul>
+<p>2021-05-02 20:24:30</p>
+<p>　　<span style="background-color: rgba(255, 102, 0, 1)"><em>Cut_Imageju</em></span>:实现最小外接矩</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:matlab;gutter:true;">%%实现最小外接矩的函数Cut_Imageju
+%column的意思是按列来排列，为行向量
+%row的意思是按行来排列，为列向量
+%0黑1白，字符以黑色为显示
+%寻找第一个字母长度,先分割出来全部字符，之后在对分割的这些部分进行宽度处理，要不处理不了;
+function Img_out=Cut_Imageju(Img_in)
+[m,n]=size(Img_in);% x是行数，y是列数
+column=sum(Img_in);
+%寻找左边界
+left=1;
+num1=max(column);
+for i = 1 :n
+	if column(i)~=num1
+		left=i;
+		break
+end
+end
+%寻找右边界
+right=n;
+for i = n :-1:1
+	if column(i)~=num1
+		right=i;
+		break
+end
+end
+row=sum(Img_in,2);
+num2=max(row);
+%寻找上边界
+up=1;
+for j = 1 :m
+	if row(j)~=num2
+		up=j;
+		break
+end
+end
+%寻找下边界
+down=m;
+for j = m:-1:1
+	if row(j)~=num2
+		down=j;
+		break
+end
+end
+%裁剪图像
+Img_out=Img_in(up:down,left:right);
+end</pre>
+</div>
+<pre class="brush:matlab;gutter:true;">切割字符，并且获得切割后的源量<br><span style="background-color: rgba(255, 102, 0, 1)"><em><strong>Cut_Imageqie</strong></em></span></pre>
+<div class="cnblogs_Highlighter">
+<pre class="brush:matlab;gutter:true;">%切分字符的函数Cut_Imageqie
+%只按列切割，切成一列列
+%column的意思是按列来排列，为行向量
+%row的意思是按行来排列，为列向量
+%0黑1白，字符以黑色为显示
+%寻找第一个字母长度,先分割出来全部字符，之后在对分割的这些部分进行宽度处理，要不处理不了;
+%切分字符的函数Cut_Imageqie
+%只按列切割，切成一列列
+%%[Img_out1,Img_out2]分别代表切割下的图像和切割后的原图像
+function [Img_out1,Img_out2]=Cut_Imageqie(Img_in)
+[m,n]=size(Img_in);
+column=sum(Img_in);
+wide=0;
+num1=max(column);
+for i = 1:n
+	if column(i)~=num1
+		wide=wide+1;
+	else
+		newleft=i;
+		break
+end
+end
+Img_out1=imcrop(Img_in,[1,1,wide,m]);
+Img_out2=Img_in(1:m,newleft:n);
+end
+</pre>
+</div>
+<p>　　总<span style="background-color: rgba(255, 102, 0, 1)">函数</span>：</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:matlab;gutter:true;">%%垂直投影切割函数2
+%%将之前函数片段化函数化，实现从原图像中分割字符
+%%王 5/2 16点18分
+
+%清屏
+clc;
+close all;
+clear all;
+
+%读数
+Img=imread('D:\data\matlabrecognizedata\rawpicture\pic2.png');%按实际路径分析
+figure,subplot(1,2,1),imshow(Img),title('原图');
+
+%灰度化和二值化
+Img_Gray=rgb2gray(Img);
+Img_Binary=imbinarize(Img_Gray,0.57);%采用0.57做阈值;
+
+%求外接矩
+Img_Cut=Cut_Imageju(Img_Binary);
+subplot(1,2,2),imshow(Img_Cut),title('外接矩');
+
+%分割图像
+[word1,Img_Cut]=Cut_Imageqie(Img_Cut);
+figure,subplot(1,3,1),imshow(word1),title('初次切');
+subplot(1,3,2),imshow(Img_Cut),title('切后的原图形');
+word1=Cut_Imageju(word1);
+subplot(1,3,3),imshow(word1),title('后切');</pre>
+</div>
+<p>　　该项目还不能实现</p>
+<ul>
+<li>图像的切割太过于依靠手动操作，并不能自动分析间隔，没有可以使他自动停止的标准</li>
+<li>只局限于字母和单独的式子，主要是因为采取了垂直投影分割法，识别的东西一定是独体，但是像分数，根号或者其他字符的组合，就失败了，后期会考虑连通域算法；</li>
+<li>不能实现识别；</li>
+</ul>
+<hr>
+<p>&nbsp;</p>
+<p>严肃的东西说完了，下面说点有意思的；</p>
+<p>1、数字图像处理的过程中，发生了很多有趣的事。一步步的攻克这些难关挺快乐的，但是千辛万苦克服之后发现这些问题那么简单，却难住了我，做出来的一瞬间，觉得自己的智慧受到了侮辱，哈哈😢；由此可见，<span style="background-color: rgba(255, 102, 0, 1)">困难来自于无知</span>；</p>
+<p>2、数学是严谨的，代码是数学的分支。你看我现在说的轻描淡写，可是这之中的难处只有我自己知道</p>
+<ul>
+<li>初心太单纯（兴趣），导致唯利是图的我经常怀疑自己的判断（这么浪费时间到底对不对？）<em><strong>我可能烧了脑袋</strong></em>；</li>
+<li>基础知识基本为0，matlab是伟大的，我毫不怀疑，它是人类智慧的结晶，我看着他仿佛看着海，那么大，那么远，那么不真实，数字图像处理是这无边大海的一个大洋，我对这大洋一无所知，就现在的我来说刚从港湾出来，没有经历过复杂的公式考验，没有经历过神经网络的建立，没有建立机器学习模型，没有爬取足够我使用的数据图片，而没有这些图片就没有人工智能（神经网络）。<span style="background-color: rgba(255, 102, 0, 1)">我边在海滩拾贝，边想着把梳子卖给和尚，三心二意，貌合神离。</span></li>
+<li><span style="background-color: rgba(255, 102, 0, 1)">不严谨。</span>拖累我进度的一方面是思路，一方面是细节。后者占90%，我一直在debug,一个看起来完全没问题的程序完全走不通，看着几页的代码，真的是想放弃，最后发现是一些极其极其简单的问题摧毁了我（比如<span style="background-color: rgba(255, 102, 0, 1)">[]和（）</span>(又错了😔)，（）和()，；和;等等等等）。</li>
+<li><span style="background-color: rgba(255, 102, 0, 1)">函数嵌套要我命</span></li>
+</ul>
+<p>我又会停几天了</p>
+<blockquote>
+<p><strong>乘兴而来，兴尽而返</strong></p>
+</blockquote>
+<p>enough,挺快乐的了。</p>
+<p>祝劳动者劳动节快乐！！</p>
+<p>探索者光荣！！</p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-02 21:01</span>&nbsp;
+<a href="https://www.cnblogs.com/wzh2001/">尼各马可伦理学</a>&nbsp;
+阅读(<span id="post_view_count">17</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14725315" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14725315);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 654222, cb_blogApp = 'wzh2001', cb_blogUserGuid = 'e43127ab-0e0a-43f4-cb3d-08d8a22da49b';
+    var cb_entryId = 14725315, cb_entryCreatedDate = '2021-05-02 21:01', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 尼各马可伦理学
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvlN26BVLZQ-yqgREb9aXq5nRiRlRRmoaMwToaWNdVFQJpKudisLXBxYRir_34be9HH-6VO7TGJPZ9dISJU309hANX3XLmERkmPgztx_i6cubN9PfyqLfMYpsxQryLqvlo" />
+</body>
+</html>

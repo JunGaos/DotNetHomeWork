@@ -1,0 +1,1017 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta name="description" content="Liquid 是一门开源的模板语言，由 Shopify 创造并用 Ruby 实现。它是 Shopify 主题的主要构成部分，并且被用于加载店铺系统的动态内容。它是一种安全的模板语言，对于非程序员的受众" />
+    <meta property="og:description" content="Liquid 是一门开源的模板语言，由 Shopify 创造并用 Ruby 实现。它是 Shopify 主题的主要构成部分，并且被用于加载店铺系统的动态内容。它是一种安全的模板语言，对于非程序员的受众" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>安全高效跨平台的. NET 模板引擎 Fluid 使用文档 - Soar、毅 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey.min.css?v=1gj9-XJKL9BZFkjdvROYQPiPWjQXk-hsXXZGtqkfaSc" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey-mobile.min.css?v=zrVn_w7PYXoSvEFaixHbQGlNNXNZ3h27-9PpkXZLYns" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/Soar1991/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/Soar1991/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/Soar1991/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 109632;
+        var currentBlogApp = 'Soar1991';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlackLowKey';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-02 09:12';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/Soar1991/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/Soar1991/">Soar、毅</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/Soar1991/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Soar%E3%80%81%E6%AF%85">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/Soar1991/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Soar1991/p/14726470.html">
+    <span>安全高效跨平台的. NET 模板引擎 Fluid 使用文档</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p>Liquid 是一门开源的模板语言，由 Shopify 创造并用 Ruby 实现。它是 Shopify 主题的主要构成部分，并且被用于加载店铺系统的动态内容。它是一种安全的模板语言，对于非程序员的受众来说也非常容易理解。</p>
+<p>Fluid 是一个基于 Liquid 模板语言的开源 .NET 模板引擎。由&nbsp;<a href="https://github.com/sebastienros" rel="noreferrer noopener" target="_blank" data-type="URL" data-id="https://github.com/sebastienros">Sébastien Ros</a>&nbsp;开发并发布在&nbsp;<a href="https://github.com/sebastienros/fluid" rel="noreferrer noopener" target="_blank" data-type="URL" data-id="https://github.com/sebastienros/fluid">GitHub</a>&nbsp;上，NuGet 上的引用地址是：&nbsp;<a href="https://www.nuget.org/packages/Fluid.Core" rel="noreferrer noopener" target="_blank">https://www.nuget.org/packages/Fluid.Core</a>&nbsp;。</p>
+<p><img src="https://img.shields.io/nuget/v/Fluid.Core.svg" alt="" data-tag="bdshare">&nbsp;<img src="https://img.shields.io/github/license/sebastienros/fluid" alt="" data-tag="bdshare"></p>
+<h2>Liquid 模板语言</h2>
+<p>如果你对 Liquid 模板语言还不了解，可以先行查看笔者翻译的 Liquid 模板语言中文文档：&nbsp;<a href="https://www.coderbusy.com/archives/1219.html" rel="noreferrer noopener" target="_blank">https://www.coderbusy.com/archives/1219.html</a>&nbsp;。Liquid 模板的文件扩展名为 .liquid ，假如我们有以下 Liquid 模板：</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>&lt;ul id=<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">products</span><span style="color: rgba(128, 0, 0, 1)">"</span>&gt;<span style="color: rgba(0, 0, 0, 1)">
+{</span>% <span style="color: rgba(0, 0, 255, 1)">for</span> product <span style="color: rgba(0, 0, 255, 1)">in</span> products %<span style="color: rgba(0, 0, 0, 1)">}
+</span>&lt;li&gt;
+&lt;h2&gt;{{product.name}}&lt;/h2&gt;<span style="color: rgba(0, 0, 0, 1)">
+Only {{product.price </span>|<span style="color: rgba(0, 0, 0, 1)"> price }}
+ 
+{{product.description </span>| prettyprint |<span style="color: rgba(0, 0, 0, 1)"> paragraph }}
+</span>&lt;/li&gt;<span style="color: rgba(0, 0, 0, 1)">
+{</span>% endfor %<span style="color: rgba(0, 0, 0, 1)">}
+</span>&lt;/ul&gt;</pre>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+<p>该模板被渲染后将会产生以下输出：</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>&lt;ul id=<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">products</span><span style="color: rgba(128, 0, 0, 1)">"</span>&gt;
+&lt;li&gt;
+&lt;h2&gt;Apple&lt;/h2&gt;<span style="color: rgba(0, 0, 0, 1)">
+$</span><span style="color: rgba(128, 0, 128, 1)">329</span><span style="color: rgba(0, 0, 0, 1)">
+ 
+Flat</span>-<span style="color: rgba(0, 0, 255, 1)">out</span><span style="color: rgba(0, 0, 0, 1)"> fun.
+</span>&lt;/li&gt;
+&lt;li&gt;
+&lt;h2&gt;Orange&lt;/h2&gt;<span style="color: rgba(0, 0, 0, 1)">
+$</span><span style="color: rgba(128, 0, 128, 1)">25</span><span style="color: rgba(0, 0, 0, 1)">
+ 
+Colorful.
+</span>&lt;/li&gt;
+&lt;li&gt;
+&lt;h2&gt;Banana&lt;/h2&gt;<span style="color: rgba(0, 0, 0, 1)">
+$</span><span style="color: rgba(128, 0, 128, 1)">99</span><span style="color: rgba(0, 0, 0, 1)">
+ 
+Peel it.
+</span>&lt;/li&gt;
+&lt;/ul&gt;</pre>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+<h2>在项目中使用 Fluid</h2>
+<p>你可以直接在项目中引用&nbsp;<a href="https://www.nuget.org/packages/Fluid.Core" rel="noreferrer noopener" target="_blank" data-type="URL" data-id="https://www.nuget.org/packages/Fluid.Core">NuGet 包</a>。</p>
+<h3>Hello World</h3>
+<p>C# 代码：</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">var</span> parser = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> FluidParser();
+ 
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> model = <span style="color: rgba(0, 0, 255, 1)">new</span> { Firstname = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Bill</span><span style="color: rgba(128, 0, 0, 1)">"</span>, Lastname = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Gates</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> };
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> source = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Hello {{ Firstname }} {{ Lastname }}</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">;
+ 
+</span><span style="color: rgba(0, 0, 255, 1)">if</span> (parser.TryParse(source, <span style="color: rgba(0, 0, 255, 1)">out</span> <span style="color: rgba(0, 0, 255, 1)">var</span> template, <span style="color: rgba(0, 0, 255, 1)">out</span> <span style="color: rgba(0, 0, 255, 1)">var</span><span style="color: rgba(0, 0, 0, 1)"> error))
+{
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> context = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateContext(model);
+ 
+Console.WriteLine(template.Render(context));
+}
+</span><span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)">
+{
+Console.WriteLine($</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Error: {error}</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+<p>运行结果：</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>Hello Bill Gates</pre>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+<h3>线程安全</h3>
+<p>&nbsp;<span class="enlighter"><span class="enlighter-text">FluidParser</span></span>&nbsp;类型是线程安全的，可以被整个应用程序共享。常规做法是将其定义为一个本地的静态变量：</p>
+<div class="cnblogs_code">
+<pre> <span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">static</span> <span style="color: rgba(0, 0, 255, 1)">readonly</span> FluidParser _parser = <span style="color: rgba(0, 0, 255, 1)">new</span> FluidParser();</pre>
+</div>
+<p>IFluidTemplate&nbsp;类型也是线程安全的，其实例可以被缓存起来，并被多个线程并发使用。</p>
+<p><span class="enlighter"><span class="enlighter-text">TemplateContext</span></span>&nbsp;不是线程安全的，每次使用时都应该新建一个实例。&nbsp;</p>
+<h2>过滤器</h2>
+<p>过滤器 改变 Liquid 对象的输出，通过一个&nbsp;<span class="enlighter"><span class="enlighter-text">|</span></span>&nbsp;符号分隔。</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_Highlighter">
+<pre class="brush:csharp;gutter:true;">{{ "/my/fancy/url" | append: ".html" }}</pre>
+</div>
+</div>
+</div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>/my/fancy/url.html</pre>
+</div>
+<p>多个过滤器可以共同作用于同一个输出，并按照从左到右的顺序执行。</p>
+</div>
+</div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>{{ <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">adam!</span><span style="color: rgba(128, 0, 0, 1)">"</span> | capitalize | prepend: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Hello </span><span style="color: rgba(128, 0, 0, 1)">"</span> }}</pre>
+</div>
+<div class="cnblogs_code">
+<pre>Hello Adam!</pre>
+</div>
+<p>Fluid 实现了 Liquid 所有的标准过滤器，同时支持自定义过滤器。</p>
+</div>
+</div>
+<p>自定义的过滤器可以是同步的，也可以是异步的。过滤器被定义为一个委托，该委托接收一个输入，一个参数集合和当前的渲染上下文。以下是一个实现文字转小写过滤器的代码：</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">static</span> ValueTask&lt;FluidValue&gt;<span style="color: rgba(0, 0, 0, 1)"> Downcase(FluidValue input, FilterArguments arguments, TemplateContext context)
+{
+</span><span style="color: rgba(0, 0, 255, 1)">return</span> <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> StringValue(input.ToStringValue().ToLower());
+}</span></pre>
+</div>
+<p>过滤器需要注册在 TemplateOptions 对象上，该 Options 对象可以被重用。&nbsp;</p>
+</div>
+</div>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">var</span> options = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateOptions();
+options.Filters.AddFilter(</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">downcase</span><span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(0, 0, 0, 1)">, Downcase); 
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> context = <span style="color: rgba(0, 0, 255, 1)">new</span> TemplateContext(options);</pre>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+<h2>成员属性白名单</h2>
+<p>Liquid 是一种安全的模板语言，它只允许白名单中的成员属性被访问，并且成员属性不能被改变。白名单成员需要被加入到&nbsp;<span class="enlighter"><span class="enlighter-text">TemplateOptions.<span class="enlighter-m3">MemberAccessStrategy</span></span></span>&nbsp;中。&nbsp;</p>
+<p>另外，MemberAccessStrategy 可以被设置为 UnsafeMemberAccessStrategy ，这将允许模板语言访问所有成员属性。</p>
+<h3>将特定类型加入白名单</h3>
+<p>下面的代码会将 Person 类型加入白名单，这意味着该类型下所有公开的字段和属性都可以被模板读取：</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">var</span> options = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateOptions();
+options.MemberAccessStrategy.Register</span>&lt;Person&gt;();</pre>
+</div>
+</div>
+</div>
+<blockquote class="wp-block-quote">
+<p>注意：当用&nbsp;<span class="enlighter"><span class="enlighter-k3">new<span class="enlighter-text"> <span class="enlighter-m0">TemplateContext<span class="enlighter-g1">(<span class="enlighter-text">model<span class="enlighter-g1">)</span></span></span></span></span></span></span><span style="background-color: initial">&nbsp;传递一个模型时，模型对象会被自动加入白名单。该行为可以通过调用&nbsp;</span><span class="enlighter"><span class="enlighter-text">new <span class="enlighter-m0">TemplateContext<span class="enlighter-g1">(<span class="enlighter-text">model, <span class="enlighter-k1">false<span class="enlighter-g1">)</span></span></span></span></span></span></span><span style="background-color: initial">&nbsp;来禁用。</span>&nbsp;</p>
+</blockquote>
+<h3>将特定成员加入白名单</h3>
+<p>下面的代码只允许模板读取特定的成员：</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">var</span> options = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateOptions();
+options.MemberAccessStrategy.Register</span>&lt;Person&gt;(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Firstname</span><span style="color: rgba(128, 0, 0, 1)">"</span>, <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Lastname</span><span style="color: rgba(128, 0, 0, 1)">"</span>);</pre>
+</div>
+</div>
+</div>
+<h3>访问拦截</h3>
+<p>Fluid 提供了一种可以在运行时拦截属性访问的方式，通过该方式你可以允许访问成员并返回自定义值，或者阻止访问。</p>
+<p>下面的代码演示了如何拦截对&nbsp;<span class="enlighter"><span class="enlighter-text">JObject</span></span>&nbsp;的调用并返回相应的属性：</p>
+<div class="cnblogs_code">
+<pre> <span style="color: rgba(0, 0, 255, 1)">var</span> options = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateOptions();
+
+options.MemberAccessStrategy.Register</span>&lt;JObject, <span style="color: rgba(0, 0, 255, 1)">object</span>&gt;((obj, name) =&gt; obj[name]);</pre>
+</div>
+<h3>继承处理</h3>
+<p>当被注册到白名单中的类型包含继承关系时，情况将变得复杂：默认情况下被注册类型的父类实例成员将不能被访问，子类实例中的派生成员可以被访问。</p>
+<h4>类型定义</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Animal
+{
+</span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">string</span> Type { <span style="color: rgba(0, 0, 255, 1)">get</span>; <span style="color: rgba(0, 0, 255, 1)">set</span><span style="color: rgba(0, 0, 0, 1)">; }
+}
+</span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Human : Animal
+{
+</span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">string</span> Name { <span style="color: rgba(0, 0, 255, 1)">get</span>; <span style="color: rgba(0, 0, 255, 1)">set</span><span style="color: rgba(0, 0, 0, 1)">; }
+</span><span style="color: rgba(0, 0, 255, 1)">public</span> Int32 Age { <span style="color: rgba(0, 0, 255, 1)">get</span>; <span style="color: rgba(0, 0, 255, 1)">set</span><span style="color: rgba(0, 0, 0, 1)">; }
+}
+</span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Boy : Human
+{
+</span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">string</span> Toys { <span style="color: rgba(0, 0, 255, 1)">get</span>; <span style="color: rgba(0, 0, 255, 1)">set</span><span style="color: rgba(0, 0, 0, 1)">; }
+}</span></pre>
+</div>
+</div>
+</div>
+<h4>测试代码</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">var</span> parser = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> FluidParser();
+ 
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> model = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> { };
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> source = <span style="color: rgba(128, 0, 0, 1)">@"</span><span style="color: rgba(128, 0, 0, 1)">
+Animal=Type:{{Animal.Type}}
+Human=Type:{{Human.Type}},Name:{{Human.Name}},Age:{{Human.Age}}
+Boy=Type:{{Boy.Type}},Name:{{Boy.Name}},Age:{{Boy.Age}},Toys:{{Boy.Toys}}
+</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">;
+ 
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> options = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Fluid.TemplateOptions { };
+options.MemberAccessStrategy.Register(</span><span style="color: rgba(0, 0, 255, 1)">typeof</span><span style="color: rgba(0, 0, 0, 1)">(Human));
+ 
+</span><span style="color: rgba(0, 0, 255, 1)">if</span> (parser.TryParse(source, <span style="color: rgba(0, 0, 255, 1)">out</span> <span style="color: rgba(0, 0, 255, 1)">var</span> template, <span style="color: rgba(0, 0, 255, 1)">out</span> <span style="color: rgba(0, 0, 255, 1)">var</span><span style="color: rgba(0, 0, 0, 1)"> error))
+{
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> context = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateContext(model, options);
+context.SetValue(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Animal</span><span style="color: rgba(128, 0, 0, 1)">"</span>, <span style="color: rgba(0, 0, 255, 1)">new</span> Animal { Type = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Human</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> });
+context.SetValue(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Human</span><span style="color: rgba(128, 0, 0, 1)">"</span>, <span style="color: rgba(0, 0, 255, 1)">new</span> Human { Type = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Human</span><span style="color: rgba(128, 0, 0, 1)">"</span>, Name = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">码农很忙</span><span style="color: rgba(128, 0, 0, 1)">"</span>, Age = <span style="color: rgba(128, 0, 128, 1)">30</span><span style="color: rgba(0, 0, 0, 1)"> });
+context.SetValue(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Boy</span><span style="color: rgba(128, 0, 0, 1)">"</span>, <span style="color: rgba(0, 0, 255, 1)">new</span> Boy { Type = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Human</span><span style="color: rgba(128, 0, 0, 1)">"</span>, Name = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">小明</span><span style="color: rgba(128, 0, 0, 1)">"</span>, Age = <span style="color: rgba(128, 0, 128, 1)">10</span>, Toys = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">小汽车</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)"> });
+ 
+Console.WriteLine(template.Render(context));
+}
+</span><span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)">
+{
+Console.WriteLine($</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Error: {error}</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);
+}</span></pre>
+</div>
+</div>
+</div>
+<h4>输出结果</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>Animal=<span style="color: rgba(0, 0, 0, 1)">Type:
+Human</span>=Type:Human,Name:码农很忙,Age:<span style="color: rgba(128, 0, 128, 1)">30</span><span style="color: rgba(0, 0, 0, 1)">
+Boy</span>=Type:Human,Name:小明,Age:<span style="color: rgba(128, 0, 128, 1)">10</span>,Toys:</pre>
+</div>
+</div>
+</div>
+<h3>成员名称风格</h3>
+<p>默认情况下，注册对象的属性是区分大小写的，并按照其源代码中的内容进行注册。例如，属性&nbsp;<span class="enlighter"><span class="enlighter-text">FirstName</span></span>&nbsp;将使用&nbsp;<span class="enlighter"><span class="enlighter-g1">{{<span class="enlighter-text"> p.<span class="enlighter-m3">FirstName<span class="enlighter-text"> <span class="enlighter-g1">}}</span></span></span></span></span></span>&nbsp;标签访问。</p>
+<p>&nbsp;同时，也可以配置使用不同的名称风格。比如小驼峰（firstName）或者蛇形（first_name）风格。</p>
+<p>以下代码可以配置为使用小驼峰风格：</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">var</span> options = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateOptions();
+options.MemberAccessStrategy.MemberNameStrategy </span>= MemberNameStrategies.CamelCase;</pre>
+</div>
+</div>
+</div>
+<h2>执行限制</h2>
+<h3>限制模板递归</h3>
+<p>当调用&nbsp;<span class="enlighter"><span class="enlighter-g1">{<span class="enlighter-text">% include <span class="enlighter-s0">'sub-template'<span class="enlighter-text"> %<span class="enlighter-g1">}</span></span></span></span></span></span>&nbsp;语句时，有些模板可能会产生无限的递归，从而阻塞服务器。为了防止这种情况，<span class="enlighter"><span class="enlighter-text">TemplateOptions</span></span>&nbsp;类定义了一个默认的&nbsp;<span class="enlighter"><span class="enlighter-text">MaxRecursion = <span class="enlighter-n1">100</span></span></span>&nbsp;，防止模板的深度超过<span class="enlighter"><span class="enlighter-text">100</span></span>&nbsp;。&nbsp;</p>
+<h3>限制模板执行</h3>
+<p>模板可能会不经意地创建无限循环，这可能会使服务器无限期地运行而堵塞。为了防止这种情况，<span class="enlighter"><span class="enlighter-text">TemplateOptions</span></span>&nbsp;类定义了一个默认的&nbsp;<span class="enlighter"><span class="enlighter-text">MaxSteps</span></span>。默认情况下，这个值没有被设置。&nbsp;</p>
+<h2>转换 CLR 类型</h2>
+<p>当一个对象在模板中被操作时，它会被转换为一个特定的 FluidValue 实例。该机制与 JavaScript 中的动态类型系统有些类似。</p>
+<p>在Liquid中，它们可以是数字、字符串、布尔值、数组或字典。Fluid会自动将CLR类型转换为相应的Liquid类型，同时也提供专门的类型。</p>
+<p>为了能够定制这种转换，你可以添加自定义的转换器。</p>
+<h3>添加一个值转换器</h3>
+<p>当转换逻辑不能直接从一个对象的类型中推断出来时，可以使用一个值转换器。</p>
+<p>值转换器可以返回：</p>
+<ul>
+<li>
+<div class="enlighter-default enlighter-v-inline enlighter-t-droide "><span class="enlighter"><span class="enlighter-text">null</span></span>&nbsp;代表值不能被转换。</div>
+</li>
+<li>一个 FluidValue&nbsp;实例，代表停止进一步的转换，并使用这个值。</li>
+<li>其他对象实例，代表需要继续使用自定义和内部类型映射进行转换。</li>
+</ul>
+<p>以下的代码演示了如何将实现接口的任意实例转换为自定义字符串值：</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">var</span> options = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateOptions();
+options.ValueConverters.Add((value) </span>=&gt; value <span style="color: rgba(0, 0, 255, 1)">is</span> IUser user ? user.Name : <span style="color: rgba(0, 0, 255, 1)">null</span>);</pre>
+</div>
+</div>
+</div>
+<blockquote class="wp-block-quote">
+<p>注意：类型映射的定义是全局的，对整个程序都生效。</p>
+</blockquote>
+<h2>在模型中使用 Json.NET 对象</h2>
+<p>Json.NET 中使用的类并不像类那样有直接命名的属性，这使得它们在 Liquid 模板中无法开箱使用。</p>
+<p>为了弥补这一点，我们可以配置 Fluid，将名称映射为 JObject 属性，并将 JValue 对象转换为 Fluid 所使用的对象。</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">var</span> options = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateOptions();
+ 
+</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> When a property of a JObject value is accessed, try to look into its properties</span>
+options.MemberAccessStrategy.Register&lt;JObject, <span style="color: rgba(0, 0, 255, 1)">object</span>&gt;((source, name) =&gt;<span style="color: rgba(0, 0, 0, 1)"> source[name]);
+ 
+</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> Convert JToken to FluidValue</span>
+options.ValueConverters.Add(x =&gt; x <span style="color: rgba(0, 0, 255, 1)">is</span> JObject o ? <span style="color: rgba(0, 0, 255, 1)">new</span> ObjectValue(o) : <span style="color: rgba(0, 0, 255, 1)">null</span><span style="color: rgba(0, 0, 0, 1)">);
+options.ValueConverters.Add(x </span>=&gt; x <span style="color: rgba(0, 0, 255, 1)">is</span> JValue v ? v.Value : <span style="color: rgba(0, 0, 255, 1)">null</span><span style="color: rgba(0, 0, 0, 1)">);
+ 
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> model = JObject.Parse(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">{\"Name\": \"Bill\"}</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);
+ 
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> parser = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> FluidParser();
+ 
+parser.TryParse(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">His name is {{ Name }}</span><span style="color: rgba(128, 0, 0, 1)">"</span>, <span style="color: rgba(0, 0, 255, 1)">out</span> <span style="color: rgba(0, 0, 255, 1)">var</span><span style="color: rgba(0, 0, 0, 1)"> template);
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> context = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateContext(model, options);
+ 
+Console.WriteLine(template.Render(context));</span></pre>
+</div>
+</div>
+</div>
+<h2>编码</h2>
+<p>默认情况下，Fluid 不会对输出进行编码。在模板上调用 Render() 或 RenderAsync() 时可以指定编码器。</p>
+<h3>HTML 编码</h3>
+<p>可以使用&nbsp;<span class="enlighter"><span class="enlighter-text">System.<span class="enlighter-m3">Text<span class="enlighter-text">.<span class="enlighter-m3">Encodings<span class="enlighter-text">.<span class="enlighter-m3">Web<span class="enlighter-text">.<span class="enlighter-m3">HtmlEncoder<span class="enlighter-text">.<span class="enlighter-m3">Default</span></span></span></span></span></span></span></span></span></span></span>&nbsp;实例来渲染 HTML 编码的模板。&nbsp;</p>
+<p>该编码被 MVC View engine 作为默认编码使用。</p>
+<h3>在上下文中禁用编码</h3>
+<p>当一个编码器被定义后，你可以使用一个特殊的 raw 过滤器或 {% raw %} … {% endraw %} 标签来阻止一个值被编码。例如，如果你知道这个内容是 HTML 并且是安全的：</p>
+<h4>代码</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>{% assign html = <span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">&lt;em&gt;This is some html&lt;/em&gt;</span><span style="color: rgba(128, 0, 0, 1)">'</span> %<span style="color: rgba(0, 0, 0, 1)">}
+ 
+Encoded: {{ html }}
+Not encoded: {{ html </span>| raw }</pre>
+</div>
+</div>
+</div>
+<h4>结果</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>&amp;lt;em%gt;This <span style="color: rgba(0, 0, 255, 1)">is</span> some html&amp;lt;/em%<span style="color: rgba(0, 0, 0, 1)">gt;
+</span>&lt;em&gt;This <span style="color: rgba(0, 0, 255, 1)">is</span> some html&lt;/em&gt;</pre>
+</div>
+</div>
+</div>
+<h3>Capture 块不会被二次编码</h3>
+<p>当使用&nbsp;<span class="enlighter"><span class="enlighter-text">capture</span></span>&nbsp;块时，内部内容被标记为预编码，如果在&nbsp;<span class="enlighter"><span class="enlighter-g1">{{<span class="enlighter-text"> <span class="enlighter-g1">}}</span></span></span></span>&nbsp;标签中使用，就不会被再次编码。&nbsp;</p>
+<h4>代码</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>{% capture breaktag %}&lt;br /&gt;{% endcapture %<span style="color: rgba(0, 0, 0, 1)">}
+ 
+{{ breaktag }}</span></pre>
+</div>
+</div>
+</div>
+<h4>结果</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>&lt;br /&gt;</pre>
+</div>
+</div>
+</div>
+<h2>本地化</h2>
+<p>默认情况下，模板使用不变的文化（ Invariant culture ，对应&nbsp;<span class="enlighter"><span class="enlighter-text">CultureInfo.<span class="enlighter-m3">InvariantCulture</span></span></span>&nbsp;。）进行渲染，这样在不同的系统中可以得到一致的结果。这项设置在输出日期、时间和数字时很重要。&nbsp;</p>
+<p>即便如此，也可以使用&nbsp;<span class="enlighter"><span class="enlighter-text">TemplateContext.<span class="enlighter-m3">CultureInfo</span></span></span>&nbsp;属性来定义渲染模板时使用的文化信息（你也可以称之为多语言信息）。&nbsp;</p>
+<h4>代码</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">var</span> options = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateOptions();
+options.CultureInfo </span>= <span style="color: rgba(0, 0, 255, 1)">new</span> CultureInfo(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">en-US</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> context = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateContext(options);
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> result = template.Render(context);</pre>
+</div>
+</div>
+</div>
+<h4>模板</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>{{ <span style="color: rgba(128, 0, 128, 1)">1234.56</span><span style="color: rgba(0, 0, 0, 1)"> }}
+{{ </span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">now</span><span style="color: rgba(128, 0, 0, 1)">"</span> | date: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">%v</span><span style="color: rgba(128, 0, 0, 1)">"</span> }}</pre>
+</div>
+</div>
+</div>
+<h4>结果</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(128, 0, 128, 1)">1234.56</span><span style="color: rgba(0, 0, 0, 1)">
+Tuesday, August </span><span style="color: rgba(128, 0, 128, 1)">1</span>, <span style="color: rgba(128, 0, 128, 1)">2017</span></pre>
+</div>
+</div>
+</div>
+<h2>时区</h2>
+<h3>系统时区</h3>
+<p>TemplateOptions 和 TemplateContext 提供了一个定义默认时区的属性，以便在解析日期和时间时使用。该属性的默认值是当前系统的时区。当日期和时间被解析而没有指定时区时，将会使用默认时区。设置一个自定义的时区可以防止在不同环境（数据中心）时产生不同的结果。</p>
+<blockquote class="wp-block-quote">
+<p>注意：<span class="enlighter"><span class="enlighter-text">date</span></span><span style="background-color: initial">&nbsp;过滤器符合 Ruby 的日期和时间格式：&nbsp;</span><a style="background-color: initial" href="https://ruby-doc.org/core-3.0.0/Time.html#method-i-strftime" rel="noreferrer noopener" target="_blank">https://ruby-doc.org/core-3.0.0/Time.html#method-i-strftime</a><span style="background-color: initial">&nbsp;。要使用 .NET 标准的日期格式，请使用&nbsp;</span><span class="enlighter"><span class="enlighter-text">format_date</span></span><span style="background-color: initial">&nbsp;过滤器。</span>&nbsp;</p>
+</blockquote>
+<h4>代码</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">var</span> context = <span style="color: rgba(0, 0, 255, 1)">new</span> TemplateContext { TimeZone = TimeZoneInfo.FindSystemTimeZoneById(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Pacific Standard Time</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">) } ;
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> result = template.Render(context);</pre>
+</div>
+</div>
+</div>
+<h4>模板</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>{{ <span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">1970-01-01 00:00:00</span><span style="color: rgba(128, 0, 0, 1)">'</span> | date: <span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">%c</span><span style="color: rgba(128, 0, 0, 1)">'</span> }}</pre>
+</div>
+</div>
+</div>
+<h4>结果</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>Wed Dec <span style="color: rgba(128, 0, 128, 1)">31</span> <span style="color: rgba(128, 0, 128, 1)">19</span>:<span style="color: rgba(128, 0, 128, 1)">00</span>:<span style="color: rgba(128, 0, 128, 1)">00</span> -<span style="color: rgba(128, 0, 128, 1)">08</span>:<span style="color: rgba(128, 0, 128, 1)">00</span> <span style="color: rgba(128, 0, 128, 1)">1969</span></pre>
+</div>
+</div>
+</div>
+<h3>时区转换</h3>
+<p>日期和时间可以使用&nbsp;<span class="enlighter"><span class="enlighter-text">time_zone</span></span>&nbsp;标签转换为特定的时区，格式为：<span class="enlighter"><span class="enlighter-text">time_zone:<span class="enlighter-g1">&lt;<span class="enlighter-text">iana<span class="enlighter-g1">&gt;</span></span></span></span></span>&nbsp;。&nbsp;</p>
+<h4>代码</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">var</span> context = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TemplateContext();
+context.SetValue(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">published</span><span style="color: rgba(128, 0, 0, 1)">"</span>, DateTime.UtcNow);</pre>
+</div>
+</div>
+</div>
+<h4>模板</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>{{ published | time_zone: <span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">America/New_York</span><span style="color: rgba(128, 0, 0, 1)">'</span> | date: <span style="color: rgba(128, 0, 0, 1)">'</span><span style="color: rgba(128, 0, 0, 1)">%+</span><span style="color: rgba(128, 0, 0, 1)">'</span> }}</pre>
+</div>
+</div>
+</div>
+<h4>结果</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>Tue Aug <span style="color: rgba(128, 0, 128, 1)">1</span> <span style="color: rgba(128, 0, 128, 1)">17</span>:<span style="color: rgba(128, 0, 128, 1)">04</span>:<span style="color: rgba(128, 0, 128, 1)">36</span> -<span style="color: rgba(128, 0, 128, 1)">05</span>:<span style="color: rgba(128, 0, 128, 1)">00</span> <span style="color: rgba(128, 0, 128, 1)">2017</span></pre>
+</div>
+</div>
+</div>
+<h2>自定义标签和块</h2>
+<p>Fluid 的语法可以被修改，以使其接受任何新的标记（tag）和带有任何自定义参数的块（block）。Fluid 使用了&nbsp;<a href="https://github.com/sebastienros/parlot" rel="noreferrer noopener" target="_blank" data-type="URL" data-id="https://github.com/sebastienros/parlot">Parlot</a>&nbsp;作为语法分析器，这使得 Fluid 完全可扩展。</p>
+<p>与块（block）不同，标记（tag）没有结束元素（例如：循环，自增）。当把一个模板的某个部分作为一组语句来操作时，块很有用。</p>
+<p>Fluid 提供了用于注册常见标签和块的帮助方法。所有的标签和块总是以他们的名称作为标识符开始。</p>
+<p>自定义标签时需要提供一个委托（delegate），该委托会在标签被匹配时执行。该委托可以使用使用以下三个属性：</p>
+<ol>
+<li>
+<div class="enlighter-default enlighter-v-inline enlighter-t-droide "><span class="enlighter"><span class="enlighter-text">writer</span></span>，<span class="enlighter"><span class="enlighter-text">TextWriter</span></span>的实例，用于渲染文字。</div>
+</li>
+<li>
+<div class="enlighter-default enlighter-v-inline enlighter-t-droide "><span class="enlighter"><span class="enlighter-text">encode</span></span>，<span class="enlighter"><span class="enlighter-text">TextEncoder</span></span>的实例，例如&nbsp;<span class="enlighter"><span class="enlighter-text">HtmlEncoder</span></span>&nbsp;或者&nbsp;<span class="enlighter"><span class="enlighter-text">NullEncoder</span></span>。由模板的调用者定义。</div>
+</li>
+<li>
+<div class="enlighter-default enlighter-v-inline enlighter-t-droide "><span class="enlighter"><span class="enlighter-text">context</span></span>，<span class="enlighter"><span class="enlighter-text">TemplateContext</span></span>&nbsp;的实例。</div>
+</li>
+</ol>
+<h3>注册自定义标签</h3>
+<p>自定义标签可以分为三种类型：</p>
+<ol>
+<li>Empty：空白标签，没有任何参数，例如&nbsp;<span class="enlighter"><span class="enlighter-text"><span class="enlighter-g1">{<span class="enlighter-text">% renderbody %<span class="enlighter-g1">}</span></span></span></span></span>&nbsp;。</li>
+<li>Identifier：标识符。将标识符作为标签参数，例如&nbsp;<span class="enlighter"><span class="enlighter-text"><span class="enlighter-g1">{<span class="enlighter-text">% increment my_variable %<span class="enlighter-g1">}</span></span></span></span></span>&nbsp;。</li>
+<li>Expression：表达式。以表达式作为参数，例如 {<span class="enlighter-text">% layout <span class="enlighter-s0">'home'<span class="enlighter-text"> <span class="enlighter-g0">|<span class="enlighter-text"> append: <span class="enlighter-s0">'.liquid'<span class="enlighter-text"> %<span class="enlighter-g1">}</span></span></span></span></span></span></span></span>&nbsp;。</li>
+</ol>
+<h4>代码</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>parser.RegisterIdentifierTag(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">hello</span><span style="color: rgba(128, 0, 0, 1)">"</span>, (identifier, writer, encoder, context) =&gt;<span style="color: rgba(0, 0, 0, 1)">
+{
+writer.Write(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Hello </span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);
+writer.Write(identifier);
+});</span></pre>
+</div>
+</div>
+</div>
+<h4>模板</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>{% hello you %}</pre>
+</div>
+</div>
+</div>
+<h4>结果</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>Hello you</pre>
+</div>
+</div>
+</div>
+<h3>注册自定义块</h3>
+<p>块的创建方式与标记相同，可以在委托中访问块内的语句列表。</p>
+<h4>源码</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>parser.RegisterExpressionBlock(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">repeat</span><span style="color: rgba(128, 0, 0, 1)">"</span>, (value, statements, writer, encoder, context) =&gt;<span style="color: rgba(0, 0, 0, 1)">
+{
+</span><span style="color: rgba(0, 0, 255, 1)">for</span> (<span style="color: rgba(0, 0, 255, 1)">var</span> i = <span style="color: rgba(128, 0, 128, 1)">0</span>; i &lt; value.ToNumber(); i++<span style="color: rgba(0, 0, 0, 1)">)
+{
+</span><span style="color: rgba(0, 0, 255, 1)">await</span> <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> statements.RenderStatementsAsync(writer, encoder, context);
+}
+ 
+</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> Completion.Normal;
+});</span></pre>
+</div>
+</div>
+</div>
+<h4>模板</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>{% repeat <span style="color: rgba(128, 0, 128, 1)">1</span> | plus: <span style="color: rgba(128, 0, 128, 1)">2</span> %}Hi! {% endrepeat %}</pre>
+</div>
+</div>
+</div>
+<h4>结果</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>Hi! Hi! Hi!</pre>
+</div>
+</div>
+</div>
+<h3>自定义模板解析</h3>
+<p>如果&nbsp;<span class="enlighter"><span class="enlighter-text">identifier</span></span>、&nbsp;<span class="enlighter"><span class="enlighter-text">empty&nbsp;</span></span>和&nbsp;<span class="enlighter"><span class="enlighter-text">expression</span></span>&nbsp;解析器不能满足你的要求，<span class="enlighter"><span class="enlighter-text">RegisterParserBlock</span></span>&nbsp;和&nbsp;<span class="enlighter"><span class="enlighter-text">RegisterParserTag</span></span>&nbsp;方法可以接受自定义的解析结构。这些结构可以是 FluidParser 中定义的标准解析器，例如&nbsp;<span class="enlighter"><span class="enlighter-text">Primary&nbsp;</span></span>或者其他任意组合。</p>
+<p>例如，<span class="enlighter"><span class="enlighter-m0">RegisterParseTag<span class="enlighter-g1">(<span class="enlighter-text">Primary.<span class="enlighter-m3">AndSkip<span class="enlighter-g1">(<span class="enlighter-text">Comma<span class="enlighter-g1">)<span class="enlighter-text">.<span class="enlighter-m3">And<span class="enlighter-g1">(<span class="enlighter-text">Primary<span class="enlighter-g1">)<span class="enlighter-text">, …<span class="enlighter-g1">)</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>&nbsp;将期望两个&nbsp;<span class="enlighter"><span class="enlighter-text">Primary</span></span>&nbsp;元素用逗号隔开。然后，该委托将被调用，使用&nbsp;<span class="enlighter"><span class="enlighter-text">ValueTuple<span class="enlighter-g1">&lt;<span class="enlighter-text">Expression, Expression<span class="enlighter-g1">&gt;</span></span></span></span></span>&nbsp;代表这两个&nbsp;<span class="enlighter"><span class="enlighter-text">Primary</span></span>&nbsp;表达式。</p>
+<h3>注册自定义运算符</h3>
+<p>运算符是用来比较数值的，比如&nbsp;<span class="enlighter"><span class="enlighter-g1">&gt;</span></span>&nbsp;或&nbsp;<span class="enlighter"><span class="enlighter-text">contains</span></span>&nbsp;。如果需要提供特殊的比较，可以定义自定义运算符。</p>
+<h4>自定义 xor 运算符</h4>
+<p>下面的例子创建了一个自定义的&nbsp;<span class="enlighter"><span class="enlighter-text">xor</span></span>&nbsp;运算符，如果左或右表达式被转换为布尔时只有一个是真的，它将为真。</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 255, 1)">using</span><span style="color: rgba(0, 0, 0, 1)"> Fluid.Ast;
+</span><span style="color: rgba(0, 0, 255, 1)">using</span><span style="color: rgba(0, 0, 0, 1)"> Fluid.Values;
+</span><span style="color: rgba(0, 0, 255, 1)">using</span><span style="color: rgba(0, 0, 0, 1)"> System.Threading.Tasks;
+ 
+</span><span style="color: rgba(0, 0, 255, 1)">namespace</span><span style="color: rgba(0, 0, 0, 1)"> Fluid.Tests.Extensibility
+{
+</span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> XorBinaryExpression : BinaryExpression
+{
+</span><span style="color: rgba(0, 0, 255, 1)">public</span> XorBinaryExpression(Expression left, Expression right) : <span style="color: rgba(0, 0, 255, 1)">base</span><span style="color: rgba(0, 0, 0, 1)">(left, right)
+{
+}
+ 
+</span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">override</span> <span style="color: rgba(0, 0, 255, 1)">async</span> ValueTask&lt;FluidValue&gt;<span style="color: rgba(0, 0, 0, 1)"> EvaluateAsync(TemplateContext context)
+{
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> leftValue = <span style="color: rgba(0, 0, 255, 1)">await</span><span style="color: rgba(0, 0, 0, 1)"> Left.EvaluateAsync(context);
+</span><span style="color: rgba(0, 0, 255, 1)">var</span> rightValue = <span style="color: rgba(0, 0, 255, 1)">await</span><span style="color: rgba(0, 0, 0, 1)"> Right.EvaluateAsync(context);
+ 
+</span><span style="color: rgba(0, 0, 255, 1)">return</span> BooleanValue.Create(leftValue.ToBooleanValue() ^<span style="color: rgba(0, 0, 0, 1)"> rightValue.ToBooleanValue());
+}
+}
+}</span></pre>
+</div>
+<h4>配置解析器</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>parser.RegisteredOperators[<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">xor</span><span style="color: rgba(128, 0, 0, 1)">"</span>] = (a, b) =&gt; <span style="color: rgba(0, 0, 255, 1)">new</span> XorBinaryExpression(a, b);</pre>
+</div>
+</div>
+</div>
+<h4>模板</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>{% <span style="color: rgba(0, 0, 255, 1)">if</span> <span style="color: rgba(0, 0, 255, 1)">true</span> xor <span style="color: rgba(0, 0, 255, 1)">false</span> %}Hello{% endif %}</pre>
+</div>
+</div>
+</div>
+<h4>结果</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>Hello</pre>
+</div>
+</div>
+</div>
+<h2>空白控制</h2>
+<p>Liquid 在支持空白方面遵循严格的规则。默认情况下，所有的空格和新行都从模板中保留下来。Liquid 的语法和一些 Fluid 选项允许自定义这种行为。</p>
+<h3>通过连字符控制空白输出</h3>
+<p>例如有以下模板：</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>{% assign name = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Bill</span><span style="color: rgba(128, 0, 0, 1)">"</span> %<span style="color: rgba(0, 0, 0, 1)">}
+{{ name }}</span></pre>
+</div>
+</div>
+</div>
+<p>在&nbsp;<span class="enlighter"><span class="enlighter-text">assign</span></span>&nbsp;标签之后的换行将被保留下来。输出如下：</p>
+<div class="cnblogs_code">
+<pre>Bill</pre>
+</div>
+<p>标签和值可以使用连字符来剥离空白。</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>{% assign name = <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Bill</span><span style="color: rgba(128, 0, 0, 1)">"</span> -%<span style="color: rgba(0, 0, 0, 1)">}
+{{ name }}</span></pre>
+</div>
+</div>
+</div>
+<p>这将输出：</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>Bill</pre>
+</div>
+</div>
+</div>
+<p>模板中的&nbsp;<span class="enlighter"><span class="enlighter-text">-%<span class="enlighter-g1">}</span></span></span>&nbsp;将&nbsp;<span class="enlighter"><span class="enlighter-text">assign&nbsp;</span></span>标签右侧的空白部分剥离。&nbsp;</p>
+<h3>通过模板选项控制空白输出</h3>
+<p>Fluid 提供了&nbsp;<span class="enlighter"><span class="enlighter-text">TemplateOptions.<span class="enlighter-m3">Triming</span></span></span>&nbsp;属性，可以用预定义的偏好来设置何时应该自动剥离空白，即使标签和输出值中不存在连字符。</p>
+<h3>贪婪模式</h3>
+<p>当&nbsp;<span class="enlighter"><span class="enlighter-text">TemplateOptions.<span class="enlighter-m3">Greedy</span></span></span>&nbsp;中的贪婪模式被禁用时，只有第一个新行之前的空格被剥离。贪婪模式默认启用，这是 Liquid 语言的标准行为。</p>
+<h2>自定义过滤器</h2>
+<p>Fliud 默认提供了一些非标准过滤器。</p>
+<h3>format_date</h3>
+<p>使用标准的 .NET 日期和时间格式来格式化日期和时间。它使用系统当前的多语言信息。</p>
+<h4>输入</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">now</span><span style="color: rgba(128, 0, 0, 1)">"</span> | format_date: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">G</span><span style="color: rgba(128, 0, 0, 1)">"</span></pre>
+</div>
+</div>
+</div>
+<h4>输出</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(128, 0, 128, 1)">6</span>/<span style="color: rgba(128, 0, 128, 1)">15</span>/<span style="color: rgba(128, 0, 128, 1)">2009</span> <span style="color: rgba(128, 0, 128, 1)">1</span>:<span style="color: rgba(128, 0, 128, 1)">45</span>:<span style="color: rgba(128, 0, 128, 1)">30</span> PM</pre>
+</div>
+</div>
+</div>
+<p>详细的文档可以看这里：&nbsp;<a href="https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/standard-date-and-time-format-strings" rel="noreferrer noopener" target="_blank">https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/standard-date-and-time-format-strings</a></p>
+<h3>format_number</h3>
+<p>使用 .NET 数字格式来格式化数字。</p>
+<h4>输入</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(128, 0, 128, 1)">123</span> | format_number: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">N</span><span style="color: rgba(128, 0, 0, 1)">"</span></pre>
+</div>
+</div>
+</div>
+<h3>输出</h3>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(128, 0, 128, 1)">123.00</span></pre>
+</div>
+</div>
+</div>
+<p>详细的文档可以看这里：<a href="https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/standard-numeric-format-strings" rel="noreferrer noopener" target="_blank">https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/standard-numeric-format-strings</a></p>
+<h3>format_string</h3>
+<p>格式化字符串</p>
+<h4>输入</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">hello {0} {1:C}</span><span style="color: rgba(128, 0, 0, 1)">"</span> | format_string: <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">world</span><span style="color: rgba(128, 0, 0, 1)">"</span> <span style="color: rgba(128, 0, 128, 1)">123</span></pre>
+</div>
+</div>
+</div>
+<h4>输出</h4>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>hello world $<span style="color: rgba(128, 0, 128, 1)">123.00</span></pre>
+</div>
+</div>
+</div>
+<p>详细的文档可以看这里：<a href="https://docs.microsoft.com/zh-cn/dotnet/api/system.string.format?view=net-5.0" rel="noreferrer noopener" target="_blank">https://docs.microsoft.com/zh-cn/dotnet/api/system.string.format?view=net-5.0</a></p>
+<h2>性能测试</h2>
+<h3>缓存</h3>
+<p>如果你在渲染之前对解析过的模板进行缓存，你的应用程序可以获得一些性能提升。解析是内存安全的，因为它不会引起任何编译（意味着如果你决定解析大量的模板，所有的内存都可以被收集），你可以通过存储和重用&nbsp;<span class="enlighter"><span class="enlighter-text">FluidTemplate</span></span>&nbsp;实例来跳过解析步骤。</p>
+<p>只要每次对&nbsp;<span class="enlighter"><span class="enlighter-m0">Render<span class="enlighter-g1">()</span></span></span>&nbsp;的调用使用一个独立的&nbsp;<span class="enlighter"><span class="enlighter-text">TemplateContext&nbsp;</span></span>实例，这些对象就是线程安全的。</p>
+<h3>基准测试</h3>
+<p>Fluid 项目的源代码中提供了一个基准测试应用程序，用于比较 Fluid、Scriban、DotLiquid 和 Liquid.NET 。在本地运行该项目，分析执行特定模板所需的时间。</p>
+<h4>Results</h4>
+<p>Fluid 比所有其他知名的 .NET Liquid 模板分析器更快，分配的内存更少。对于解析，Fluid 比 Scriban快30%，分配的内存少 3 倍。对于渲染，Fluid 比 Scriban 快 3 倍，分配的内存少 5 倍。与 DotLiquid 相比，Fluid 的渲染速度快 10 倍，分配的内存少 40 倍。</p>
+<div class="enlighter-default enlighter-v-standard enlighter-t-droide enlighter-hover enlighter-linenumbers enlighter-overflow-scroll ">
+<div class="enlighter">
+<div class="cnblogs_code">
+<pre>BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
+Intel Core i7-1065G7 CPU 1.30GHz, 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=5.0.201
+[Host] : .NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT
+ShortRun : .NET Core 5.0.4 (CoreCLR 5.0.421.11614, CoreFX 5.0.421.11614), X64 RyuJIT
+ 
+Job=ShortRun IterationCount=3 LaunchCount=1
+WarmupCount=3
+ 
+| Method | Mean | Error | StdDev | Ratio | RatioSD | Gen 0 | Gen 1 | Gen 2 | Allocated |
+|------------------- |--------------:|-------------:|------------:|-------:|--------:|----------:|---------:|--------:|------------:|
+| Fluid_Parse | 7.056 us | 1.081 us | 0.0592 us | 1.00 | 0.00 | 0.6714 | - | - | 2.77 KB |
+| Scriban_Parse | 9.209 us | 2.989 us | 0.1638 us | 1.31 | 0.03 | 1.8005 | - | - | 7.41 KB |
+| DotLiquid_Parse | 38.978 us | 13.704 us | 0.7512 us | 5.52 | 0.14 | 2.6855 | - | - | 11.17 KB |
+| LiquidNet_Parse | 73.198 us | 25.888 us | 1.4190 us | 10.37 | 0.29 | 15.1367 | 0.1221 | - | 62.08 KB |
+| | | | | | | | | | |
+| Fluid_ParseBig | 38.725 us | 11.771 us | 0.6452 us | 1.00 | 0.00 | 2.9907 | 0.1831 | - | 12.34 KB |
+| Scriban_ParseBig | 49.139 us | 8.313 us | 0.4557 us | 1.27 | 0.02 | 7.8125 | 1.0986 | - | 32.05 KB |
+| DotLiquid_ParseBig | 208.644 us | 45.839 us | 2.5126 us | 5.39 | 0.15 | 13.1836 | 0.2441 | - | 54.39 KB |
+| LiquidNet_ParseBig | 24,211.719 us | 3,862.113 us | 211.6955 us | 625.30 | 8.32 | 6843.7500 | 375.0000 | - | 28557.49 KB |
+| | | | | | | | | | |
+| Fluid_Render | 414.462 us | 12.612 us | 0.6913 us | 1.00 | 0.00 | 22.9492 | 5.3711 | - | 95.75 KB |
+| Scriban_Render | 1,141.302 us | 114.127 us | 6.2557 us | 2.75 | 0.02 | 99.6094 | 66.4063 | 66.4063 | 487.64 KB |
+| DotLiquid_Render | 5,753.263 us | 7,420.054 us | 406.7182 us | 13.88 | 0.96 | 867.1875 | 125.0000 | 23.4375 | 3879.18 KB |
+| LiquidNet_Render | 3,262.545 us | 1,245.387 us | 68.2639 us | 7.87 | 0.18 | 1000.0000 | 390.6250 | - | 5324.5 KB |</pre>
+</div>
+<p>&nbsp;</p>
+</div>
+</div>
+<p>以上结果的测试时间是 2021年3月26 日，使用的组件详情如下：</p>
+<ul>
+<li>Scriban 3.6.0</li>
+<li>DotLiquid 2.1.405</li>
+<li>Liquid.NET 0.10.0</li>
+</ul>
+<h4>测试项目说明</h4>
+<p>Parse：解析一个包含过滤器和属性的简单 HTML 模板。<br>ParseBig：解析一个博客文章模板。<br>Render：使用 500 个产品渲染一个包含过滤器和属性的简单 HTML 模板。</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-02 21:12</span>&nbsp;
+<a href="https://www.cnblogs.com/Soar1991/">Soar、毅</a>&nbsp;
+阅读(<span id="post_view_count">0</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14726470" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14726470);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 109632, cb_blogApp = 'Soar1991', cb_blogUserGuid = 'a29cd265-e127-e111-b988-842b2b196315';
+    var cb_entryId = 14726470, cb_entryCreatedDate = '2021-05-02 21:12', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 Soar、毅
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?148cadc7f02425ffbc9e12eb5fb319f4";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjv3A7_aaG-BGT8qKCWVGtXPiqlVVg2CvmvCtp7aXCZ-C-IM_qdnHvFGbl232AAl5TA6FsYZdh42L3fRxSzJxN8VbyUfqcKRXi18ayrZpUQOVd3btvRxcbJj02-kO-U4K7g" />
+</body>
+</html>

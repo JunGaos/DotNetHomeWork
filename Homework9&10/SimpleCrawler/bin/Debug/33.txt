@@ -1,0 +1,752 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="always" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>博客园 - 开发者的网上家园</title>
+        <meta name="keywords" content="开发者,程序员,博客园,程序猿,程序媛,极客,码农,编程,代码,软件开发,开源,IT网站,技术社区,Developer,Programmer,Coder,Geek,Coding,Code" />
+        <meta name="description" content="博客园是一个面向开发者的知识分享社区。自创建以来，博客园一直致力并专注于为开发者打造一个纯净的技术交流社区，推动并帮助开发者通过互联网分享知识，从而让更多开发者从中受益。博客园的使命是帮助开发者用代码改变世界。" />
+    <link rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    <link rel="Stylesheet" type="text/css" href="/css/aggsite.min.css?v=qebcsK6ViDyOTXcddGf-U2uDQR_zUktoftFuzi_7T5w" />
+        <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="http://feed.cnblogs.com/blog/sitehome/rss" />
+    <script src="//common.cnblogs.com/script/jquery.js" type="text/javascript"></script>
+    <script src="/js/aggsite.min.js?v=GuI2sp25626KEQ4_1bnxa_wovTRPlJ0TH-lMnPPLw2k"></script>
+    <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/1090369/A1', [468, 60], 'div-gpt-ad-1547816814884-0').addService(googletag.pubads());
+            googletag.defineSlot('/1090369/B1', [300, 250], 'div-gpt-ad-1546331539224-0').addService(googletag.pubads());
+            googletag.defineSlot('/1090369/B2', [300, 250], 'div-gpt-ad-1539007469525-0').addService(googletag.pubads());
+            googletag.defineSlot('/1090369/B3', [300, 250], 'div-gpt-ad-1546331252242-0').addService(googletag.pubads());
+            googletag.defineSlot('/1090369/B4', [300, 250], 'div-gpt-ad-1546331385104-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+
+        /**/</script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="hd_info">
+        <div id="cnts">
+            <div id="site_nav_top">代码改变世界</div>
+            <div id="login_area"><span id="span_userinfo"></span></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div id="header">
+        <p class="h_r_3"></p><p class="h_r_2"></p><p class="h_r_1"></p>
+        <div id="header_block">
+            <div id="logo">
+                <h1>
+                    <a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo_small.gif" alt="博客园Logo" width="142" height="55" /></a>
+                </h1>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+        <p class="h_r_1"></p><p class="h_r_2"></p><p class="h_r_3"></p>
+    </div>
+    <div id="nav_menu"><a href="/">新版</a><a href="https://home.cnblogs.com/">园子</a><a href="https://news.cnblogs.com">新闻</a><a href="https://q.cnblogs.com/">博问</a><a href="https://ing.cnblogs.com/">闪存</a><a id="nav_legacy_brandzone" href="https://brands.cnblogs.com/">专区</a><a href="https://wz.cnblogs.com/">收藏</a><a href="https://job.cnblogs.com/">招聘</a><a href="https://edu.cnblogs.com/">班级</a><a href="https://zzk.cnblogs.com/">找找看</a></div>
+    <div id="main">
+        <div class="post_nav_block_wrapper">
+            <ul class="post_nav_block">
+                    <li><a href="/legacy/" id="tabnav_legacy" class="current_nav" title="">首页</a></li>
+                    <li><a href="/legacy/pick/" id="tabnav_legacypick" class="" title="编辑精选博文">精华</a></li>
+                    <li><a href="/legacy/candidate/" id="tabnav_legacycandidate" class="" title="候选区的博文">候选</a></li>
+                    <li><a href="/legacy/news/" id="tabnav_legacynews" class="" title="新闻频道最新新闻">新闻</a></li>
+                    <li><a href="/legacy/following" id="tabnav_legacyfollowing" class="" title="我关注博客的最新博文">关注</a></li>
+                    <li><a href="/legacy/aggsite/mycommented" id="tabnav_legacyaggsitemycommented" class="" title="我评论过的博文">我评</a></li>
+                    <li><a href="/legacy/aggsite/mydigged" id="tabnav_legacyaggsitemydigged" class="" title="我推荐过的博文">我赞</a></li>
+                    <li><a href="/legacy/subscription" id="tabnav_legacysubscription" class="" title="我订阅的博客">订阅</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="rss_link" id="rss_block">
+<span id="posts_refresh_tips"></span><a id="posts_refresh" href="#" class="refresh" title="刷新博文列表" onclick="aggSite.loadCategoryPostList();return false">刷新</a><a href="http://feed.cnblogs.com/blog/sitehome/rss"><img src="//common.cnblogs.com/images/icon_rss.gif" alt="点击订阅" style="position:relative;top:2px;" title="订阅博客园文章" /></a>        </div>
+            <div id="headline_block" class="headline"><ul class="headline"><li class="editor_pick"><a href="https://www.cnblogs.com/coco1s/p/14713110.html" id="editor_pick_lnk" target="_blank"><span class="headline-label">【编辑推荐】</span>探秘神奇的运动路径动画 Motion Path<span id="editor_pick_count"></span></a> <a href="/aggsite/headline" title="查看更多编辑推荐" class="right_more">»</a></li><li id="top_digged_post"><a href="https://www.cnblogs.com/yyfh/p/14720182.html" target="_blank" title="阅读2018, 评论11, 推荐19"><span class="headline-label">【最多推荐】</span>.NET RulesEngine（规则引擎）(11/2018)</a> <a href="/aggsite/topdigged24h" title="查看24小时推荐排行" class="right_more">»</a></li><li id="top_commented_post"><a href="https://www.cnblogs.com/ddeef/p/14724895.html" target="_blank" title="阅读501, 评论13, 推荐5"><span class="headline-label">【最多评论】</span>产品功能被像素级抄袭了。我们拿什么来保护原创的产品设计？(13/501)</a> <a href="/aggsite/topcommented24h" title="查看24小时评论排行" class="right_more">»</a></li><li id="news_headline"><a href="https://news.cnblogs.com/n/693055/" target="_blank" title="阅读779, 评论0, 推荐4"><span class="headline-label">【新闻头条】</span>腾讯发布安居计划Plus方案，员工最高可申请免息借款90万(0/779)</a> <a href="https://news.cnblogs.com/" title="查看更多新闻" class="right_more">»</a></li></ul></div>
+
+        <div id="pager_top" style="display:none"></div>
+        <div id="post_list_tips" class="hide"></div>
+        
+        <div id="post_list">
+                <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('Silymtics',14669003,628720,1)">
+                <span class="diggnum" id="digg_count_14669003">1</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14669003" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/Silymtics/p/14669003.html" target="_blank">组合数学</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/Silymtics/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/2140595/20210117162517.png" alt="" /></a>                组合数学 写在前面 题做不动了，来写点笔记 计数原理 抽屉原理 把 \(n + 1\) 件物品放入 \(n\) 个抽屉里，至少有一个抽屉放了 \(2\) 个物品 这不是很显然？ 容斥原理 在计数时，必须注意没有重复，没有遗漏。为了使重叠部分不被重复计算，人们研究出一种新的计数方法，这种方法的基本思想 ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/Silymtics/" class="lightblue">Suzt_ilymtics</a>
+                发布于 2021-05-02 21:59
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/Silymtics/p/14669003.html#commentform" class="gray">
+                        评论(1)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/Silymtics/p/14669003.html" class="gray">阅读(7)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('chen-w',14726549,678016,1)">
+                <span class="diggnum" id="digg_count_14726549">1</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14726549" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/chen-w/p/14726549.html" target="_blank">Powershell免杀</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/chen-w/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/1764572/20210412085554.png" alt="" /></a>                Powershell免杀 0x01 前言 前几天搞一个站的时候，进入内网，想让内网一台机子powershell上线。然后被杀软拦截了，极其的不讲武德，想着找我极强的朋友们白嫖个免杀的方法。 后面还是没有白嫖到，只好自己去研究学习一下了（针对CS的进行免杀，后面思想大同小异）于是做了这个小笔记。 0x ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/chen-w/" class="lightblue">Chen-w</a>
+                发布于 2021-05-02 21:32
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/chen-w/p/14726549.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/chen-w/p/14726549.html" class="gray">阅读(25)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('Soar1991',14726470,109632,1)">
+                <span class="diggnum" id="digg_count_14726470">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14726470" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/Soar1991/p/14726470.html" target="_blank">安全高效跨平台的. NET 模板引擎 Fluid 使用文档</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/Soar1991/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/361720/20200426144837.png" alt="" /></a>                Liquid 是一门开源的模板语言，由 Shopify 创造并用 Ruby 实现。它是 Shopify 主题的主要构成部分，并且被用于加载店铺系统的动态内容。它是一种安全的模板语言，对于非程序员的受众来说也非常容易理解。 Fluid 是一个基于 Liquid 模板语言的开源 .NET 模板引擎。由&#160; ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/Soar1991/" class="lightblue">Soar、毅</a>
+                发布于 2021-05-02 21:12
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/Soar1991/p/14726470.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/Soar1991/p/14726470.html" class="gray">阅读(65)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('wzh2001',14725315,654222,1)">
+                <span class="diggnum" id="digg_count_14725315">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14725315" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/wzh2001/p/14725315.html" target="_blank">基于MATLAB公式识别</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/wzh2001/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/2258149/20210427091919.png" alt="" /></a>                09:48:25 从一个无知角落里开始，蹒跚学步，一个未知到另一个未知，在跌跌撞撞中越走越快，越走越远，最后宇宙也为之开源。对于探索者来说，最后他们的思想总是变得和自己的足迹一样伟大。 该项目目前可以实现 图像的预处理包括：灰度化，二值化（公式假设是良好的数学公式截屏图片） 图像的最小外接矩求解；  ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/wzh2001/" class="lightblue">尼各马可伦理学</a>
+                发布于 2021-05-02 21:01
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/wzh2001/p/14725315.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/wzh2001/p/14725315.html" class="gray">阅读(24)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('lda-ovo',14726409,680462,1)">
+                <span class="diggnum" id="digg_count_14726409">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14726409" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/lda-ovo/p/14726409.html" target="_blank">Algorithm(4th) 1.5 union-find算法</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/lda-ovo/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/2371283/20210423202238.png" alt="" /></a>                问题描述 问题输入是一对整数对，每个整数都代表一个对象，一对整数”p,q“表示 ”p与q相连“（具有自反性，传递性，对称性，被归到一个等价类里），要求编写程序来筛除在输入时就已经在一个等价类里的整数对。这个算法可以在计算机网络连结方面发挥作用：每个整数相当于计算机，整数对相当于网络间的连结，我们的程 ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/lda-ovo/" class="lightblue">Bazinga_ovo</a>
+                发布于 2021-05-02 20:41
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/lda-ovo/p/14726409.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/lda-ovo/p/14726409.html" class="gray">阅读(25)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('iUtopia',14726326,542641,1)">
+                <span class="diggnum" id="digg_count_14726326">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14726326" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/iUtopia/p/14726326.html" target="_blank">【Java】String、StringBuilder和StringBuffer</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/iUtopia/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/1125840/20190909143946.png" alt="" /></a>                【String】 首先，从String类的定义入手，可以看到String类是由final修饰，即不可变的，一旦创建出来就不可修改，因此首先明确，字符串的拼接、截取等操作都会产生新的字符串对象。 观察以下几种创建Stirng的语句 1 String s1 = &quot;hello &quot;; 2 String s2 ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/iUtopia/" class="lightblue">H-utopia</a>
+                发布于 2021-05-02 20:03
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/iUtopia/p/14726326.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/iUtopia/p/14726326.html" class="gray">阅读(31)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('dechinphy',14726215,657846,1)">
+                <span class="diggnum" id="digg_count_14726215">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14726215" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/dechinphy/p/npz.html" target="_blank">python3存储numpy格式的矩阵</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/dechinphy/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/2277440/20210129173758.png" alt="" /></a>                在科学计算中对于恒定不变的数据，不一定需要实时保存在内存中，或者是需要跨平台运算的数据，我们可以将其保存为numpy格式的列表文件npy或者npz。而如果存储的文件过大，本文也额外介绍了简单的tar压缩与解压缩的使用方法。 ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/dechinphy/" class="lightblue">陆言君</a>
+                发布于 2021-05-02 19:21
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/dechinphy/p/npz.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/dechinphy/p/npz.html" class="gray">阅读(37)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('zhujiwei',14726211,670711,1)">
+                <span class="diggnum" id="digg_count_14726211">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14726211" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/zhujiwei/p/14726211.html" target="_blank">什么时候选择mmap而非read?</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/zhujiwei/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/2323583/20210411160846.png" alt="" /></a>                mmap 和 read 系统流程 在linux文件系统中，通常使用open(), read()读取文件，但操作系统同样提供了mmap()作为读取文件的方式，而这两者有什么不同呢？什么时候用read(), 什么时候用mmap()？ 首先，read 的通常使用方法是 read(fd, buffer, s ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/zhujiwei/" class="lightblue">珠玑位</a>
+                发布于 2021-05-02 19:19
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/zhujiwei/p/14726211.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/zhujiwei/p/14726211.html" class="gray">阅读(27)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('youcans',14726120,666703,1)">
+                <span class="diggnum" id="digg_count_14726120">1</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14726120" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/youcans/p/14726120.html" target="_blank">模拟退火算法Python编程（3）整数规划问题</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/youcans/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/2305037/20210308172106.png" alt="" /></a>                1、整数规划问题 整数规划问题在工业、经济、国防、医疗等各行各业应用十分广泛，是指规划中的变量（全部或部分）限制为整数，属于离散优化问题（Discrete Optimization）。 线性规划问题的最优解可能是分数或小数。但很多实际问题常常要求某些变量必须是整数解，例如：机器的台数、工作的人数或装 ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/youcans/" class="lightblue">youcans</a>
+                发布于 2021-05-02 18:25
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/youcans/p/14726120.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/youcans/p/14726120.html" class="gray">阅读(49)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('PythonLearner',14725983,604281,1)">
+                <span class="diggnum" id="digg_count_14725983">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14725983" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/PythonLearner/p/14725983.html" target="_blank">域迁移DA | Learning From Synthetic Data: Addressing Domain Shift for Se | CVPR2018</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/PythonLearner/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/2039233/20200517054555.png" alt="" /></a>                文章转自：微信公众号「机器学习炼丹术」 作者：炼丹兄（已授权） 联系方式：微信cyx645016617 论文名称：“Learning From Synthetic Data: Addressing Domain Shift for Segmentation” 「前言」：最近好久没更新公众号了，我一不 ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/PythonLearner/" class="lightblue">忽逢桃林</a>
+                发布于 2021-05-02 17:06
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/PythonLearner/p/14725983.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/PythonLearner/p/14725983.html" class="gray">阅读(34)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('yougewe',14725872,251865,1)">
+                <span class="diggnum" id="digg_count_14725872">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14725872" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/yougewe/p/14725872.html" target="_blank">ES系列(三)：网络通信模块解析</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/yougewe/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/830731/20170710153322.png" alt="" /></a>                ES是一个分布式搜索引擎，其除了用户提供必要的通信服务外，集群间也必须保持紧密的通信联系，才能在必要的时候给出正确的结果。其则必然涉及到各种繁多且要求高的通信场景，那么如何实现高性能的通信，则是其必须要考虑的问题。 今天，我们就以es的transportService的实现为窥点，观察es的高性能的 ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/yougewe/" class="lightblue">等你归去来</a>
+                发布于 2021-05-02 16:09
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/yougewe/p/14725872.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/yougewe/p/14725872.html" class="gray">阅读(58)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('Can-daydayup',14716414,412744,1)">
+                <span class="diggnum" id="digg_count_14716414">6</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14716414" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/Can-daydayup/p/14716414.html" target="_blank">【新手指南】Android Studio中应用App的相关配置</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/Can-daydayup/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/1336199/20180223001924.png" alt="" /></a>                前言： 注意这是一个对于Android开发入门学习者而言的一个教程，因为自己平时很少使用Android进行原生应用的开发，对于使用Android Studio配置Android App应用的一些参数（如版本号，应用包名，应用图标，应用名称，起始页等）十分的陌生。这里主要记录下自己开发中的一些经验所得 ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/Can-daydayup/" class="lightblue">追逐时光者</a>
+                发布于 2021-05-02 14:40
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/Can-daydayup/p/14716414.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/Can-daydayup/p/14716414.html" class="gray">阅读(80)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('maicss',14725687,663901,1)">
+                <span class="diggnum" id="digg_count_14725687">1</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14725687" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/maicss/p/14725687.html" target="_blank">用Qt(C++)实现如苹果般的亮屏效果</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/maicss/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/2299884/20210205144506.png" alt="" /></a>                用Qt(C++)实现如苹果般的亮屏效果 苹果的亮屏效果可能有很多人没注意到，和其他大部分手机或电脑不同的是，苹果的亮屏特效不是简单的亮度变化，而是一个渐亮的过程。详细来说就是，图片中较亮的部分先显示出来，而后渐变的显示较暗的地方，最后整个图片完全显示。 那么，Qt该如何实现类似效果？ 先看最终效果： ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/maicss/" class="lightblue">Maicss</a>
+                发布于 2021-05-02 14:34
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/maicss/p/14725687.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/maicss/p/14725687.html" class="gray">阅读(141)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('youcans',14725464,666703,1)">
+                <span class="diggnum" id="digg_count_14725464">1</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14725464" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/youcans/p/14725464.html" target="_blank">模拟退火算法Python编程（2）约束条件的处理</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/youcans/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/2305037/20210308172106.png" alt="" /></a>                1、最优化与线性规划 最优化问题的三要素是决策变量、目标函数和约束条件。 线性规划（Linear programming），是研究线性约束条件下线性目标函数的极值问题的优化方法，常用于解决利用现有的资源得到最优决策的问题。 简单的线性规划问题可以用 Lingo软件求解，Matlab、Python 中 ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/youcans/" class="lightblue">youcans</a>
+                发布于 2021-05-02 11:29
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/youcans/p/14725464.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/youcans/p/14725464.html" class="gray">阅读(111)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('sgodxsdl',14699557,676618,1)">
+                <span class="diggnum" id="digg_count_14699557">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14699557" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/sgodxsdl/p/14699557.html" target="_blank">Blog总结02（4~6次作业总结）</a></h3>
+            <p class="post_item_summary">
+                Blog总结02（4~6次作业总结） 1.前言 （1）题目集04共有三道题目，第一题难度较大，第二题和第三题难度适中，第一题考察的知识点是&#160;Java 中的字符串处理类以及正则表达式对输入字符串数据进行合法性校验及计算，难度较大。第二题考察对日期的处理，熟悉面向对象的学习，创建多个类，然后将其中一个类 ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/sgodxsdl/" class="lightblue">SGod歇斯底里</a>
+                发布于 2021-05-02 09:57
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/sgodxsdl/p/14699557.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/sgodxsdl/p/14699557.html" class="gray">阅读(24)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('haihongpro',14725293,655176,1)">
+                <span class="diggnum" id="digg_count_14725293">4</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14725293" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/haihongpro/p/14725293.html" target="_blank">「HTML+CSS」--自定义加载动画【026】</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/haihongpro/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/2264200/20201226222425.png" alt="" /></a>                效果展示 Demo代码 HTML &lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt; &lt;meta name=&quot;view ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/haihongpro/" class="lightblue">海轰Pro</a>
+                发布于 2021-05-02 09:24
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/haihongpro/p/14725293.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/haihongpro/p/14725293.html" class="gray">阅读(146)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('pingguo-softwaretesting',14724342,391435,1)">
+                <span class="diggnum" id="digg_count_14724342">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14724342" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/pingguo-softwaretesting/p/14724342.html" target="_blank">【cypress】4. 丰富的调试工具</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/pingguo-softwaretesting/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/1268169/20191009175922.png" alt="" /></a>                Cypress附带了一系列调试工具来帮助我们弄明白测试的经过，利于我们更好的调试。 具体这些工具的能力都有啥？ 回到每个命令的快照。 可以看到特殊的已发生的page events。 接收关于每个命令的额外输出。 在多个命令快照之间 向前/向后 步进。 暂停命令并迭代地逐步执行。 当找到隐藏的或者多个 ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/pingguo-softwaretesting/" class="lightblue">把苹果v咬哭</a>
+                发布于 2021-05-01 23:04
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/pingguo-softwaretesting/p/14724342.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/pingguo-softwaretesting/p/14724342.html" class="gray">阅读(121)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('zhushoucheng',14724997,680597,1)">
+                <span class="diggnum" id="digg_count_14724997">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14724997" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/zhushoucheng/p/14724997.html" target="_blank">计算机系统引导过程</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/zhushoucheng/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/2372049/20210424191959.png" alt="" /></a>                从BIOS启动到Kernel加载 大家天天使用电脑，有没有想过整个系统是如何启动的？从你按下电源键，到显示登录界面，中间究竟经历了什么? 本文主要讲述加载计算机内核系统的全过程，主要参考了MIT 6.828lab1实验以及其他参考资料。某些地址、行为在不同计算机上可能不同，这里仅用JOS系统做例子， ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/zhushoucheng/" class="lightblue">zhushoucheng</a>
+                发布于 2021-05-01 22:53
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/zhushoucheng/p/14724997.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/zhushoucheng/p/14724997.html" class="gray">阅读(187)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('sun123zxy',14724955,442963,1)">
+                <span class="diggnum" id="digg_count_14724955">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14724955" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/sun123zxy/p/14724955.html" target="_blank">从不定方程的非负整数解个数谈起</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/sun123zxy/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/1437295/20180710220212.png" alt="" /></a>                序 求将 \(n\) 个无标号元素用 \(m-1\) 个隔板分入 \(m\) 个有标号可空集合的方案数。 或 求不定方程 \[ x_1 + x_2 + \dots + x_m = n \quad (m,n \in N_+, m \le n) \] 的非负整数解的个数。 是一个非常经典的组合问题，众所 ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/sun123zxy/" class="lightblue">sun123zxy</a>
+                发布于 2021-05-01 22:52
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/sun123zxy/p/14724955.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/sun123zxy/p/14724955.html" class="gray">阅读(67)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="post_item">
+        <div class="digg">
+            <div class="diggit" onclick="DiggPost('ricklz',14724934,424905,1)">
+                <span class="diggnum" id="digg_count_14724934">0</span>
+            </div>
+            <div class="clear"></div>
+            <div id="digg_tip_14724934" class="digg_tip">
+                
+            </div>
+        </div>
+        <div class="post_item_body">
+            <h3><a class="titlelnk" href="https://www.cnblogs.com/ricklz/p/14724934.html" target="_blank">vagrant构建centos虚拟环境</a></h3>
+            <p class="post_item_summary">
+<a href="https://www.cnblogs.com/ricklz/" target="_blank"><img width="48" height="48" class="pfs" src="https://pic.cnblogs.com/face/1237626/20181202113554.png" alt="" /></a>                vagrant搭建centos 什么是vagrant 如何使用 1、构建本地的目录 2、官方下载对应的镜像文件，官方下载地址 3、导入刚刚下载的镜像(box文件) 4、初始化 5、修改Vagrantfile中的box名称 6、启动 7、登入 同时构建多台 修改Vagrantfile 启动 vagra ...
+            </p>
+            <div class="post_item_foot">
+                <a href="https://www.cnblogs.com/ricklz/" class="lightblue">Rick.lz</a>
+                发布于 2021-05-01 22:27
+                <span class="article_comment">
+                    <a href="https://www.cnblogs.com/ricklz/p/14724934.html#commentform" class="gray">
+                        评论(0)
+                    </a>
+                </span><span class="article_view"><a href="https://www.cnblogs.com/ricklz/p/14724934.html" class="gray">阅读(103)</a></span>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+        </div>
+        <script>editorPickStat(); aggSite.user.getUserInfo();</script>
+        <script type="text/javascript">
+                var aggSiteModel = {"CategoryType":"SiteHome","ParentCategoryId":0,"CategoryId":808,"PageIndex":1,"TotalPostCount":4000,"ItemListActionName":"AggSitePostList"};
+            </script>
+        <div id="pager_bottom"><div id="paging_block"><div class="pager"><a href="/legacy" class="p_1 current" onclick="aggSite.loadCategoryPostList(1,20);buildPaging(1);return false;">1</a><a href="/legacy/sitehome/p/2" class="p_2 middle" onclick="aggSite.loadCategoryPostList(2,20);buildPaging(2);return false;">2</a><a href="/legacy/sitehome/p/3" class="p_3 middle" onclick="aggSite.loadCategoryPostList(3,20);buildPaging(3);return false;">3</a><a href="/legacy/sitehome/p/4" class="p_4 middle" onclick="aggSite.loadCategoryPostList(4,20);buildPaging(4);return false;">4</a><a href="/legacy/sitehome/p/5" class="p_5 middle" onclick="aggSite.loadCategoryPostList(5,20);buildPaging(5);return false;">5</a><a href="/legacy/sitehome/p/6" class="p_6 middle" onclick="aggSite.loadCategoryPostList(6,20);buildPaging(6);return false;">6</a><a href="/legacy/sitehome/p/7" class="p_7 middle" onclick="aggSite.loadCategoryPostList(7,20);buildPaging(7);return false;">7</a><a href="/legacy/sitehome/p/8" class="p_8 middle" onclick="aggSite.loadCategoryPostList(8,20);buildPaging(8);return false;">8</a><a href="/legacy/sitehome/p/9" class="p_9 middle" onclick="aggSite.loadCategoryPostList(9,20);buildPaging(9);return false;">9</a><a href="/legacy/sitehome/p/10" class="p_10 middle" onclick="aggSite.loadCategoryPostList(10,20);buildPaging(10);return false;">10</a><a href="/legacy/sitehome/p/11" class="p_11 middle" onclick="aggSite.loadCategoryPostList(11,20);buildPaging(11);return false;">11</a><span class="ellipsis">···</span><a href="/legacy/sitehome/p/200" class="p_200 last" onclick="aggSite.loadCategoryPostList(200,20);buildPaging(200);return false;">200</a><a href="/legacy/sitehome/p/2" onclick="aggSite.loadCategoryPostList(2,20);buildPaging(2);return false;">Next &gt;</a></div></div><script type="text/javascript">var pagingBuider={"OnlyLinkText":false,"TotalCount":4000,"PageIndex":1,"PageSize":20,"ShowPageCount":5,"SkipCount":0,"UrlFormat":"/legacy/sitehome/p/{0}","OnClickJsFunc":"aggSite.loadCategoryPostList()","FirstPageLink":"/legacy","AjaxUrl":"/AggSite/Pager","AjaxCallbak":null,"TopPagerId":"pager_top","IsRenderScript":true};function buildPaging(pageIndex){pagingBuider.PageIndex=pageIndex;$.ajax({url:pagingBuider.AjaxUrl,data:JSON.stringify(pagingBuider),type:'post',dataType:'text',contentType:'application/json; charset=utf-8',success:function (data) { $('#paging_block').html(data); var pagerTop=$('#pager_top');if(pageIndex>1){$(pagerTop).html(data).show();}else{$(pagerTop).hide();}}});}</script>
+</div>
+        <div id="side_nav">
+            
+    <div id="cate_title_block">
+    <div id="cate_title_title"><div class="cate_title">网站分类</div></div>
+    <ul id="cate_item">
+            <li id="cate_item_108698" onmouseover="cateShow(108698)" onmouseout="cateHidden(108698)">
+                <a href="/legacy/cate/108698/">.NET技术(0)</a>
+            </li>
+            <li id="cate_item_2" onmouseover="cateShow(2)" onmouseout="cateHidden(2)">
+                <a href="/legacy/cate/2/">后端开发(7)</a>
+            </li>
+            <li id="cate_item_108701" onmouseover="cateShow(108701)" onmouseout="cateHidden(108701)">
+                <a href="/legacy/cate/108701/">软件设计(0)</a>
+            </li>
+            <li id="cate_item_108703" onmouseover="cateShow(108703)" onmouseout="cateHidden(108703)">
+                <a href="/legacy/cate/108703/">前端开发(1)</a>
+            </li>
+            <li id="cate_item_108704" onmouseover="cateShow(108704)" onmouseout="cateHidden(108704)">
+                <a href="/legacy/cate/108704/">企业信息化(1)</a>
+            </li>
+            <li id="cate_item_108705" onmouseover="cateShow(108705)" onmouseout="cateHidden(108705)">
+                <a href="/legacy/cate/108705/">移动端开发(0)</a>
+            </li>
+            <li id="cate_item_108709" onmouseover="cateShow(108709)" onmouseout="cateHidden(108709)">
+                <a href="/legacy/cate/108709/">软件工程(0)</a>
+            </li>
+            <li id="cate_item_108712" onmouseover="cateShow(108712)" onmouseout="cateHidden(108712)">
+                <a href="/legacy/cate/108712/">数据库(1)</a>
+            </li>
+            <li id="cate_item_108724" onmouseover="cateShow(108724)" onmouseout="cateHidden(108724)">
+                <a href="/legacy/cate/108724/">操作系统(0)</a>
+            </li>
+            <li id="cate_item_4" onmouseover="cateShow(4)" onmouseout="cateHidden(4)">
+                <a href="/legacy/cate/4/">其他分类(2)</a>
+            </li>
+            <li id="cate_item_0" onmouseover="cateShow(0)" onmouseout="cateHidden(0)">
+                <a href="/legacy/cate/all/">所有随笔(929)</a>
+            </li>
+            <li id="cate_item_-1" onmouseover="cateShow(-1)" onmouseout="cateHidden(-1)">
+                <a href="/legacy/comment/">所有评论(163)</a>
+            </li>
+    </ul>
+    <div class="cate_bottom"></div>
+    <div id="cate_sub_block"></div>
+    <script type="text/javascript">var cateIdList = '108698,2,108701,108703,108704,108705,108709,108712,108724,4';aggSite.loadSubCategories();</script>
+</div>
+<div class="l_s"></div>
+<p class="r_l_3"></p><p class="r_l_2"></p><p class="r_l_1"></p>
+<div class="w_l">
+<h4>链接</h4>        
+<ul>
+    <li><a href="https://group.cnblogs.com/forum/public/" target="_blank">反馈或建议</a></li> 
+    <li><a href="//www.cnblogs.com/cmt/" target="_blank">官方博客</a></li>
+    <li><a href="/skins.aspx" target="_blank">博客模板</a></li>
+    <li><a href="http://www.blogjava.net/">Java博客</a></li>
+    <li><a href="http://www.cppblog.com/">C++博客</a></li>
+    <li><a href="//www.cnblogs.com/cmt/archive/2009/09/26/1574616.html">手机版</a></li>
+</ul>
+</div>
+<p class="r_l_1"></p><p class="r_l_2"></p><p class="r_l_3"></p>
+<div class="l_s"></div>
+<div id="user_stats"></div>
+<div class="l_s"></div>        
+<p class="r_l_3"></p><p class="r_l_2"></p><p class="r_l_1"></p>
+<div class="w_l">                
+<h4>统计信息</h4>
+<div id="site_stats"></div>      
+</div>
+<p class="r_l_1"></p><p class="r_l_2"></p><p class="r_l_3"></p>
+        </div>
+        <div id="side_right">
+                <div id="search_block">
+                    <div class="side_search">
+                        <input type="text" id="zzk_q" class="search_input" onkeydown="return zzk_go_enter(event);" tabindex="3" /><input onclick="zzk_go()" type="button" class="search_btn" value="找找看" />
+                    </div>
+                    <div id="google_search" class="side_search">
+                        <input type="text" id="google_search_q" class="search_input" onkeydown="return google_search_enter(event);" /><input type="button" value="Google" class="search_btn" onclick="return google_search();" />
+                    </div>
+                </div>
+            <div id="cnblogs_a1">
+                <div id='div-gpt-ad-1547816814884-0' style='height:60px; width:468px;'>
+                    <script>
+                            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1547816814884-0'); });
+                        </script>
+                </div>
+            </div>
+            <div id="cnblogs_b1" class="sidebar-image">
+                <div id='div-gpt-ad-1546331539224-0' style='height:250px; width:300px;'>
+                    <script>
+                            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1546331539224-0'); });
+                        </script>
+                </div>
+            </div>
+            <div id="ad_right_text" class="ad_right_text"></div>
+            <div id="side_right_block"></div>
+        </div>
+    </div>
+        <div id="footer">
+            <div class="footer_block">
+                <p class="r_b_3"></p><p class="r_b_2"></p><p class="r_b_1"></p><div id="friend_link" class="link-list friend-link">
+    友情链接：
+    <a href="//www.vpsor.cn" target="_blank">硅云</a>
+    <a href="//aws.amazon.com" target="_blank">AWS</a>
+    <a href="//www.aliyun.com" target="_blank">阿里云</a>
+    <a href="//www.zentao.net/?from=upcnblogs" target="_blank">禅道项目管理</a>
+    <a href="//cloud.tencent.com" target="_blank">腾讯云</a>
+    <a href="//www.huaweicloud.com" target="_blank">华为云</a>
+    <a href="//cloud.baidu.com" target="_blank">百度云</a>
+    <a href="//www.jdcloud.com" target="_blank">京东云</a>
+    <a href="//www.shanhaibi.com/" target="_blank">山海鲸可视化</a>
+    <a href="http://www.gcpowertools.com.cn" target="_blank">葡萄城控件</a><a href="//www.chinaz.com/" target="_blank">站长之家</a><a href="http://dev.yesky.com" target="_blank">天极网</a><a href="//wetest.qq.com/?from=links_cnblogs" target="_blank">腾讯WeTest</a><a href="http://www.ucancode.com/" target="_blank">工控组态源码</a>
+</div>
+<p class="r_b_1"></p><p class="r_b_2"></p><p class="r_b_3"></p>
+            </div>
+        </div>
+    <div id="footer_bottom">
+        <div>Powered by .NET 5.0 on Kubernetes</div>
+        <div><a href="https://about.cnblogs.com/">关于博客园</a><a href="https://about.cnblogs.com/contact">联系我们</a><a href="https://about.cnblogs.com/ad">广告服务</a><span>&copy;2004-2021</span><a href="https://www.cnblogs.com/">博客园</a><span>保留所有权利</span><a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备09004260号-1</a></div>
+        <div><a href="https://ss.knet.cn/verifyseal.dll?sn=e131108110100433392itm000000&amp;ct=df&amp;a=1&amp;pa=0.25787803245785335" rel="nofollow" target="_blank"><img id="cnnic_img" src="//common.cnblogs.com/images/cnnic.png" alt="" width="64" height="23" /></a><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502001144" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="//common.cnblogs.com/images/ghs.png" alt="" /><span style="float:left;height:20px;line-height:20px;margin: 0 5px 0 5px; color:#939393;">沪公网安备 31011502001144号</span></a></div>
+        <div class="report-contact">举报电话：0571-88079867，举报邮箱：contact@cnblogs.com <a href="http://www.shjbzx.cn" target="_blank"><img src="/images/jblogo.png" alt="" /></a></div>
+    </div>
+</div>
+<input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvAySFV5wRPuvEKmdJ1vbpU4pIrTGBYU_vhHXhVO0WYp-vtMpsFHyuJ7KwuBxfRsN0m1MuJM5Mj-FDudeD5xv0XAlUCjTdX1aQul8qCsITINpmZXlxxEkPu5-RLWF969Kc" />
+</body>
+</html>

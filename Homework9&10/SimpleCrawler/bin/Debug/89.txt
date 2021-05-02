@@ -1,0 +1,530 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="vagrant搭建centos 什么是vagrant 如何使用 1、构建本地的目录 2、官方下载对应的镜像文件，官方下载地址 3、导入刚刚下载的镜像(box文件) 4、初始化 5、修改Vagrantf" />
+    <meta property="og:description" content="vagrant搭建centos 什么是vagrant 如何使用 1、构建本地的目录 2、官方下载对应的镜像文件，官方下载地址 3、导入刚刚下载的镜像(box文件) 4、初始化 5、修改Vagrantf" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>vagrant构建centos虚拟环境 - Rick.lz - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/sea/bundle-sea.min.css?v=oF2SvRIFQNTLcLgn66nPy-bOeZ-5NDS8tPrc0Kt42ys" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/ricklz/custom.css?v=HNrZG7otFR9D4qNMtRxIFdQ8vIc=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/sea/bundle-sea-mobile.min.css?v=t5pWHm7Zavhfg65859uF8OmEaotpCjyYSbKN5RbMv6E" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/ricklz/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/ricklz/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/ricklz/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 424905;
+        var currentBlogApp = 'ricklz';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'sea';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-01 10:27';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;v=20200504"></script>
+    
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <a class="git-link" href="https://github.com/boilingfrog"></a>
+    </div>
+    <!--done-->
+<div id="header">
+	
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/ricklz/">Warm water frog</a>
+<br>
+		不写笔记，不读书
+	</div>
+</div>
+
+
+</div>
+
+<div id="mytopmenu">
+	
+		<div id="mylinks">
+<a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+ &nbsp;
+
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/ricklz/">
+首页</a>
+ &nbsp;
+
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+ &nbsp;
+
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Rick.lz">
+联系</a> &nbsp;
+
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/ricklz/rss/">
+订阅</a>
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/ricklz/rss/">
+    <img src="/skins/sea/images/xml.gif" alt="订阅" />
+</a>&nbsp;
+
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+
+
+</div>
+		<DIV id="mystats"><div id="blog_stats_place_holder"><script>loadBlogStats();</script></div></DIV>
+	
+</div>
+<div id="centercontent">
+	<div id="post_detail">
+<div class="post">
+	<h1 class = "postTitle">
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/ricklz/p/14724934.html">
+    <span>vagrant构建centos虚拟环境</span>
+    
+
+
+
+</a>
+</h1>
+	<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+
+
+<ul>
+<li><a href="#vagrant%E6%90%AD%E5%BB%BAcentos">vagrant搭建centos</a>
+<ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AFvagrant">什么是vagrant</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8">如何使用</a>
+<ul>
+<li><a href="#1%E6%9E%84%E5%BB%BA%E6%9C%AC%E5%9C%B0%E7%9A%84%E7%9B%AE%E5%BD%95">1、构建本地的目录</a></li>
+<li><a href="#2%E5%AE%98%E6%96%B9%E4%B8%8B%E8%BD%BD%E5%AF%B9%E5%BA%94%E7%9A%84%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6%E5%AE%98%E6%96%B9%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80">2、官方下载对应的镜像文件，官方下载地址</a></li>
+<li><a href="#3%E5%AF%BC%E5%85%A5%E5%88%9A%E5%88%9A%E4%B8%8B%E8%BD%BD%E7%9A%84%E9%95%9C%E5%83%8Fbox%E6%96%87%E4%BB%B6">3、导入刚刚下载的镜像(box文件)</a></li>
+<li><a href="#4%E5%88%9D%E5%A7%8B%E5%8C%96">4、初始化</a></li>
+<li><a href="#5%E4%BF%AE%E6%94%B9vagrantfile%E4%B8%AD%E7%9A%84box%E5%90%8D%E7%A7%B0">5、修改Vagrantfile中的box名称</a></li>
+<li><a href="#6%E5%90%AF%E5%8A%A8">6、启动</a></li>
+<li><a href="#7%E7%99%BB%E5%85%A5">7、登入</a></li>
+</ul>
+</li>
+<li><a href="#%E5%90%8C%E6%97%B6%E6%9E%84%E5%BB%BA%E5%A4%9A%E5%8F%B0">同时构建多台</a>
+<ul>
+<li><a href="#%E4%BF%AE%E6%94%B9vagrantfile">修改Vagrantfile</a></li>
+<li><a href="#%E5%90%AF%E5%8A%A8">启动</a></li>
+</ul>
+</li>
+<li><a href="#vagrant%E4%B8%AD%E7%9A%84%E7%BD%91%E7%BB%9C">vagrant中的网络</a>
+<ul>
+<li><a href="#%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C">私有网络</a></li>
+<li><a href="#%E5%85%AC%E6%9C%89%E7%BD%91%E7%BB%9C">公有网络</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4">常用的命令</a></li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+</li>
+</ul>
+
+<h2 id="vagrant搭建centos">vagrant搭建centos</h2>
+<h3 id="什么是vagrant">什么是vagrant</h3>
+<blockquote>
+<p>Vagrant 是一个简单易用的部署工具，用英文说应该是 Orchestration Tool 。它能帮助开发人员迅速的构建一个开发环境，帮助测试人员构建测试环境，Vagrant 基于 Ruby 开发，使用开源 VirtualBox 作为虚拟化支持，可以轻松的跨平台部署。</p>
+</blockquote>
+<h3 id="如何使用">如何使用</h3>
+<h4 id="1、构建本地的目录">1、构建本地的目录</h4>
+<pre><code class="language-go"> /Users/yj/vagrant/centos7
+</code></pre>
+<h4 id="2、官方下载对应的镜像文件，官方下载地址">2、官方下载对应的镜像文件，<a href="http://www.vagrantbox.es/" target="_blank">官方下载地址</a></h4>
+<pre><code class="language-go">MacBook-Pro-3:centos7 yj$ wget https://github.com/CommanderK5/packer-centos-template/releases/download/0.7.2/vagrant-centos-7.2.box
+</code></pre>
+<h4 id="3、导入刚刚下载的镜像box文件">3、导入刚刚下载的镜像(box文件)</h4>
+<pre><code class="language-go">MacBook-Pro-3:centos7 yj$ vagrant box add centos7.2 /Users/yj/vagrant/centos7/vagrant-centos-7.2.box 
+==&gt; vagrant: A new version of Vagrant is available: 2.2.15 (installed version: 2.2.14)!
+==&gt; vagrant: To upgrade visit: https://www.vagrantup.com/downloads.html
+
+==&gt; box: Box file was not detected as metadata. Adding it directly...
+==&gt; box: Adding box 'centos7.2' (v0) for provider: 
+    box: Unpacking necessary files from: file:///Users/yj/vagrant/centos7/vagrant-centos-7.2.box
+==&gt; box: Successfully added box 'centos7.2' (v0) for 'virtualbox'!
+</code></pre>
+<h4 id="4、初始化">4、初始化</h4>
+<pre><code class="language-go">MacBook-Pro-3:centos7 yj$ vagrant init
+</code></pre>
+<p>这时候当前目录会生成一个<code>Vagrantfile</code>文件</p>
+<h4 id="5、修改vagrantfile中的box名称">5、修改Vagrantfile中的box名称</h4>
+<pre><code class="language-go">config.vm.box = "centos7-1"
+</code></pre>
+<h4 id="6、启动">6、启动</h4>
+<pre><code class="language-go">MacBook-Pro-3:centos7 yj$ vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+==&gt; default: Importing base box 'centos7-1'...
+==&gt; default: Matching MAC address for NAT networking...
+==&gt; default: Setting the name of the VM: centos7_default_1619487768038_36727
+==&gt; default: Fixed port collision for 22 =&gt; 2222. Now on port 2200.
+==&gt; default: Clearing any previously set network interfaces...
+==&gt; default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==&gt; default: Forwarding ports...
+    default: 22 (guest) =&gt; 2200 (host) (adapter 1)
+==&gt; default: Booting VM...
+==&gt; default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2200
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: Warning: Remote connection disconnect. Retrying...
+    default: Warning: Connection reset. Retrying...
+    default: 
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default: 
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==&gt; default: Machine booted and ready!
+==&gt; default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default: 
+    default: Guest Additions Version: 5.0.14
+    default: VirtualBox Version: 6.1
+==&gt; default: Mounting shared folders...
+    default: /vagrant =&gt; /Users/yj/vagrant/centos7
+</code></pre>
+<h4 id="7、登入">7、登入</h4>
+<p>可直接只用<code>vagrant ssh</code>登入</p>
+<pre><code class="language-go">MacBook-Pro-3:centos7 yj$ vagrant ssh
+Last failed login: Mon Apr 26 22:52:26 BRT 2021 from 10.0.2.2 on ssh:notty
+There were 5 failed login attempts since the last successful login.
+Last login: Mon Apr 26 22:50:07 2021 from 10.0.2.2
+[vagrant@localhost ~]$ 
+</code></pre>
+<p>也可以使用ssh</p>
+<pre><code class="language-go">$ ssh -p 2200 root@127.0.0.1
+</code></pre>
+<p>上面启动的时候已经告诉我们地址和端口了</p>
+<p><img src="https://img2020.cnblogs.com/blog/1237626/202105/1237626-20210501222543709-1630026644.jpg" alt="" loading="lazy"></p>
+<pre><code>账号:root  
+密码:vagrant
+</code></pre>
+<h3 id="同时构建多台">同时构建多台</h3>
+<h4 id="修改vagrantfile">修改Vagrantfile</h4>
+<p>修改之前产生的<code>Vagrantfile</code>文件为</p>
+<pre><code class="language-go">Vagrant.configure("2") do |config|
+  
+  config.vm.define "centos7-1" do |vb|
+      config.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+      v.cpus = 1
+    end
+  vb.vm.host_name = "centos7-1"
+  vb.vm.network "private_network", ip: "192.168.56.111"
+  vb.vm.box = "centos7.2"
+  end
+
+  config.vm.define "centos7-2" do |vb1|
+      config.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+      v.cpus = 1
+    end
+  vb1.vm.host_name = "centos7-2"
+  vb1.vm.network "private_network", ip: "192.168.56.112"
+  vb1.vm.box = "centos7.2"
+  end
+
+  config.vm.define "centos7-3" do |vb2|
+      config.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+      v.cpus = 1
+    end
+  vb2.vm.host_name = "centos7-3"
+  vb2.vm.network "private_network", ip: "192.168.56.113"
+  vb2.vm.box = "centos7.2"
+  end
+end
+</code></pre>
+<p>网络使用的是私有网络，私有网络和公有网络区别可以看下文</p>
+<h4 id="启动">启动</h4>
+<pre><code class="language-go">MacBook-Pro-3:centos7 yj$ vagrant up
+</code></pre>
+<p>默认的账号还是<code>root</code>，密码还是<code>vagrant</code></p>
+<p>这里设置了静态的<code>ip</code>,我们就可以通过静态<code>ip</code>直接访问虚拟机了</p>
+<pre><code class="language-go">$ ssh root@192.168.44.113
+</code></pre>
+<h3 id="vagrant中的网络">vagrant中的网络</h3>
+<h4 id="私有网络">私有网络</h4>
+<p><code>private_network</code></p>
+<p>私有网络，对应于<code>virtualbox</code>的<code>host-only</code>网络模型，这种模型下，虚拟机之间和宿主机(的虚拟网卡)之间可以互相通信，但不在该网络内的设备无法访问虚拟机</p>
+<p>如果私有网络的虚机不在一个网络，<code>vagrant</code>为这些<code>private_network</code>网络配置的IP地址并不在同一个网段。<code>vagrant</code>会自动为不同网段创建对应的<code>host-only</code>网络。</p>
+<p>所以使用<code>private_network</code>如果没有外部机器(虚拟机宿主机之外的机器)连接，使用这种方式设置的静态<code>ip</code>，能够摆脱主机网络变换的限制。</p>
+<p>PS:比如<code>public_network</code>如果更换了<code>wefi</code>连接，之前设置的静态<code>ip</code>可能就不可用了，因为网段不一样了。</p>
+<pre><code class="language-go">vb1.vm.network "private_network", ip: "192.168.56.112"
+</code></pre>
+<h4 id="公有网络">公有网络</h4>
+<p><code>public_network</code></p>
+<p>公有网络，对应于<code>virtualbox</code>的桥接模式，这种模式下，虚拟机的网络和宿主机的物理网卡是平等的，它们在同一个网络内，虚拟机可以访问外网，外界网络(特指能访问物理网卡的设备)也能访问虚拟机</p>
+<p><code>vagrant</code>为<code>virtualbox</code>配置的<code>public_network</code>，其本质是将虚拟机加入到了<code>virtualbox</code>的桥接网络内。</p>
+<p><code>vagrant</code>在将虚拟机的网卡加入桥接网络时，默认会交互式地询问用户要和哪个宿主机上的网卡进行桥接，一般来说，应该选择可以上外网的物理设备进行桥接。</p>
+<p>由于需要非交互式选择或者需要先指定要桥接的设备名，而且不同用户的网络环境不一样，因此如非必要，一般不在<code>vagrant</code>中为虚拟机配置<code>public_network</code>。</p>
+<p>公有网络的<code>iP</code>网络要和主机的网段一致。</p>
+<p><img src="https://img2020.cnblogs.com/blog/1237626/202105/1237626-20210501222608867-337625948.jpg" alt="" loading="lazy"></p>
+<pre><code class="language-go">vb.vm.network "public_network", ip: "192.168.44.111",bridge: "en0: Wi-Fi (AirPort)"
+</code></pre>
+<h3 id="常用的命令">常用的命令</h3>
+<table>
+<thead>
+<tr>
+<th>子命令</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>box</td>
+<td>管理box镜像(box是创建虚拟机的模板)</td>
+</tr>
+<tr>
+<td>init</td>
+<td>初始化项目目录，将在当前目录下生成Vagrantfile文件</td>
+</tr>
+<tr>
+<td>up</td>
+<td>启动虚拟机，第一次执行将创建并初始化并启动虚拟机</td>
+</tr>
+<tr>
+<td>reload</td>
+<td>重启虚拟机</td>
+</tr>
+<tr>
+<td>halt</td>
+<td>将虚拟机关机</td>
+</tr>
+<tr>
+<td>destroy</td>
+<td>删除虚拟机(包括虚拟机文件)</td>
+</tr>
+<tr>
+<td>suspend</td>
+<td>暂停(休眠、挂起)虚拟机</td>
+</tr>
+<tr>
+<td>resume</td>
+<td>恢复已暂停(休眠、挂起)的虚拟机</td>
+</tr>
+<tr>
+<td>snapshot</td>
+<td>管理虚拟机快照(hyperv中叫检查点)</td>
+</tr>
+<tr>
+<td>status</td>
+<td>列出当前目录(Vagrantfile所在目录)下安装的虚拟机列表及它们的状态</td>
+</tr>
+<tr>
+<td>global-status</td>
+<td>列出全局已安装虚拟机列表及它们的状态</td>
+</tr>
+<tr>
+<td>ssh</td>
+<td>通过ssh连接虚拟机</td>
+</tr>
+<tr>
+<td>ssh-config</td>
+<td>输出ssh连接虚拟机时使用的配置项</td>
+</tr>
+<tr>
+<td>port</td>
+<td>查看各虚拟机映射的端口列表(hyperv不支持该功能)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="参考">参考</h3>
+<p>【熟练使用vagrant(11)：vagrant配置虚拟机网络】<a href="https://www.junmajinlong.com/virtual/vagrant/vagrant_network/" target="_blank">https://www.junmajinlong.com/virtual/vagrant/vagrant_network/</a></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+	<div class="postDesc">posted on 
+<span id="post-date">2021-05-01 22:27</span>&nbsp;
+<a href="https://www.cnblogs.com/ricklz/">Rick.lz</a>&nbsp;
+阅读(<span id="post_view_count">95</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14724934" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14724934);return false;">收藏</a></div>
+</div>
+
+
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 424905, cb_blogApp = 'ricklz', cb_blogUserGuid = '824ca0d8-6f34-4fb5-c9a0-08d4ef52ecb5';
+    var cb_entryId = 14724934, cb_entryCreatedDate = '2021-05-01 22:27', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+</div>
+
+
+</div>
+<div id="leftcontent">
+	
+		<DIV id="leftcontentcontainer">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
+                    <script>loadBlogDefaultCalendar();</script><br>
+			<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script></DIV>
+	
+</div>
+<!--done-->
+<div class="footer">
+	Powered by: <a href="http://www.cnblogs.com">博客园</a>
+	Copyright &copy; 2021 Rick.lz
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+</div>
+
+
+
+
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvh0TWvjHRAM8RCrlULloDNGtPXAPjxXkqnp3-msN50XAtTliJE0GBqT_CCGgCmbW4hqWiG1Svb97gN9Je2w6VqsMdjAMxj5ABE-y6F3IJ4KCiF6eUKU-Y0Wa86Qsyl35w" />
+</body>
+</html>
