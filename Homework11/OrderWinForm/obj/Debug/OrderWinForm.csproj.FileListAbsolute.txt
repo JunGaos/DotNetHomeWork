@@ -16,9 +16,6 @@ C:\Users\26419\source\repos\Homework8\OrderWinForm\obj\Debug\OrderWinForm.Form2.
 C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\OrderWinForm.exe.config
 C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\OrderWinForm.exe
 C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\OrderWinForm.pdb
-C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\OrderTest.exe
-C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\OrderTest.pdb
-C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\OrderTest.exe.config
 C:\Users\26419\source\repos\Homework11\OrderWinForm\obj\Debug\OrderWinForm.csprojAssemblyReference.cache
 C:\Users\26419\source\repos\Homework11\OrderWinForm\obj\Debug\OrderWinForm.Form1.resources
 C:\Users\26419\source\repos\Homework11\OrderWinForm\obj\Debug\OrderWinForm.Form2.resources
@@ -137,8 +134,6 @@ C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\System.Buffers.dll
 C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\System.Memory.dll
 C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\Ubiety.Dns.Core.dll
-C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\Zstandard.Net.dll
 C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\EntityFramework.xml
 C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\26419\source\repos\Homework11\OrderWinForm\bin\Debug\Google.Protobuf.pdb

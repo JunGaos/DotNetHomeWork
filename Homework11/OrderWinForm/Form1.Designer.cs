@@ -297,7 +297,7 @@
             // 
             // orderServiceBindingSource
             // 
-            this.orderServiceBindingSource.DataSource = typeof(OrderTest.OrderService);
+            this.orderServiceBindingSource.DataSource = typeof(OrderService);
             // 
             // ordersBindingSource
             // 
