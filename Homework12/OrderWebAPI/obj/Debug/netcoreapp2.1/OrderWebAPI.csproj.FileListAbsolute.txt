@@ -1,0 +1,14 @@
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\bin\Debug\netcoreapp2.1\OrderWebAPI.deps.json
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\bin\Debug\netcoreapp2.1\OrderWebAPI.runtimeconfig.json
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\bin\Debug\netcoreapp2.1\OrderWebAPI.runtimeconfig.dev.json
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\bin\Debug\netcoreapp2.1\OrderWebAPI.dll
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\obj\Debug\netcoreapp2.1\OrderWebAPI.csprojAssemblyReference.cache
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\obj\Debug\netcoreapp2.1\OrderWebAPI.csproj.CoreCompileInputs.cache
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\obj\Debug\netcoreapp2.1\OrderWebAPI.RazorAssemblyInfo.cache
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\obj\Debug\netcoreapp2.1\OrderWebAPI.RazorAssemblyInfo.cs
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\obj\Debug\netcoreapp2.1\OrderWebAPI.AssemblyInfoInputs.cache
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\obj\Debug\netcoreapp2.1\OrderWebAPI.AssemblyInfo.cs
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\obj\Debug\netcoreapp2.1\OrderWebAPI.RazorTargetAssemblyInfo.cache
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\bin\Debug\netcoreapp2.1\OrderWebAPI.pdb
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\obj\Debug\netcoreapp2.1\OrderWebAPI.dll
+C:\Users\26419\source\repos\Homework12\OrderWebAPI\obj\Debug\netcoreapp2.1\OrderWebAPI.pdb
