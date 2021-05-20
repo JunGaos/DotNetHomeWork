@@ -31,13 +31,13 @@ namespace OrderWinForm
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(textBox1.Text);
-            Customer c1 = new Customer(textBox2.Text, int.Parse(textBox3.Text), textBox4.Text);
-            Goods g1 = new Goods(int.Parse(textBox7.Text), textBox6.Text, double.Parse(textBox5.Text));
+            string id = textBox1.Text;
+            Customer c1 = new Customer(textBox2.Text, textBox3.Text, textBox4.Text);
+            Goods g1 = new Goods(textBox6.Text, double.Parse(textBox5.Text));
             OrderDetail ode1 = new OrderDetail(01, g1, int.Parse(textBox8.Text));
             List<OrderDetail> l1 = new List<OrderDetail>();
             l1.Add(ode1);
-            Order o1 = new Order(id, c1, l1);
+            Order o1 = new Order(id ,c1, l1);
             try {
                 os.Add(o1);
             }
@@ -45,28 +45,28 @@ namespace OrderWinForm
             {
                 Console.WriteLine(ex.Message);
             }
-            Form1.os = this.os;
+            Form1.orderService = this.os;
             this.Close();
         }
 
         private void buttonChange_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(textBox2.Text);
-            Customer c1 = new Customer(textBox2.Text, int.Parse(textBox3.Text), textBox4.Text);
-            Goods g1 = new Goods(int.Parse(textBox7.Text), textBox6.Text, double.Parse(textBox5.Text));
+            string id = textBox2.Text;
+            Customer c1 = new Customer(textBox2.Text, textBox3.Text, textBox4.Text);
+            Goods g1 = new Goods(textBox6.Text, double.Parse(textBox5.Text));
             OrderDetail ode1 = new OrderDetail(01, g1, int.Parse(textBox8.Text));
             List<OrderDetail> l1 = new List<OrderDetail>();
             l1.Add(ode1);
             Order o1 = new Order(id, c1, l1);
             try
             {
-                os.Change(int.Parse(textBox9.Text),o1);
+                os.Change(textBox9.Text,o1);
             }
             catch (ApplicationException ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            Form1.os = this.os;
+            Form1.orderService = this.os;
             this.Close();
         }
 
